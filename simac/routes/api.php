@@ -19,5 +19,37 @@ use App\Visitor;
 //     return $request->user();
 // });
 
-//test
-Route::get('/visitors/{visitor}', 'VisitorController@show');
+//GET Statements
+
+//Visitor
+Route::apiResource('/visitors', 'VisitorController');
+
+//Account
+Route::apiResource('/accounts', 'AccountController');
+
+//Building
+Route::apiResource('/buildings', 'BuildingController');
+
+//Checkin
+Route::apiResource('/checkin', 'CheckinController');
+
+//Checkout
+Route::apiResource('/checkout', 'CheckoutController');
+
+//Company
+Route::apiResource('/companies', 'CompanyController');
+
+//Employee
+Route::apiResource('/employees', 'EmployeeController');
+
+//Host
+Route::apiResource('/hosts', 'HostController');
+
+//Office
+Route::apiResource('/offices', 'OfficeController');
+
+//QRcode
+Route::apiResource('/qrcodes', 'QRcodeController');
+
+//Schedule
+Route::apiResource('/schedules', 'ScheduleController');
