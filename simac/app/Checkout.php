@@ -3,8 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Checking;
 
-class Checkout extends Model
+class Checkout extends Checking
 {
-    //
+    
 }

@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Office extends Model
+class Checking extends Model
 {
     protected $fillable = [
-        'company_id',
+        'visitor_id',
+        'dateTime',
         'building_id',
     ];
 }
