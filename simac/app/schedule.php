@@ -14,8 +14,16 @@ class schedule extends Model
     {
         return $this->belongsTo(office::class);
     }
+
+
     public  function  qrcodes()
     {
         return $this->hasMany(qrcode::class);
+    }
+
+
+    public  function  visitors()
+    {
+        return $this->belongsToMany('App/Visitor','Attendance');
     }
 }

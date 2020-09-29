@@ -19,9 +19,17 @@ class Visitor extends Model
     {
         return $this->hasOne(checkout::class);
     }
+
+
     public  function  qrcodes()
     {
         return $this->hasMany(qrcode::class);
+    }
+
+
+    public  function  schedules()
+    {
+        return $this->belongsToMany('App/schedule','Attendance');
     }
 
 }
