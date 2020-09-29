@@ -1,0 +1,32 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel OpenApi Demo Documentation",
+        "description": "The API for the Simac System description",
+        "contact": {
+            "email": "developers@simac.com"
+        },
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/accounts": {
+            "get": {
+                "operationId": "App\\Http\\Controllers\\AccountController::show",
+                "responses": {
+                    "default": {
+                        "description": "information about the visitor (id and password)"
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Account",
+            "description": "API Endpoints of Account Controller"
+        }
+    ],
+    "security": [
+        []
+    ]
+}
