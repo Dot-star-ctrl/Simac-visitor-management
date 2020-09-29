@@ -22,8 +22,8 @@ class QRcodeController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
-            'code'       => 'required',
-            'visitor_id'         => 'required',
+            'code'          => 'required',
+            'visitor_id'    => 'required',
             'schedule'      => 'required',
         ]);
 
