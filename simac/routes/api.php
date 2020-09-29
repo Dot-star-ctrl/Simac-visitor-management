@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Visitor;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,41 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+//GET Statements
+
+//Visitor
+Route::apiResource('/visitors', 'VisitorController');
+
+//Account
+Route::apiResource('/accounts', 'AccountController');
+
+//Building
+Route::apiResource('/buildings', 'BuildingController');
+
+//Checkin
+Route::apiResource('/checkin', 'CheckinController');
+
+//Checkout
+Route::apiResource('/checkout', 'CheckoutController');
+
+//Company
+Route::apiResource('/companies', 'CompanyController');
+
+//Employee
+Route::apiResource('/employees', 'EmployeeController');
+
+//Host
+Route::apiResource('/hosts', 'HostController');
+
+//Office
+Route::apiResource('/offices', 'OfficeController');
+
+//QRcode
+Route::apiResource('/qrcodes', 'QRcodeController');
+
+//Schedule
+Route::apiResource('/schedules', 'ScheduleController');
