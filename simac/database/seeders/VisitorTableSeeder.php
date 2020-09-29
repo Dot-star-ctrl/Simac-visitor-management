@@ -1,5 +1,6 @@
 <?php
 
+namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Visitor;
 
@@ -11,7 +12,7 @@ class VisitorTableSeeder extends Seeder
      * @return void
      */
     public function run()
-    {
-        Visitor::factory()->count(10)->create(); 
+    {        
+        \App\Visitor::factory()->count(10)->create(); 
     }
 }
