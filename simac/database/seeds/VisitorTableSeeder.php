@@ -15,3 +15,4 @@ class VisitorTableSeeder extends Seeder
         factory(Visitor::class, 10)->create();
     }
 }
+

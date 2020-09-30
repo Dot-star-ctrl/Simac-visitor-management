@@ -13,3 +13,4 @@ $factory->define(Visitor::class, function (Faker $faker) {
         'email' => $faker -> email,
     ];
 });
+
