@@ -1,17 +1,18 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use Faker\Generator as Faker;
+use App\Visitor;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ModelFactory extends Factory
+class VisitorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = \App\Models\Visitor::class;
+    protected $model = Visitor::class;
 
     /**
      * Define the model's default state.
@@ -21,9 +22,9 @@ class ModelFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->text(50),
-            'last_name' => $this->faker->text(200),
-            'email' => $this->faker->text(200)
+            'first_name' => $this->faker->firstName(),
+            'last_name' => $this->faker->lastName(),
+            'email' => $this->faker->unique()->safeEmail()
         ];
     }
 }
