@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Visitor;
+use App\Person;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class VisitorFactory extends Factory
+class PersonFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Visitor::class;
+    protected $model = Person::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,9 @@ class VisitorFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->firstName(),
-            'last_name' => $this->faker->lastName(),
-            'email' => $this->faker->unique()->safeEmail()
+            'first_name' => $this->faker->text(50),
+            'last_name' => $this->faker->text(200),
+            'email' => $this->faker->text(200)
         ];
     }
 }
