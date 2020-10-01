@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\VisitorResource;
 use Illuminate\Http\Request;
 use App\Visitor;
 use App\Http\Resources\GeneralResource;
