@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Employee;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="Employee",
+ *     description="API Endpoints of Employee Controller"
+ * )
+ */
 class EmployeeController extends Controller
 {
     public function show(Employee $employee) : GeneralResource

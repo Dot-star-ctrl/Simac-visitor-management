@@ -9,6 +9,17 @@ use App\Http\Resources\GeneralResourceCollection;
 
 class VisitorController extends Controller
 {
+    /**
+     * @OA\Tag(
+     *     name="Visitor",
+     *     description="API Endpoints of Visitor Controller"
+     * )
+     *
+     * @OA\Get(
+     *     path="/api/visitors",
+     *     @OA\Response(response="default", description="information about the visitor (id and password)")
+     * )
+     */
     public function show(Visitor $visitor) : GeneralResource
     {
         return new GeneralResource($visitor);

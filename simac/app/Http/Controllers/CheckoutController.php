@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Checkout;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="Checkout",
+ *     description="API Endpoints of Checkout Controller"
+ * )
+ */
 class CheckoutController extends Controller
 {
     public function show(Checkout $checkout) : GeneralResource
