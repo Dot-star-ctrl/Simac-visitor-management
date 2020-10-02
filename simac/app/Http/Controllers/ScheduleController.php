@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Schedule;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="Schedule",
+ *     description="API Endpoints of Schedule Controller"
+ * )
+ */
 class ScheduleController extends Controller
 {
     public function show(Schedule $schedule) : GeneralResource

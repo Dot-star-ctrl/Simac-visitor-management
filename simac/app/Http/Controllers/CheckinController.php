@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Checkin;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="Checkin",
+ *     description="API Endpoints of Checkin Controller"
+ * )
+ */
 class CheckinController extends Controller
 {
     public function show(Checkin $checkin) : GeneralResource
