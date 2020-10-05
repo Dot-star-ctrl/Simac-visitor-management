@@ -14,13 +14,24 @@ class schedule extends Model
     {
         return $this->belongsTo(office::class);
     }
+    public  function department()
+    {
+        return $this->belongsTo(department::class);
+    }
+    public  function company()
+    {
+        return $this->belongsTo(company::class);
+    }
 
 
     public  function  qrcodes()
     {
         return $this->hasMany(qrcode::class);
     }
-
+    public  function  host_attendings()
+    {
+        return $this->hasMany(host_attending::class);
+    }
 
     public  function  visitors()
     {

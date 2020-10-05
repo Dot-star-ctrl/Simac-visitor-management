@@ -15,9 +15,12 @@ class CreateSchedulesTable extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger("host_id");
+            $table->unsignedInteger("company_id");
+            $table->unsignedInteger("department_id");
             $table->dateTime('dateTime');
             $table->string('host_message');
-            $table->boolean('accepted');
+          //  $table->boolean('accepted');
             $table->unsignedInteger("office_id");
             $table->timestamps();
         });

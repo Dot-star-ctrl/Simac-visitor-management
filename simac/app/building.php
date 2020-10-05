@@ -18,4 +18,8 @@ class building extends Model
     {
         return $this->hasMany(checkout::class);
     }
+    public  function  departments()
+    {
+        return $this->hasMany(department::class);
+    }
 }

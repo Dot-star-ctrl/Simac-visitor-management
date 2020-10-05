@@ -20,7 +20,10 @@ class Visitor extends Model
         return $this->hasOne(checkout::class);
     }
 
-
+    public  function  visit_requests()
+    {
+        return $this->hasMany(visit_request::class);
+    }
     public  function  qrcodes()
     {
         return $this->hasMany(qrcode::class);

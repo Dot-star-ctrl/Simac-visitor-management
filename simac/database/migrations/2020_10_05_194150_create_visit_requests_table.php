@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccountsTable extends Migration
+class CreateVisitRequestsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('accounts', function (Blueprint $table) {
-
+        Schema::create('visit_requests', function (Blueprint $table) {
+            $table->id();
             $table->unsignedInteger("visitor_id");
-            $table->string('password');
-
+            $table->unsignedInteger("host_id");
+            $table->unsignedInteger("company_id");
+            $table->unsignedInteger("department_name");
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accounts');
+        Schema::dropIfExists('visit_requests');
     }
 }
