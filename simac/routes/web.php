@@ -21,3 +21,4 @@ Route::get('/pre-register', function () {
     return view('pre-registration');
 });
 
+

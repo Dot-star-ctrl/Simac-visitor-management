@@ -45,4 +45,6 @@ class QRcodeController extends Controller
 
         return response() -> json();
     }
+
+
 }

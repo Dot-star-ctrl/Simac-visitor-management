@@ -25,7 +25,7 @@ class VisitorController extends Controller
         $request -> validate([
             'first_name' => 'required',
             'last_name'  => 'required',
-            'email'      => 'required',
+            'email'      => 'required|regex:/(.+)@(.+)\.(.+)/i',
         ]);
 
         $visitor = Visitor::create($request ->all());

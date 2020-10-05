@@ -53,3 +53,12 @@ Route::apiResource('/qrcodes', 'QRcodeController');
 
 //Schedule
 Route::apiResource('/schedules', 'ScheduleController');
+
+Route::apiResource('/departments', 'DepartmentController');
+
+Route::apiResource('/visitrequests', 'VisitRequestController');
+
+Route::apiResource('/pre-register', 'PreRegisterController');
+
+Route::apiResource('/send','MailController');
+

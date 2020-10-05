@@ -15,7 +15,8 @@
         "illuminate/filesystem": "^8.0",
         "laravel/framework": "^8.0",
         "laravel/legacy-factories": "^1.0",
-        "laravel/ui": "^3.0"
+        "laravel/ui": "^3.0",
+        "simplesoftwareio/simple-qrcode": "^3.0"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
