@@ -16,3 +16,4 @@ class VisitorTableSeeder extends Seeder
         \App\Visitor::factory()->count(1)->create();
     }
 }
+

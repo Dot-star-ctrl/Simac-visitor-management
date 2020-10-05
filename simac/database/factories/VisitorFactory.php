@@ -28,3 +28,4 @@ class VisitorFactory extends Factory
         ];
     }
 }
+
