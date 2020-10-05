@@ -24,7 +24,6 @@ Vue.use(Vuelidate)
 
 
 Vue.component('pre-registraton-send', require('./components/pre-registraton-send.vue').default);
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('login-screen', require('./components/LoginComponent.vue').default);
 
 
