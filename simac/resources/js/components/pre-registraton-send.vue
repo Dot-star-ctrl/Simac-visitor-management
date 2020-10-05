@@ -1,7 +1,8 @@
 <template>
     <!-- component -->
-    <div class="bg-grey-lighter min-h-screen flex flex-col">
-        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+    <div class="flex-grow lg:flex lg:justify-center lg:flex-grow-0">
+<!--        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">-->
+        <div class="m-4 rounded px-8 pt-6 pb-8 mb-4">
             <div class="pre-register bg-white px-6 py-8 rounded shadow-md text-black">
                 <form v-on:submit.prevent="submit">
                     <h1 class="mb-8 text-3xl text-center">Pre-registration</h1>
