@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Office;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="Office",
+ *     description="API Endpoints of Office Controller"
+ * )
+ */
 class OfficeController extends Controller
 {
     public function show(Office $office) : GeneralResource

@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Host;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="Host",
+ *     description="API Endpoints of Host Controller"
+ * )
+ */
 class HostController extends Controller
 {
     public function show(Host $host) : GeneralResource

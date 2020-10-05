@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\QRcode;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="QRcode",
+ *     description="API Endpoints of QRcode Controller"
+ * )
+ */
 class QRcodeController extends Controller
 {
     public function show(QRcode $qrCode) : GeneralResource

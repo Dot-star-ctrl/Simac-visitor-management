@@ -6,7 +6,12 @@ use Illuminate\Http\Request;
 use App\Company;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-
+/**
+ * @OA\Tag(
+ *     name="Company",
+ *     description="API Endpoints of Company Controller"
+ * )
+ */
 class CompanyController extends Controller
 {
     public function show(Company $company) : GeneralResource
