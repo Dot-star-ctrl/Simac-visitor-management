@@ -14,7 +14,7 @@
     <body class="g-grey-lighter flex flex-col min-h-screen">
         <nav>
             <div class="flex flex-row p-4">
-                <img src="/resources/images/simac-logo.png" class="h-12 hidden lg:block sm:h-14 md:h-16 lg:h-22 xl:h-22 mx-4 my-1">
+                <img src="/resources/images/simac-logo-png-transparent2.png" class="h-12 hidden lg:block sm:h-14 md:h-16 lg:h-22 xl:h-22 mx-4 my-1">
             </div>
         </nav>
         <div id="app">
