@@ -17,11 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/pre-register', function () {
-    return view('pre-registration');
-});
-
 Route::get('/login', function () {
     return view('login');
 });
-

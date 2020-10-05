@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\VisitorResource;
 use Illuminate\Http\Request;
 use App\Visitor;
 use App\Http\Resources\GeneralResource;
@@ -36,7 +35,7 @@ class VisitorController extends Controller
         $request -> validate([
             'first_name' => 'required',
             'last_name'  => 'required',
-            'email'      => 'required|regex:/(.+)@(.+)\.(.+)/i',
+            'email'      => 'required',
         ]);
 
         $visitor = Visitor::create($request ->all());
