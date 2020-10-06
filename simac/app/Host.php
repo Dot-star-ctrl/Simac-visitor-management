@@ -12,4 +12,20 @@ class Host extends Model
         'email',
         'office_id',
     ];
+    public  function  schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
+    public  function  host_attendings()
+    {
+        return $this->hasMany(HostAttending::class);
+    }
+    public  function office()
+    {
+        return $this->belongsTo(Office::class);
+    }
+    public  function  visit_requests()
+    {
+        return $this->hasMany(VisitRequest::class);
+    }
 }
