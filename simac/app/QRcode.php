@@ -11,4 +11,12 @@ class QRcode extends Model
         'visitor_id',
         'schedule_id',
     ];
+    public  function visitor()
+    {
+        return $this->belongsTo(Visitor::class);
+    }
+    public  function schedule()
+    {
+        return $this->belongsTo(Schedule::class);
+    }
 }

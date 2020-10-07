@@ -16,9 +16,13 @@ class CreateVisitRequestsTable extends Migration
         Schema::create('visit_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('visitor_id');
-            $table->integer('host_id')->nullable();
-            $table->integer('company_id');
-            $table->integer('department_id');
+            $table->foreign('visitor_id')->references('id')->on('visitors');
+            $table->integer('host_id')->nullable()->unsigned();
+            $table->foreign('host_id')->references('id')->on('hosts');
+            $table->integer('company_id')->unsigned();
+            $table->foreign('company_id')->references('id')->on('companies');
+            $table->integer('department_id')->unsigned();
+            $table->foreign('department_id')->references('id')->on('departments');
             $table->dateTime('dateTime');
             $table->timestamps();
         });

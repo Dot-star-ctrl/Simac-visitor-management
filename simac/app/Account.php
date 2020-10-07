@@ -10,4 +10,8 @@ class Account extends Model
         'visitor_id',
         'password',
     ];
+    public  function visitor()
+    {
+        return $this->belongsTo(Visitor::class);
+    }
 }
