@@ -14,6 +14,12 @@ use App\Http\Resources\GeneralResourceCollection;
  */
 class HostController extends Controller
 {
+    /**
+     * @OA\Get(
+     *     path="/api/buildings",
+     *     @OA\Response(response="default", description="information about the building (name and address)")
+     * )
+     */
     public function show(Host $host) : GeneralResource
     {
         return new GeneralResource($host);
