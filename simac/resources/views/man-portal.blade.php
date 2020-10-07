@@ -11,8 +11,8 @@
 
         <link href="../css/app.css" rel="stylesheet">
     </head>
-    <body class="grey-lighter flex flex-col min-h-screen">
-        <nav class="lg:border-solid lg:border-b-2 lg:border-red-700">
+    <body class="g-grey-lighter flex flex-col min-h-screen">
+        <nav class="lg:border-solid lg:border-b-2 bg-white lg:border-red-700">
             <div class="flex flex-row p-4">
                 <div class="w-1/6 lg:hidden lg:w-0">
                     <img src="images/menu.svg" class="h-5 m-4 ml-2 md:h-8 md:m-3">
@@ -21,7 +21,7 @@
                     <img src="images/simac-logo-png-transparent2.png" class="lg:h-12 mx-4 my-1">
                 </div>
                 <div class="w-5/6 lg:w-full">
-                    <h1 class="text-xl text-right m-3 md:text-3xl lg:text-4xl lg:text-center lg:m-0">Meetings and events</h1>
+                    <h1 class="text-xl text-center m-3 md:text-3xl lg:text-4xl lg:text-center lg:m-0">Meetings and events</h1>
                 </div>
                 <div class="hidden lg:block">
                     <img src="images/profile.svg" class="lg:h-10 mx-4 my-1 cursor-pointer">
