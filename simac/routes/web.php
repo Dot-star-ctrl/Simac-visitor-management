@@ -24,3 +24,10 @@ Route::get('/pre-register', function () {
 Route::get('/login', function () {
     return view('login');
 });
+
+Route::get('/manportal', function () {
+    return view('man-portal');
+});
+
+
+?>

@@ -26,7 +26,6 @@ Vue.use(Vuelidate)
 Vue.component('pre-registraton-send', require('./components/pre-registraton-send.vue').default);
 Vue.component('login-screen', require('./components/LoginComponent.vue').default);
 
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
