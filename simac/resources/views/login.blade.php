@@ -9,7 +9,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <link href="../css/app.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
     </head>
     <body class="g-grey-lighter flex flex-col min-h-screen">
         <nav>

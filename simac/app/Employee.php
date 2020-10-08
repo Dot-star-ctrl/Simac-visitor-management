@@ -17,4 +17,8 @@ class Employee extends Model
     protected $hidden = [
         'password',
     ];
+    public  function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

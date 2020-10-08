@@ -10,4 +10,20 @@ class Building extends Model
         'name',
         'address',
     ];
+    public  function  offices()
+    {
+        return $this->hasMany(Office::class);
+    }
+    public  function  checkins()
+    {
+        return $this->hasMany(Checkin::class);
+    }
+    public  function  checkouts()
+    {
+        return $this->hasMany(Checkout::class);
+    }
+    public  function  departments()
+    {
+        return $this->hasMany(Department::class);
+    }
 }

@@ -25,8 +25,8 @@ class AccountController extends Controller
 {
     /**
      * @OA\Get(
-     *     path="/api/accounts",
-     *     @OA\Response(response="default", description="information about the visitor (id and password)")
+     *     path="/api/accounts/{accountId}",
+     *     @OA\Response(response="default", description="information about the visitor's account (id and password)")
      * )
      */
     public function show(Account $account) : GeneralResource
@@ -34,11 +34,22 @@ class AccountController extends Controller
         return new GeneralResource($account);
     }
 
+    /**
+     * @OA\Get(
+     *     path="/api/accounts",
+     *     @OA\Response(response="default", description="information about all the visitor's account (id and password)")
+     * )
+     */
     public function index() : GeneralResourceCollection
     {
         return new GeneralResourceCollection(Account::paginate());
     }
-
+    /**
+     * @OA\POST(
+     *     path="/api/accounts",
+     *     @OA\Response(response="default", description="information about the visitor's account (id and password)")
+     * )
+     */
     public function store(Request $request)
     {
         $request -> validate([
@@ -50,14 +61,24 @@ class AccountController extends Controller
 
         return new GeneralResource($account);
     }
-
+    /**
+     * @OA\Put(
+     *     path="/api/accounts/{accountId}",
+     *     @OA\Response(response="default", description="updated information about the visitor's account (id and password)")
+     * )
+     */
     public function update(Account $account, Request $request) : GeneralResource
     {
         $account -> update($request -> all());
 
         return new GeneralResource($account);
     }
-
+    /**
+     * @OA\Delete(
+     *     path="/api/accounts{accountId}",
+     *     @OA\Response(response="default", description="empty array")
+     * )
+     */
     public function destroy(Account $account)
     {
         $account -> delete();
