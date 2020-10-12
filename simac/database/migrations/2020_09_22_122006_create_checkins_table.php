@@ -15,11 +15,9 @@ class CreateCheckinsTable extends Migration
     {
         Schema::create('checkins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('visitor_id')->unsigned();
-            $table->foreign('visitor_id')->references('id')->on('visitors');
+            $table->foreignId('visitor_id')->constrained('visitors');
             $table->date('dateTime');
-            $table->integer('building_id')->unsigned();
-            $table->foreign('building_id')->references('id')->on('buildings');
+            $table->foreignId('building_id')->constrained('buildings');
             $table->timestamps();
         });
     }
