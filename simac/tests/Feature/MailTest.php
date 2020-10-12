@@ -19,7 +19,7 @@ class MailTest extends TestCase
             'companyName'  => 'Simac',
             'departmentName'     => 'Administration',
             'dateTime'  => '2020-10-20T14:37',
-            'email'       => 'gminchev2000@gmail.com'
+            'email'       => 'example@example.com'
         ];
 
         $this->post(route('send.store'), $formData)

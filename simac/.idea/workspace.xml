@@ -43,8 +43,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ef73d597-5166-4ac6-af34-4a2d4d8bcd08" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/PreRegisterTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/PreRegisterTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/MailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/MailTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +222,7 @@
       <workItem from="1602008033045" duration="4522000" />
       <workItem from="1602012626596" duration="15000" />
       <workItem from="1602489013956" duration="12299000" />
-      <workItem from="1602518041465" duration="6017000" />
+      <workItem from="1602518041465" duration="7052000" />
     </task>
     <servers />
   </component>
