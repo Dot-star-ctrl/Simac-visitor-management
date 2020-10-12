@@ -20,8 +20,12 @@ class CreateEmployeesTable extends Migration
             $table->string('email');
             $table->string('username');
             $table->string('password');
-            $table->foreignId('company_id')->constrained('companies');
             $table->timestamps();
+        });
+        Schema::table('employees', function (Blueprint $table) {
+
+            $table->foreignId('company_id')->constrained('companies');
+
         });
     }
 

@@ -15,10 +15,12 @@ class CreateCheckinsTable extends Migration
     {
         Schema::create('checkins', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('visitor_id')->constrained('visitors');
             $table->date('dateTime');
-            $table->foreignId('building_id')->constrained('buildings');
             $table->timestamps();
+        });
+        Schema::table('checkins', function (Blueprint $table) {
+            $table->foreignId('visitor_id')->constrained('visitors');
+            $table->foreignId('building_id')->constrained('buildings');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHostsTable extends Migration
+class CreateDepartmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateHostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('hosts', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('email');
-            $table->foreignId('office_id')->constrained('offices');
+            $table->string('department_name');
             $table->timestamps();
+        });
+        Schema::table('departments', function (Blueprint $table) {
+            $table->foreignId('company_id')->constrained('companies');
+            $table->foreignId('building_id')->constrained('buildings');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateHostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hosts');
+        Schema::dropIfExists('departments');
     }
 }

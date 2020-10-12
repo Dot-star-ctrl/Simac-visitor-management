@@ -15,10 +15,12 @@ class CreateCheckoutsTable extends Migration
     {
         Schema::create('checkouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('visitor_id')->references('id')->on('visitors');
             $table->date('dateTime');
-            $table->foreignId('building_id')->constrained('buildings');
             $table->timestamps();
+        });
+        Schema::table('checkouts', function (Blueprint $table) {
+            $table->foreignId('visitor_id')->references('id')->on('visitors');
+            $table->foreignId('building_id')->constrained('buildings');
         });
     }
 
