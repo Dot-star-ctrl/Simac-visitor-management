@@ -16,10 +16,8 @@ class CreateWelcomeMessagesTable extends Migration
         Schema::create('welcome_messages', function (Blueprint $table) {
             $table->id();
             $table->string('message');
-            $table->integer('company_id')->unsigned();
-            $table->foreign('company_id')->references('id')->on('companies');
-            $table->integer('department_id')->unsigned();
-            $table->foreign('department_id')->references('id')->on('departments');
+            $table->foreignId('company_id')->constrained('companies');
+            $table->foreignId('department_id')->constrained('departments');
             $table->timestamps();
         });
     }

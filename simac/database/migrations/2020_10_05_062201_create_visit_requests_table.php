@@ -15,14 +15,10 @@ class CreateVisitRequestsTable extends Migration
     {
         Schema::create('visit_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('visitor_id');
-            $table->foreign('visitor_id')->references('id')->on('visitors');
-            $table->integer('host_id')->nullable()->unsigned();
-            $table->foreign('host_id')->references('id')->on('hosts');
-            $table->integer('company_id')->unsigned();
-            $table->foreign('company_id')->references('id')->on('companies');
-            $table->integer('department_id')->unsigned();
-            $table->foreign('department_id')->references('id')->on('departments');
+            $table->foreignId('visitor_id')->constrained('visitors');
+            $table->foreignId('host_id')->constrained('hosts');
+            $table->foreignId('company_id')->constrained('companies');
+            $table->foreignId('department_id')->constrained('departments');
             $table->dateTime('dateTime');
             $table->timestamps();
         });
