@@ -16,9 +16,7 @@ class CreateHostAttendingsTable extends Migration
         Schema::create('host_attendings', function (Blueprint $table) {
             $table->id();
             $table->integer('schedule_id')->unsigned();
-            $table->foreign('schedule_id')->references('id')->on('schedules');
-            $table->integer('host_id')->nullable()->unsigned();
-            $table->foreign('host_id')->references('id')->on('hosts');
+            $table->integer('host_id')->unsigned();
             $table->timestamps();
         });
     }

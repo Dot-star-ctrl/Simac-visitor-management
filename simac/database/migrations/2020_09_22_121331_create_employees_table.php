@@ -20,8 +20,7 @@ class CreateEmployeesTable extends Migration
             $table->string('email');
             $table->string('username');
             $table->string('password');
-            $table->integer('company_id')->unsigned();
-            $table->foreign('company_id')->references('id')->on('company');
+            $table->integer('company');
             $table->timestamps();
         });
     }

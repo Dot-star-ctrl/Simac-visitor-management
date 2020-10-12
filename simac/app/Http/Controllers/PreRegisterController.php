@@ -15,26 +15,12 @@ class PreRegisterController extends Controller
         return new GeneralResourceCollection(Department::paginate());
     }
 
-    public function show($id): GeneralResourceCollection
+    public function show($companyId): GeneralResourceCollection
     {
         $departments = Department::all();
 
-        $departments = $departments->Where('company_id', $id);
+        $departments = $departments->Where('company_id', $companyId);
 
         return new GeneralResourceCollection($departments);
-    }
-
-    public function store(Request $request)
-    {
-        $request -> validate([
-            'visitor_id' => 'required',
-            'company_id'       => 'required',
-            'department_id'       => 'required',
-            'dateTime' => 'required',
-        ]);
-
-        $visitRequest = VisitRequest::create($request ->all());
-
-        return new GeneralResource($visitRequest);
     }
 }
