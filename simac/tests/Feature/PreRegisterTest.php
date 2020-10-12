@@ -13,10 +13,10 @@ class PreRegisterTest extends TestCase
      *
      * @return void
      */
-//    public function test_can_show_visit_request()
-//    {
-//        $preRegister = \App\PreRegister::factory()->create();
-//
-//        $this->get(route('pre-register.show', $preRegister->id))->assertStatus(200);
-//    }
+    public function test_can_show_departments_by_company_id()
+    {
+        $departments = \App\Department::factory()->count(10)->create();
+
+        $this->get(route('pre-register.show', 5))->assertStatus(200);
+    }
 }
