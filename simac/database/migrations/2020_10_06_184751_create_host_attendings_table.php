@@ -15,9 +15,11 @@ class CreateHostAttendingsTable extends Migration
     {
         Schema::create('host_attendings', function (Blueprint $table) {
             $table->id();
+            $table->timestamps();
+        });
+        Schema::table('host_attendings', function (Blueprint $table) {
             $table->foreignId('schedule_id')->constrained('schedules');
             $table->foreignId('host_id')->constrained('hosts');
-            $table->timestamps();
         });
     }
 

@@ -15,9 +15,11 @@ class CreateOfficesTable extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->timestamps();
+        });
+        Schema::table('offices', function (Blueprint $table) {
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('building_id')->constrained('buildings');
-            $table->timestamps();
         });
     }
 

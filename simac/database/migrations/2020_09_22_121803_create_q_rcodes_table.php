@@ -15,9 +15,11 @@ class CreateQRcodesTable extends Migration
     {
         Schema::create('qr_codes', function (Blueprint $table) {
             $table->string('code');
+            $table->timestamps();
+        });
+        Schema::table('qr_codes', function (Blueprint $table) {
             $table->foreignId('visitor_id')->constrained('visitors');
             $table->foreignID('schedule_id')->constrained('schedules');
-            $table->timestamps();
         });
     }
 
