@@ -13,11 +13,12 @@ class CreateQRcodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('qr_codes', function (Blueprint $table) {
+        Schema::create('q_rcodes', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('code');
             $table->timestamps();
         });
-        Schema::table('qr_codes', function (Blueprint $table) {
+        Schema::table('q_rcodes', function (Blueprint $table) {
             $table->foreignId('visitor_id')->constrained('visitors');
             $table->foreignID('schedule_id')->constrained('schedules');
         });
@@ -30,6 +31,6 @@ class CreateQRcodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('qr_codes');
+        Schema::dropIfExists('q_rcodes');
     }
 }

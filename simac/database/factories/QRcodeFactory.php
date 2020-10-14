@@ -1,12 +1,34 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
 use App\QRcode;
-use Faker\Generator as Faker;
+use App\Visitor;
+use App\Schedule;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(QRcode::class, function (Faker $faker) {
-    return [
-        //
-    ];
-});
+class QRcodeFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = QRcode::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'schedule_id' => Schedule::factory(),
+            'visitor_id' => Visitor::factory(),
+            'code' => $this->faker->password(),
+        ];
+    }
+}
+
+

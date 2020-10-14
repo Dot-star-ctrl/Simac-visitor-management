@@ -14,7 +14,7 @@ class CreateWelcomeMessagesTable extends Migration
     public function up()
     {
         Schema::create('welcome_messages', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->string('message');
             $table->timestamps();
         });

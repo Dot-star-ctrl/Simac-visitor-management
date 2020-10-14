@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Host extends Model
 {
+    use HasFactory;
+    
     protected $fillable = [
         'first_name',
         'last_name',

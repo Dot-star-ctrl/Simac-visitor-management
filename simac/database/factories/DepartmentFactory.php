@@ -2,17 +2,19 @@
 
 namespace Database\Factories;
 
-use App\Person;
+use App\Department;
+use App\Company;
+use App\Building;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PersonFactory extends Factory
+class DepartmentFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Person::class;
+    protected $model = Department::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +24,9 @@ class PersonFactory extends Factory
     public function definition()
     {
         return [
-            'first_name' => $this->faker->text(50),
-            'last_name' => $this->faker->text(200),
-            'email' => $this->faker->text(200)
+            'company_id' => Company::factory(),
+            'building_id' => Building::factory(),
+            'department_name' => $this->faker->name(),
         ];
     }
 }
