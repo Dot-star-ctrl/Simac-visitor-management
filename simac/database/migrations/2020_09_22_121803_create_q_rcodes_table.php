@@ -14,6 +14,7 @@ class CreateQRcodesTable extends Migration
     public function up()
     {
         Schema::create('qr_codes', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->string('code');
             $table->timestamps();
         });

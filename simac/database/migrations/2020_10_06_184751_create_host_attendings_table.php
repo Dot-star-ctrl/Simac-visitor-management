@@ -14,7 +14,7 @@ class CreateHostAttendingsTable extends Migration
     public function up()
     {
         Schema::create('host_attendings', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->timestamps();
         });
         Schema::table('host_attendings', function (Blueprint $table) {

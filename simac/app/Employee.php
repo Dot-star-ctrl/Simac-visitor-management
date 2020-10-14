@@ -3,15 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Employee extends Model
 {
+    use HasFactory;
+    
     protected $fillable = [
         'first_name',
         'last_name',
         'email',
         'username',
-        'company',
+        'company_id',
     ];
 
     protected $hidden = [
