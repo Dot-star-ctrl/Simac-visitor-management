@@ -13,7 +13,9 @@ class VisitRequest extends Model
         'visitor_id',
         'company_id',
         'department_id',
-        'dateTime',
+        'note',
+        'proposed_start_dateTime',
+        'proposed_end_dateTime'
     ];
     public  function visitor()
     {

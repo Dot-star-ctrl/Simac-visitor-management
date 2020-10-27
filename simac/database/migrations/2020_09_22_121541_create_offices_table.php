@@ -17,10 +17,10 @@ class CreateOfficesTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
         });
-        Schema::table('offices', function (Blueprint $table) {
-            $table->foreignId('company_id')->constrained('companies');
-            $table->foreignId('building_id')->constrained('buildings');
-        });
+//        Schema::table('offices', function (Blueprint $table) {
+//            $table->foreignId('company_id')->constrained('companies');
+//            $table->foreignId('building_id')->constrained('buildings');
+//        });
     }
 
     /**

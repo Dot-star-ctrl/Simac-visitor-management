@@ -15,12 +15,14 @@ class CreateVisitRequestsTable extends Migration
     {
         Schema::create('visit_requests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->dateTime('dateTime');
+            $table->string('note');
+            $table->dateTime('proposed_start_dateTime');
+            $table->dateTime('proposed_end_dateTime');
             $table->timestamps();
         });
         Schema::table('visit_requests', function (Blueprint $table) {
             $table->foreignId('visitor_id')->constrained('visitors');
-            $table->foreignId('host_id')->constrained('hosts');
+//            $table->foreignId('host_id')->constrained('hosts');
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('department_id')->constrained('departments');
         });

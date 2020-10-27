@@ -19,12 +19,12 @@ class CreateSchedulesTable extends Migration
             $table->string('host_message');
             $table->timestamps();
         });
-        Schema::table('schedules', function (Blueprint $table) {
-            $table->foreignId('host_id')->constrained('hosts');
-            $table->foreignId('company_id')->constrained('companies');
-            $table->foreignId('department_id')->constrained('departments');
-            $table->foreignId('office_id')->constrained('offices');
-        });
+//        Schema::table('schedules', function (Blueprint $table) {
+//            $table->foreignId('host_id')->constrained('hosts');
+//            $table->foreignId('company_id')->constrained('companies');
+//            $table->foreignId('department_id')->constrained('departments');
+//            $table->foreignId('office_id')->constrained('offices');
+//        });
     }
 
     /**

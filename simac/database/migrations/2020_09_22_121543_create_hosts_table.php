@@ -20,9 +20,9 @@ class CreateHostsTable extends Migration
             $table->string('email');
             $table->timestamps();
         });
-        Schema::table('hosts', function (Blueprint $table) {
-            $table->foreignId('office_id')->constrained('offices');
-        });
+//        Schema::table('hosts', function (Blueprint $table) {
+////            $table->foreignId('office_id')->constrained('offices');
+//        });
     }
 
     /**

@@ -18,9 +18,9 @@ class CreateAccountsTable extends Migration
             $table->string('password');
             $table->timestamps();
         });
-        Schema::table('accounts', function (Blueprint $table) {
-            $table->foreignId('visitor_id')->constrained('visitors');
-        });
+//        Schema::table('accounts', function (Blueprint $table) {
+//            $table->foreignId('visitor_id')->constrained('visitors');
+//        });
     }
 
     /**

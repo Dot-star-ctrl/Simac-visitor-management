@@ -42,7 +42,9 @@ class VisitRequestController extends Controller
             'visitor_id'     => 'required',
             'company_id'     => 'required',
             'department_id'  => 'required',
-            'dateTime'       => 'required',
+            'note',
+            'proposed_start_dateTime'       => 'required',
+            'proposed_end_dateTime'       => 'required',
         ]);
 
         $visitRequest = VisitRequest::create($request ->all());

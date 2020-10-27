@@ -18,10 +18,10 @@ class CreateQRcodesTable extends Migration
             $table->string('code');
             $table->timestamps();
         });
-        Schema::table('q_rcodes', function (Blueprint $table) {
-            $table->foreignId('visitor_id')->constrained('visitors');
-            $table->foreignID('schedule_id')->constrained('schedules');
-        });
+//        Schema::table('q_rcodes', function (Blueprint $table) {
+//            $table->foreignId('visitor_id')->constrained('visitors');
+//            $table->foreignID('schedule_id')->constrained('schedules');
+//        });
     }
 
     /**
