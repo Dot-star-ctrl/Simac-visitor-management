@@ -12,14 +12,18 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::get('/register', function () {
+    return view('auth/register');
+})->name('register');
+
 Route::get('/pre-register', function () {
     return view('pre-registration');
 });
-
 
 Route::get('/manportal', function () {
     return view('man-portal');

@@ -25,7 +25,7 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
+                <x-jet-button class="ml-4 bg-red-600 hover:bg-red-700">
                     {{ __('Email Password Reset Link') }}
                 </x-jet-button>
             </div>
