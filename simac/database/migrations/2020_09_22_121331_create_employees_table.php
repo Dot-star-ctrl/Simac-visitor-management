@@ -22,11 +22,11 @@ class CreateEmployeesTable extends Migration
             $table->string('password');
             $table->timestamps();
         });
-//        Schema::table('employees', function (Blueprint $table) {
-//
-//            $table->foreignId('company_id')->constrained('companies');
-//
-//        });
+        Schema::table('employees', function (Blueprint $table) {
+
+            $table->foreignId('company_id')->constrained('companies');
+
+        });
     }
 
     /**

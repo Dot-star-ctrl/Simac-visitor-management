@@ -22,7 +22,7 @@ class CreateVisitRequestsTable extends Migration
         });
         Schema::table('visit_requests', function (Blueprint $table) {
             $table->foreignId('visitor_id')->constrained('visitors');
-//            $table->foreignId('host_id')->constrained('hosts');
+            $table->foreignId('host_id')->constrained('hosts');
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('department_id')->constrained('departments');
         });

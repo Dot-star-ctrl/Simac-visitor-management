@@ -18,10 +18,10 @@ class CreateCheckinsTable extends Migration
             $table->date('dateTime');
             $table->timestamps();
         });
-//        Schema::table('checkins', function (Blueprint $table) {
-//            $table->foreignId('visitor_id')->constrained('visitors');
-//            $table->foreignId('building_id')->constrained('buildings');
-//        });
+        Schema::table('checkins', function (Blueprint $table) {
+            $table->foreignId('visitor_id')->constrained('visitors');
+            $table->foreignId('building_id')->constrained('buildings');
+        });
     }
 
     /**

@@ -18,10 +18,10 @@ class CreateCheckoutsTable extends Migration
             $table->date('dateTime');
             $table->timestamps();
         });
-//        Schema::table('checkouts', function (Blueprint $table) {
-//            $table->foreignId('visitor_id')->references('id')->on('visitors');
-//            $table->foreignId('building_id')->constrained('buildings');
-//        });
+        Schema::table('checkouts', function (Blueprint $table) {
+            $table->foreignId('visitor_id')->references('id')->on('visitors');
+            $table->foreignId('building_id')->constrained('buildings');
+        });
     }
 
     /**
