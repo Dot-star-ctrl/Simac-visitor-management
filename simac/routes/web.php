@@ -16,6 +16,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/reports', function () {
+    return Inertia\Inertia::render('Reports');
+})->name('reports');
+
 Route::get('/register', function () {
     return view('auth/register');
 })->name('register');

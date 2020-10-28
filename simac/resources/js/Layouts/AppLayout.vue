@@ -17,6 +17,9 @@
                             <jet-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
+                            <jet-nav-link :href="route('reports')" :active="$page.currentRouteName == 'reports'">
+                                Reports
+                            </jet-nav-link>
                         </div>
                     </div>
 
@@ -121,6 +124,9 @@
                     <jet-responsive-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
                         Dashboard
                     </jet-responsive-nav-link>
+                    <jet-responsive-nav-link :href="route('reports')" :active="$page.currentRouteName == 'reports'">
+                        Reports
+                    </jet-responsive-nav-link>
                 </div>
 
                 <!-- Responsive Settings Options -->
@@ -195,7 +201,9 @@
         <!-- Page Heading -->
         <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                <slot name="header"></slot>
+                <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+                    {{ $page.currentRouteName.charAt(0).toUpperCase() + $page.currentRouteName.slice(1) }}
+                </h2>
             </div>
         </header>
 
