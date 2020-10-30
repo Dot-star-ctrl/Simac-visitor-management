@@ -7,6 +7,7 @@
         </h1>
         <div class="p-2 h-xl overflow-auto">
           <meeting-thumb
+            :class="m.classname"
             v-for="m in meetings"
             :key="m.visitor_id"
             :meetingObj="m"
@@ -19,7 +20,7 @@
           Overview
         </h1>
         <div>
-          <meeting-overview :gnok="currMeeting" />
+          <meeting-overview :key="currMeeting.visitor_id" :meetingObj="currMeeting"/>
         </div>
       </div>
     </div>
@@ -30,6 +31,8 @@
 import MeetingThumb from "@/components/MeetingThumb";
 import MeetingOverview from "@/components/MeetingOverview";
 
+export const bus = new Vue();
+
 export default {
   components: {
     MeetingThumb,
@@ -38,20 +41,25 @@ export default {
   data() {
     return {
       meetings: this.addMeetings(),
-      currMeeting: {},
+      currMeeting: { },
     };
   },
   methods: {
     addMeetings: function () {
       let meetings = [];
+      let name = "";
 
       for (let i = 0; i < 20; i++) {
+        if (i % 2 == 0) name = "John"; 
+        else if (i % 3 == 0) name = "Anna"; 
+        else if (i % 4 == 0) name = "Tom"; 
+        else  name = "Test"; 
         meetings.push({
           visitor_id: i,
-          name: "John",
+          name: name,
           company_id: 23,
           departmend_id: 53,
-          note: "Lorem ipusm dolor sit amet",
+          note: "Lorem ipsum dolor sit amet",
           proposed_start: "12:30",
           proposed_end: "13:00",
           classname: "",
@@ -60,10 +68,15 @@ export default {
 
       return meetings;
     },
-    focusMeeting: function (m) {
-        this.currMeeting.classname = '';
-        m.classname = "bg-red-50";
-    },
+    focusMeeting: function(m) {
+        this.currMeeting.classname = '',
+        m.classname="bg-red-50";
+
+        this.currMeeting = m;
+    }
   },
+  created() {
+      this.currMeeting = this.meetings[0];
+  }
 };
 </script>

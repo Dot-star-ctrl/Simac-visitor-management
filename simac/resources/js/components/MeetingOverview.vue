@@ -26,7 +26,7 @@
                 {{ notes }}
             </div>
         </div>
-        <div class="p-8 pb-2 h-32 flex justify-center items-end">
+        <div class="p-8 pb-0 h-32 flex justify-center items-end">
             <button class="mx-12 border border-green-700 bg-green-600 rounded text-white p-2 px-6 text-xl">
                 Send
             </button>
@@ -39,17 +39,17 @@
 
 <script>
     export default {
-        props: ['gnok'],
+        props: ['meetingObj'],
         data() {
             return {
-                // visitor_id: this.meetingObj.visitor_id,
-                // name: this.meetingObj.name,
-                // company_id: this.meetingObj.company_id,
-                // department_id: this.meetingObj.department_id,
-                // notes: this.meetingObj.note,
-                // proposed_start: this.meetingObj.proposed_start,
-                // proposed_end: this.meetingObj.proposed_end,
-                // host_id: '',
+                visitor_id: this.meetingObj.visitor_id,
+                name: this.meetingObj.name,
+                company_id: this.meetingObj.company_id,
+                department_id: this.meetingObj.department_id,
+                notes: this.meetingObj.note,
+                proposed_start: this.meetingObj.proposed_start,
+                proposed_end: this.meetingObj.proposed_end,
+                host_id: '',
             }
         },
     }
