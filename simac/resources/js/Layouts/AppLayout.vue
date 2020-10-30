@@ -20,6 +20,9 @@
                             <jet-nav-link :href="route('reports')" :active="$page.currentRouteName == 'reports'">
                                 Reports
                             </jet-nav-link>
+                            <jet-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
+                                Meetings
+                            </jet-nav-link>
                         </div>
                     </div>
 
@@ -126,6 +129,9 @@
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link :href="route('reports')" :active="$page.currentRouteName == 'reports'">
                         Reports
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
+                        Meetings
                     </jet-responsive-nav-link>
                 </div>
 
