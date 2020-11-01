@@ -90,26 +90,14 @@ class QRcodeController extends Controller
     $email = 'john.doe@example.com';
     
     // Addresses
-    $homeAddress = [
-        'type' => 'home',
-        'pref' => true,
-        'street' => '123 my street st',
-        'city' => 'My Beautiful Town',
-        'state' => 'LV',
-        'country' => 'Neverland',
-        'zip' => '12345-678'
-    ];
-    $wordAddress = [
+    $workAddress = [
        'type' => 'work',
        'pref' => false,
-       'street' => '123 my work street st',
-       'city' => 'My Dreadful Town',
-       'state' => 'LV',
-       'country' => 'Hell',
-       'zip' => '12345-678'
+       'floor' => '1',
+       'number' => '1.132B',
     ];
     
-    $addresses = [$homeAddress, $wordAddress];
+    $addresses = [$workAddress];
     
     // Phones
     $workPhone = [
@@ -117,18 +105,8 @@ class QRcodeController extends Controller
         'number' => '001 555-1234',
         'cellPhone' => false
     ];
-    $homePhone = [
-        'type' => 'home',
-        'number' => '001 555-4321',
-        'cellPhone' => false
-    ];
-    $cellPhone = [
-        'type' => 'work',
-        'number' => '001 9999-8888',
-        'cellPhone' => true
-    ];
     
-    $phones = [$workPhone, $homePhone, $cellPhone];
+    $phones = [$workPhone];
     
     return \QRCode::vCard($firstName, $lastName, $title, $email, $addresses, $phones)
                 ->setErrorCorrectionLevel('H')
