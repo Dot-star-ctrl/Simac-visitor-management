@@ -26,7 +26,12 @@ class QRcodeFactory extends Factory
         return [
             'schedule_id' => Schedule::factory(),
             'visitor_id' => Visitor::factory(),
-            'code' => $this->faker->password(),
+            'first_name'    => $this->faker->firstName(),
+            'last_name'     => $this->faker->lastName(),
+            'email'         => $this->faker->email(),
+            'floor'         => $this->faker->number(),
+            'number'        => $this->faker->number(),
+            'phone_number'  => $this->faker->number(),
         ];
     }
 }

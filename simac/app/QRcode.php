@@ -10,7 +10,12 @@ class QRcode extends Model
     use HasFactory;
     
     protected $fillable = [
-        'code',
+        'first_name',
+        'last_name',
+        'email',
+        'floor',
+        'number',
+        'phone_number',
         'visitor_id',
         'schedule_id',
     ];

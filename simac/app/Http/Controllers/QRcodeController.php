@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\QRcodeResource;
 use Illuminate\Http\Request;
 use App\QRcode;
 use App\Http\Resources\GeneralResource;
@@ -43,9 +44,14 @@ class QRcodeController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
-            'code'          => 'required',
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+            'email'         => 'required',
+            'floor'         => 'required',
+            'number'        => 'required',
+            'phone_number'  => 'required',
             'visitor_id'    => 'required',
-            'schedule'      => 'required',
+            'schedule_id'   => 'required',
         ]);
 
         $qrCode = QRcode::create($request ->all());
@@ -82,38 +88,38 @@ class QRcodeController extends Controller
         return \QRCode::text('QR Code Generator for Laravel!')->setOutfile($file)->png();
     }
 
-    public function vcard(){
-        // Personal Information
-    $firstName = 'John';
-    $lastName = 'Doe';
-    $title = 'Mr.';
-    $email = 'john.doe@example.com';
+    // public function vcard(){
+    //     // Personal Information
+    // $firstName = 'John';
+    // $lastName = 'Doe';
+    // $title = 'Mr.';
+    // $email = 'john.doe@example.com';
     
-    // Addresses
-    $workAddress = [
-       'type' => 'work',
-       'pref' => false,
-       'floor' => '1',
-       'number' => '1.132B',
-    ];
+    // // Addresses
+    // $workAddress = [
+    //    'type' => 'work',
+    //    'pref' => false,
+    //    'floor' => '1',
+    //    'number' => '1.132B',
+    // ];
     
-    $addresses = [$workAddress];
+    // $addresses = [$workAddress];
     
-    // Phones
-    $workPhone = [
-        'type' => 'work',
-        'number' => '001 555-1234',
-        'cellPhone' => false
-    ];
+    // // Phones
+    // $workPhone = [
+    //     'type' => 'work',
+    //     'number' => '001 555-1234',
+    //     'cellPhone' => false
+    // ];
     
-    $phones = [$workPhone];
+    // $phones = [$workPhone];
     
-    return \QRCode::vCard($firstName, $lastName, $title, $email, $addresses, $phones)
-                ->setErrorCorrectionLevel('H')
-                ->setSize(4)
-                ->setMargin(2)
-                ->svg();
-    }
+    // return \QRCode::vCard($firstName, $lastName, $title, $email, $addresses, $phones)
+    //             ->setErrorCorrectionLevel('H')
+    //             ->setSize(4)
+    //             ->setMargin(2)
+    //             ->svg();
+    // }
 
 
 }

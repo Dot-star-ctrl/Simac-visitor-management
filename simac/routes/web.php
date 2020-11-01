@@ -28,6 +28,5 @@ Route::get('/manportal', function () {
     return view('man-portal');
 });
 
-Route::get('/qrcode', 'QRcodeController@make');
 Route::get('/vcard', 'QRcodeController@vcard')
 ?>
