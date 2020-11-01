@@ -15,12 +15,12 @@ class CreateQRcodesTable extends Migration
     {
         Schema::create('q_rcodes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('fisrt_name');
+            $table->string('first_name');
             $table->string('last_name');
             $table->string('email');
             $table->integer('floor');
-            $table->string('number');
-            $table->integer('phone_number');
+            $table->string('office');
+            $table->integer('phone');
             $table->timestamps();
         });
         Schema::table('q_rcodes', function (Blueprint $table) {

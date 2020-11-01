@@ -14,8 +14,8 @@ class QRcode extends Model
         'last_name',
         'email',
         'floor',
-        'number',
-        'phone_number',
+        'office',
+        'phone',
         'visitor_id',
         'schedule_id',
     ];

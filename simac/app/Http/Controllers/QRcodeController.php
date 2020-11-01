@@ -48,8 +48,8 @@ class QRcodeController extends Controller
             'last_name'     => 'required',
             'email'         => 'required',
             'floor'         => 'required',
-            'number'        => 'required',
-            'phone_number'  => 'required',
+            'office' => 'required',
+            'phone'  => 'required',
             'visitor_id'    => 'required',
             'schedule_id'   => 'required',
         ]);

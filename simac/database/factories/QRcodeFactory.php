@@ -29,9 +29,9 @@ class QRcodeFactory extends Factory
             'first_name'    => $this->faker->firstName(),
             'last_name'     => $this->faker->lastName(),
             'email'         => $this->faker->email(),
-            'floor'         => $this->faker->number(),
-            'number'        => $this->faker->number(),
-            'phone_number'  => $this->faker->number(),
+            'floor'         => $this->faker->randomNumber($nbDigits = 3),
+            'office' => $this->faker->name(),
+            'phone'  => $this->faker->randomNumber($nbDigits = 8),
         ];
     }
 }
