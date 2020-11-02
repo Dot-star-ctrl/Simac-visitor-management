@@ -2,19 +2,19 @@
 
 namespace Database\Factories;
 
-use App\QRcode;
+use App\Qrcode;
 use App\Visitor;
 use App\Schedule;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class QRcodeFactory extends Factory
+class QrcodeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = QRcode::class;
+    protected $model = Qrcode::class;
 
     /**
      * Define the model's default state.
@@ -31,9 +31,7 @@ class QRcodeFactory extends Factory
             'email'         => $this->faker->email(),
             'floor'         => $this->faker->randomNumber($nbDigits = 3),
             'office' => $this->faker->name(),
-            'phone'  => $this->faker->randomNumber($nbDigits = 8),
+            'phone'  => $this->faker->randomNumber($nbDigits = 8)
         ];
     }
 }
-
-

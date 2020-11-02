@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class QrcodeTableSeeder extends Seeder
+class ScheduleTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class QrcodeTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Qrcode::factory()->count(1)->create();
+        \App\Schedule::factory()->count(1)->create();
     }
 }

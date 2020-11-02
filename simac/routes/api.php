@@ -49,7 +49,7 @@ Route::apiResource('/hosts', 'HostController');
 Route::apiResource('/offices', 'OfficeController');
 
 //QRcode
-Route::apiResource('/qrcodes', 'QRcodeController');
+Route::apiResource('/qrcodes','QrcodeController');
 
 //Schedule
 Route::apiResource('/schedules', 'ScheduleController');
