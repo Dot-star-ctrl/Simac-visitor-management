@@ -62,3 +62,5 @@ Route::apiResource('/pre-register', 'PreRegisterController');
 
 Route::apiResource('/send','MailController');
 
+//meetings + reports
+
