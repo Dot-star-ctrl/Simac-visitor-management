@@ -1,16 +1,21 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class QRcode extends Model
+class Qrcode extends Model
 {
     use HasFactory;
-    
+
     protected $fillable = [
-        'code',
+        'first_name',
+        'last_name',
+        'email',
+        'floor',
+        'office',
+        'phone',
         'visitor_id',
         'schedule_id',
     ];
