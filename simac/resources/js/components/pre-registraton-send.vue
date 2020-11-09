@@ -94,6 +94,7 @@
 
 <script>
     import {required, email} from 'vuelidate/lib/validators'
+
     export default {
 
         data() {
@@ -110,7 +111,9 @@
                 companyName: '',
                 departmentId: '',
                 departmentName: '',
-                dateTime: ''
+                note: '',
+                startDateTime: '',
+                endDateTime: ''
             }
         },
 
@@ -124,41 +127,32 @@
             email: {required, email},
             companyId: {required},
             departmentId: {required},
-            dateTime: {required}
+            startDateTime: {required},
+            endDateTime: {required}
         },
         methods: {
 
-            loadCompanies: function () {
-                axios.get('/api/companies').then(response => {
-                    this.companies = response.data.data;
-                })
-            },
-            loadDepartments: function () {
-                axios.get('/api/pre-register/' + this.companyId).then(response => {
-                    this.departments = response.data.data;
-                })
-            },
-
             sendConfirmationEmail: function () {
-                axios.get('/api/companies/' + this.companyId).then(response => {
-                    this.companyName = response.data.data.name;
-
-                    axios.get('/api/departments/' + this.departmentId).then(response => {
-                        this.departmentName = response.data.data.department_name;
-
-                        axios.post('/api/send/', {
-                            companyName: this.companyName,
-                            departmentName: this.departmentName,
-                            dateTime: this.dateTime,
-                            email: this.email
-                        }).then(response => {
-                        })
-                    })
-                })
+                // axios.get('/api/companies/' + this.companyId).then(response => {
+                //     this.companyName = response.data.data.name;
+                //
+                //     axios.get('/api/departments/' + this.departmentId).then(response => {
+                //         this.departmentName = response.data.data.department_name;
+                //
+                //         axios.post('/api/send/', {
+                //             companyName: this.companyName,
+                //             departmentName: this.departmentName,
+                //             note: this.note,
+                //             proposed_start_dateTime: this.startDateTime,
+                //             proposed_end_dateTime: this.endDateTime,
+                //             email: this.email
+                //         }).then(response => {
+                //         })
+                //     })
+                // })
             },
 
             onChange() {
-                this.loadDepartments();
             },
 
             validationStatus(validation) {
@@ -177,10 +171,13 @@
                             visitor_id: this.visitor_id,
                             company_id: this.companyId,
                             department_id: this.departmentId,
-                            dateTime: this.dateTime
+                            note: this.note,
+                            proposed_start_dateTime: this.startDateTime,
+                            proposed_end_dateTime: this.endDateTime
                         })
                             .then(response => {
                                 this.sendConfirmationEmail();
+                                console.log(this.note);
                                 this.visitor_id = null;
                                 this.fields = {};
                                 this.success = true;
@@ -203,3 +200,4 @@
         }
     }
 </script>
+
