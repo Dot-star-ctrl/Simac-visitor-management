@@ -62,6 +62,8 @@ Route::apiResource('/pre-register', 'PreRegisterController');
 
 Route::apiResource('/send','MailController');
 
+Route::apiResource('/send-qr-code','QRcodeMailController');
+
 //meetings + reports
 
 

@@ -2,111 +2,147 @@
     <div class="p-2 text-xl">
         <div class="m-4">
             <form v-on:submit.prevent="submit" class="w-full max-w">
-            <div class="flex flex-wrap">
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-                     role="alert" v-show="success">
+                <div
+                    class="bg-green-100 border border-green-400 text-green-700 px-2 py-3 rounded relative text-xs font-bold mb-5 text-center"
+                    role="alert" v-show="success">
                     <strong class="font-bold">Success!</strong>
                     <span class="block sm:inline">The invitation has been sent</span>
                 </div>
-            <div class="w-full md:w-1/2">
-                <input type="hidden" id="userId" name="userId" :value="$page.user.id">
-                <div class="flex flex-wrap mx-3 mb-6">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="firstName">
-                            First Name
-                        </label>
-                        <input class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="firstName" type="text"
-                               name="firstNameUser" v-model.trim="$v.firstNameUser.$model"
-                               :class="{'is-invalid': validationStatus($v.firstNameUser)}" placeholder="First name"/>
-                        <span v-if="!$v.firstNameUser.required" class="invalid-feedback text-red-500 text-xs italic">First name is required</span>
-                    </div>
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="lastName">
-                            Last Name
-                        </label>
-                        <input class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="lastName" type="text"
-                               name="lastNameUser" v-model.trim="$v.lastNameUser.$model"
-                               :class="{'is-invalid': validationStatus($v.lastNameUser)}" placeholder="Last Name"/>
-                        <span v-if="!$v.lastNameUser.required" class="invalid-feedback text-red-500 text-xs italic">Last name is required</span>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-3 mb-6">
-                    <div class="w-full px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="email">
-                            email
-                        </label>
-                        <input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="email" type="text"
-                               name="emailUser" v-model.trim="$v.emailUser.$model"
-                               :class="{'is-invalid': validationStatus($v.emailUser)}" placeholder="Email"/>
-                                <span v-if="!$v.emailUser.required" class="invalid-feedback text-red-500 text-xs italic">The email is required</span>
-                                <span v-if="!$v.emailUser.email" class="invalid-feedback text-red-500 text-xs italic">The email is invalid</span>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-3 mb-6">
-                    <div class="w-full px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone">
-                            phone
-                        </label>
-                        <input class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="phone" type="text"
-                               name="phone" v-model.trim="$v.phone.$model"
-                               :class="{'is-invalid': validationStatus($v.phone)}" placeholder="Phone"/>
-                        <span v-if="!$v.phone.required" class="invalid-feedback text-red-500 text-xs italic">The phone is required</span>
-                    </div>
-                </div>
-            </div>
-            <div class="w-full md:w-1/2">
-                <div class="flex flex-wrap mx-3 mb-6">
-                    <div class="w-full px-3">
-                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                    Purpose of meeting / additional information
-                </label>
-                        <textarea type="input" class="form-textarea block w-full" rows="2" id="note" name="note"
-                                  v-model="note" placeholder="Enter purpose of the meeting."></textarea>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-3 mb-6">
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="floor">
-                            floor
-                        </label>
-                        <input class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="floor" type="text"
-                               name="floor" v-model.trim="$v.floor.$model"
-                               :class="{'is-invalid': validationStatus($v.floor)}" placeholder="Floor"/>
-                        <span v-if="!$v.floor.required" class="invalid-feedback text-red-500 text-xs italic">Floor field is required</span>
-                    </div>
-                    <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="office">
-                            office
-                        </label>
-                        <input class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="office" type="text"
-                               name="lastName" v-model.trim="$v.office.$model"
-                               :class="{'is-invalid': validationStatus($v.office)}" placeholder="Office"/>
-                        <span v-if="!$v.office.required" class="invalid-feedback text-red-500 text-xs italic">Office field is required</span>
-                    </div>
-                </div>
-                <div class="flex flex-wrap mx-3 mb-6">
-                    <div class="w-full px-3">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                            Meeting time
-                        </label>
-                        <div class="block border border-grey-light w-full rounded p-2">
-                            <label class="ml-10" for="dateTime">Select Date:</label>
-                            <input type="datetime-local" id="dateTime" name="dateTime" v-model.trim="$v.dateTime.$model"
-                                   :class="{'is-invalid': validationStatus($v.dateTime)}"/>
+                <div class="flex flex-wrap">
+                    <div class="w-full md:w-1/2">
+                        <input type="hidden" id="userId" name="userId" :value="$page.user.id">
+                        <div class="flex flex-wrap mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                       for="firstName">
+                                    First Name
+                                </label>
+                                <input
+                                    class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                    id="firstName" type="text"
+                                    name="firstNameUser" v-model.trim="$v.firstNameUser.$model"
+                                    :class="{'is-invalid': validationStatus($v.firstNameUser)}"
+                                    placeholder="First name"/>
+                                <span v-if="!$v.firstNameUser.required"
+                                      class="invalid-feedback text-red-500 text-xs italic">First name is required</span>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                       for="lastName">
+                                    Last Name
+                                </label>
+                                <input
+                                    class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                    id="lastName" type="text"
+                                    name="lastNameUser" v-model.trim="$v.lastNameUser.$model"
+                                    :class="{'is-invalid': validationStatus($v.lastNameUser)}" placeholder="Last Name"/>
+                                <span v-if="!$v.lastNameUser.required"
+                                      class="invalid-feedback text-red-500 text-xs italic">Last name is required</span>
+                            </div>
                         </div>
-                        <span v-if="!$v.dateTime.required" class="invalid-feedback text-red-500 text-xs italic">The datetime field is required</span>
+                        <div class="flex flex-wrap mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                       for="email">
+                                    email
+                                </label>
+                                <input
+                                    class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    id="email" type="text"
+                                    name="emailUser" v-model.trim="$v.emailUser.$model"
+                                    :class="{'is-invalid': validationStatus($v.emailUser)}" placeholder="Email"/>
+                                <span v-if="!$v.emailUser.required"
+                                      class="invalid-feedback text-red-500 text-xs italic">The email is required</span>
+                                <span v-if="!$v.emailUser.email" class="invalid-feedback text-red-500 text-xs italic">The email is invalid</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                       for="phone">
+                                    phone
+                                </label>
+                                <input
+                                    class="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                    id="phone" type="text"
+                                    name="phone" v-model.trim="$v.phone.$model"
+                                    :class="{'is-invalid': validationStatus($v.phone)}" placeholder="Phone"/>
+                                <span v-if="!$v.phone.required" class="invalid-feedback text-red-500 text-xs italic">The phone is required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <div class="flex flex-wrap mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Purpose of meeting / additional information
+                                </label>
+                                <textarea type="input" class="form-textarea block w-full" rows="2" id="note" name="note"
+                                          v-model="note" placeholder="Enter purpose of the meeting."></textarea>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap mx-3 mb-6">
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                       for="floor">
+                                    floor
+                                </label>
+                                <input
+                                    class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                    id="floor" type="text"
+                                    name="floor" v-model.trim="$v.floor.$model"
+                                    :class="{'is-invalid': validationStatus($v.floor)}" placeholder="Floor"/>
+                                <span v-if="!$v.floor.required" class="invalid-feedback text-red-500 text-xs italic">Floor field is required</span>
+                            </div>
+                            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                                       for="office">
+                                    office
+                                </label>
+                                <input
+                                    class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                                    id="office" type="text"
+                                    name="office" v-model.trim="$v.office.$model"
+                                    :class="{'is-invalid': validationStatus($v.office)}" placeholder="Office"/>
+
+<!--                                <select class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="office_id"-->
+<!--                                        name="officeId" v-model.trim="$v.office.$model"-->
+<!--                                        :class="{'is-invalid': validationStatus($v.office)}" placeholder="Office"-->
+<!--                                    <option value="">Select an office</option>-->
+<!--                                    <option v-for="office in offices" :value="office.id">-->
+<!--                                        {{office.office_name}}-->
+<!--                                    </option>-->
+<!--                                </select>-->
+
+                                <span v-if="!$v.office.required" class="invalid-feedback text-red-500 text-xs italic">Office field is required</span>
+                            </div>
+                        </div>
+                        <div class="flex flex-wrap mx-3 mb-6">
+                            <div class="w-full px-3">
+                                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                                    Meeting time
+                                </label>
+                                <div class="block border border-grey-light w-full rounded p-2">
+                                    <label class="ml-10" for="dateTime">Select Date:</label>
+                                    <input type="datetime-local" id="dateTime" name="dateTime"
+                                           v-model.trim="$v.dateTime.$model"
+                                           :class="{'is-invalid': validationStatus($v.dateTime)}"/>
+                                </div>
+                                <span v-if="!$v.dateTime.required" class="invalid-feedback text-red-500 text-xs italic">The datetime field is required</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full px-5">
+                        <button type="submit"
+                                class="font-bold block mx-auto shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white text-s p-3 px-10 rounded">
+                            Send
+                        </button>
                     </div>
                 </div>
-            </div>
-                <div class="w-full px-5">
-                    <button type="submit"
-                            class="font-bold block mx-auto shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white text-s p-3 px-10 rounded">
-                        Send
-                    </button>
-                </div>
-            </div>
             </form>
         </div>
+<!--        <img src="QRcodes/14.png" height="100px" width="100px" />-->
+<!--        <img src="{{ URL::to('/') }}/QRcodes/14.png"/>-->
     </div>
 </template>
 <script>
@@ -117,23 +153,25 @@
         data() {
             return {
                 visitor_id: null,
+                schedule_id: null,
+                QrCodeId: null,
                 success: false,
                 errors: {},
                 firstNameUser: '',
                 lastNameUser: '',
                 emailUser: '',
                 dateTime: '',
-                note:'',
-                phone:'',
-                floor:'',
-                office:'',
+                note: '',
+                phone: '',
+                floor: '',
+                office: '',
 
-                employeeId:'',
-                firstNameEmployee:'',
-                lastNameEmployee:'',
-                emailEmployee:'',
-                companyIdEmployee:'',
-                departmentIdEmployee:'',
+                employeeId: '',
+                firstNameEmployee: '',
+                lastNameEmployee: '',
+                emailEmployee: '',
+                companyIdEmployee: '',
+                departmentIdEmployee: '',
             }
         },
 
@@ -145,28 +183,18 @@
             firstNameUser: {required},
             lastNameUser: {required},
             emailUser: {required, email},
-            phone:{required},
-            floor:{required},
-            office:{required},
+            phone: {required},
+            floor: {required},
+            office: {required},
             dateTime: {required}
         },
         methods: {
             sendConfirmationEmail: function () {
-                // axios.get('/api/companies/' + this.companyId).then(response => {
-                //     this.companyName = response.data.data.name;
-                //
-                //     axios.get('/api/departments/' + this.departmentId).then(response => {
-                //         this.departmentName = response.data.data.department_name;
-                //
-                //         axios.post('/api/send/', {
-                //             companyName: this.companyName,
-                //             departmentName: this.departmentName,
-                //             dateTime: this.dateTime,
-                //             email: this.email
-                //         }).then(response => {
-                //         })
-                //     })
-                // })
+                axios.post('/api/send-qr-code/', {
+                    QRcodeId: this.QrCodeId,
+                    email: this.emailUser
+                }).then(response => {
+                })
             },
 
             onChange() {
@@ -210,25 +238,45 @@
                                 department_id: this.departmentIdEmployee,
                                 office_id: this.office,
                             })
-                        .then(response => {
-                                console.log(this.dateTime);
-                                console.log(this.note);
-                                console.log(this.employeeId);
-                                console.log(this.companyIdEmployee);
-                                console.log(this.departmentIdEmployee);
-                                console.log(this.office);
+                                .then(response => {
+                                    this.schedule_id = response.data.data.id;
 
+                                    console.log(this.dateTime);
+                                    console.log(this.note);
+                                    console.log(this.employeeId);
+                                    console.log(this.companyIdEmployee);
+                                    console.log(this.departmentIdEmployee);
+                                    console.log(this.office);
 
+                                    axios.post('/api/qrcodes', {
+                                        first_name: this.firstNameEmployee,
+                                        last_name: this.lastNameEmployee,
+                                        email: this.emailEmployee,
+                                        floor: this.floor,
+                                        office: this.office,
+                                        phone: this.phone,
+                                        visitor_id: this.visitor_id,
+                                        schedule_id: this.schedule_id,
+                                    }).then(response => {
+                                        this.QrCodeId = response.data.data.id;
+                                        console.log(this.QrCodeId);
+                                        axios.get('/api/qrcodes/' + this.QrCodeId).then(response => {
+                                            this.sendConfirmationEmail();
+                                            this.visitor_id = null;
+                                            this.fields = {};
+                                            this.success = true;
+                                        })
+                                    })
                                 })
-                            })
                         })
+                    })
                     .catch(error => {
                         if (error.response.status == 422) {
                             this.errors = error.response.data.errors;
                         }
                         console.log('Error');
                     })
-                .catch(error => {
+                    .catch(error => {
                         if (error.response.status == 422) {
                             this.errors = error.response.data.errors;
                         }
