@@ -39,4 +39,8 @@ Route::get('/manportal', function () {
 Route::get('/welcome-message', function () {
     return view('welcome-message');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {
+    return Inertia\Inertia::render('HostDashboard');
+})->name('dashboard');
 ?>
