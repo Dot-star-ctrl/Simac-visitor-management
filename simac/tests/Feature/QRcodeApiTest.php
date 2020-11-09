@@ -18,7 +18,7 @@ class QRcodeApiTest extends TestCase
     public function test_can_create_qrcode()
     {
         $formData = [
-            'code' => '123'
+            'first_name' => 'John'
         ];
 
         $this->post(route('qrcodes.store'), $formData)
@@ -32,7 +32,7 @@ class QRcodeApiTest extends TestCase
         $qrcode = \App\qrcode::factory()->create();
 
         $updatedData = [
-            'code' => '123'
+            'first_name' => 'John'
         ];
 
         $this->put(route('qrcodes.update', $qrcode), $updatedData)

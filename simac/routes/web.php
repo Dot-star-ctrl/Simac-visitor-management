@@ -20,6 +20,14 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/host-schedule-a-meeting',
     return Inertia\Inertia::render('host-schedule-a-meeting');
 })->name('host-schedule-a-meeting');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/reports', function () {
+    return Inertia\Inertia::render('Reports');
+})->name('reports');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/meetings', function () {
+    return Inertia\Inertia::render('MeetingsReceptionist');
+})->name('meetings');
+
 Route::get('/register', function () {
     return view('auth/register');
 })->name('register');
@@ -30,16 +38,5 @@ Route::get('/pre-register', function () {
 
 Route::get('/manportal', function () {
     return view('man-portal');
-});
-
-Route::get('/user-id', function () {
-    // Retrieve a piece of data from the session...
-    return $value = session('id');
-
-//    // Specifying a default value...
-//    $value = session('key', 'default');
-//
-//    // Store a piece of data in the session...
-//    session(['key' => 'value']);
 });
 ?>
