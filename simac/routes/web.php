@@ -39,4 +39,12 @@ Route::get('/pre-register', function () {
 Route::get('/manportal', function () {
     return view('man-portal');
 });
+
+Route::get('/welcome-message', function () {
+    return view('welcome-message');
+});
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {
+    return Inertia\Inertia::render('HostDashboard');
+})->name('dashboard');
 ?>
