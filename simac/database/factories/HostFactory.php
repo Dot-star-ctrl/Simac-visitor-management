@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Host;
-use App\Office;
+use App\Models\Host;
+use App\Models\Office;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class HostFactory extends Factory

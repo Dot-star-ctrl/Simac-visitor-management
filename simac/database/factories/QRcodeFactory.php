@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Qrcode;
-use App\Visitor;
-use App\Schedule;
+use App\Models\Qrcode;
+use App\Models\Visitor;
+use App\Models\Schedule;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class QrcodeFactory extends Factory

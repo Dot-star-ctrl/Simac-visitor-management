@@ -13,6 +13,6 @@ class DepartmentTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Department::factory()->count(1)->create();
+        \App\Models\Department::factory()->count(1)->create();
     }
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Qrcode;
+use App\Models\Employee;
+use App\Http\EmployeeController;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 
@@ -44,7 +46,8 @@ class QrcodeController extends Controller
                     ->setErrorCorrectionLevel('H')
                     ->setSize(4)
                     ->setMargin(2)
-                    ->svg();
+                    ->setOutFile(public_path('img.png'))
+                    ->png();
     
     }
 
