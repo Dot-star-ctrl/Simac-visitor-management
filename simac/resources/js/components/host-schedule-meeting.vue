@@ -96,24 +96,17 @@
                             </div>
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                                       for="office">
+                                       for="office_id">
                                     office
                                 </label>
-                                <input
-                                    class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-                                    id="office" type="text"
-                                    name="office" v-model.trim="$v.office.$model"
-                                    :class="{'is-invalid': validationStatus($v.office)}" placeholder="Office"/>
-
-<!--                                <select class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="office_id"-->
-<!--                                        name="officeId" v-model.trim="$v.office.$model"-->
-<!--                                        :class="{'is-invalid': validationStatus($v.office)}" placeholder="Office"-->
-<!--                                    <option value="">Select an office</option>-->
-<!--                                    <option v-for="office in offices" :value="office.id">-->
-<!--                                        {{office.office_name}}-->
-<!--                                    </option>-->
-<!--                                </select>-->
-
+                                <select class="form-control block w-full text-gray-700 border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="office_id"
+                                        name="officeId" v-model.trim="$v.office.$model"
+                                        :class="{'is-invalid': validationStatus($v.office)}" placeholder="Office">
+                                    <option value="">Select an office</option>
+                                    <option v-for="office in offices" :value="office.id">
+                                        {{office.id}}
+                                    </option>
+                                </select>
                                 <span v-if="!$v.office.required" class="invalid-feedback text-red-500 text-xs italic">Office field is required</span>
                             </div>
                         </div>
@@ -141,8 +134,6 @@
                 </div>
             </form>
         </div>
-<!--        <img src="QRcodes/14.png" height="100px" width="100px" />-->
-<!--        <img src="{{ URL::to('/') }}/QRcodes/14.png"/>-->
     </div>
 </template>
 <script>
@@ -152,6 +143,7 @@
 
         data() {
             return {
+                offices: null,
                 visitor_id: null,
                 schedule_id: null,
                 QrCodeId: null,
@@ -176,7 +168,7 @@
         },
 
         mounted() {
-
+            this.loadOffices();
         },
 
         validations: {
@@ -189,16 +181,27 @@
             dateTime: {required}
         },
         methods: {
+
             sendConfirmationEmail: function () {
                 axios.post('/api/send-qr-code/', {
                     QRcodeId: this.QrCodeId,
-                    email: this.emailUser
-                }).then(response => {
+                    email: this.emailUser,
+                    message: this.note,
+                    dateTime: this.dateTime,
+                }).then(response => {})
+                .catch(error => {
+                    if (error.response.status == 422) {
+                        this.errors = error.response.data.errors;
+                    }
+                    console.log('Error');
                 })
             },
 
-            onChange() {
-                // this.loadDepartments();
+            loadOffices: function () {
+                axios.get('/api/offices').then(response => {
+                    this.offices = response.data.data;
+                    console.log(this.offices);
+                })
             },
 
             validationStatus(validation) {

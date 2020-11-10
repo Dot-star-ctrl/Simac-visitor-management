@@ -11,7 +11,10 @@
 <p>{{$details['body']}}</p>
 <p>{{$details['companyName']}}</p>
 <p>{{$details['departmentName']}}</p>
-<p>{{$details['dateTime']}}</p>
+<p>{{$details['note']}}</p>
+<p>Meeting time proposed by you</p>
+<p>{{$details['proposed_start_dateTime']}}</p>
+<p>{{$details['proposed_end_dateTime']}}</p>
 <p>Thank you!</p>
 </body>
 </html>

@@ -33,8 +33,8 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::get('/pre-register', function () {
-    return view('pre-registration');
-});
+    return Inertia\Inertia::render('pre-registration');
+})->name('pre-register');
 
 Route::get('/manportal', function () {
     return view('man-portal');

@@ -10,10 +10,16 @@ class QRcodeMailController extends Controller
 {
     public function store(Request $request)
     {
+        if($request->message == ''){
+            $request->message = 'No meeting purpose provided';
+        }
+
         $details = [
             'title' => 'Mail from Simac',
-            'body' => 'Your QR code is generated.',
-            'qr_code_id' => $request->QRcodeId . '.',
+            'body' => 'Meeting invitation.',
+            'message' => 'Purpose of meeting: '. $request->message.'.',
+            'dateTime' => 'Meeting start time: ' . $request->dateTime . '.',
+            'qr_code_id' => $request->QRcodeId,
         ];
 
         Mail::to($request->email)->send(new QRcodeMailer($details));
