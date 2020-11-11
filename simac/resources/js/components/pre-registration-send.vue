@@ -1,7 +1,6 @@
 <template>
     <!-- component -->
     <div class="flex-grow lg:flex lg:justify-center lg:flex-grow-0">
-<!--        <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">-->
         <div class="m-4 rounded px-8 pt-6 pb-8 mb-4">
             <div class="pre-register bg-white px-6 py-8 rounded shadow-md text-black">
                 <form v-on:submit.prevent="submit">
@@ -16,18 +15,18 @@
                     <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-3"
                            name="firstName" v-model.trim="$v.firstName.$model"
                            :class="{'is-invalid': validationStatus($v.firstName)}" placeholder="First name"/>
-                    <div v-if="!$v.firstName.required" class="invalid-feedback">First name is required</div>
+                    <div v-if="!$v.firstName.required" class="invalid-feedback text-red-500 text-xs italic">First name is required</div>
 
                     <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-4"
                            name="lastName" v-model.trim="$v.lastName.$model"
                            :class="{'is-invalid': validationStatus($v.lastName)}" placeholder="Last Name"/>
-                    <div v-if="!$v.lastName.required" class="invalid-feedback">Last name is required</div>
+                    <div v-if="!$v.lastName.required" class="invalid-feedback text-red-500 text-xs italic">Last name is required</div>
 
                     <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-4"
                            name="email" v-model.trim="$v.email.$model"
                            :class="{'is-invalid': validationStatus($v.email)}" placeholder="Email"/>
-                    <div v-if="!$v.email.required" class="invalid-feedback">The email is required</div>
-                    <div v-if="!$v.email.email" class="invalid-feedback">The email is invalid</div>
+                    <div v-if="!$v.email.required" class="invalid-feedback text-red-500 text-xs italic">The email is required</div>
+                    <div v-if="!$v.email.email" class="invalid-feedback text-red-500 text-xs italic">The email is invalid</div>
 
                     <select class="block border border-grey-light w-full p-3 rounded mt-4" id="companyId"
                             name="companyId" @change="onChange()" v-model.trim="$v.companyId.$model"
@@ -40,7 +39,7 @@
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                         </svg>
                     </div>
-                    <div v-if="!$v.companyId.required" class="invalid-feedback">The company field is required</div>
+                    <div v-if="!$v.companyId.required" class="invalid-feedback text-red-500 text-xs italic">The company field is required</div>
 
                     <select class="block border border-grey-light w-full p-3 rounded mt-4" id="department_id"
                             name="departmentId" v-model.trim="$v.departmentId.$model"
@@ -55,17 +54,33 @@
                             <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
                         </svg>
                     </div>
-                    <div v-if="!$v.departmentId.required" class="invalid-feedback">The department field is required
+                    <div v-if="!$v.departmentId.required" class="invalid-feedback text-red-500 text-xs italic">The department field is required
                     </div>
 
-
-                    <div class="block border border-grey-light w-full p-3 rounded mt-4">
-                        <label class="pr-20" for="dateTime">Select Date:</label>
-                        <input type="datetime-local" id="dateTime" name="dateTime" v-model.trim="$v.dateTime.$model"
-                               :class="{'is-invalid': validationStatus($v.dateTime)}"/>
+                    <label class="block mt-4">
+                        <span class="text-gray-700">Purpose of meeting / additional information</span>
+                        <textarea type="input" class="form-textarea mt-1 block w-full" rows="3" id="note" name="note"
+                                  v-model="note" placeholder="Enter purpose of the meeting."></textarea>
+                    </label>
+                    <br>
+                    <p>Propose meeting time</p>
+                    <br>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                            <span class="text-gray-700">Meeting time start</span>
+                            <input type="datetime-local" class="block border border-grey-light w-full p-3 rounded"
+                                   id="startDateTime" name="startDateTime" v-model.trim="$v.startDateTime.$model"
+                                   :class="{'is-invalid': validationStatus($v.startDateTime)}" @change="onChange()">
+                            <span v-if="!$v.startDateTime.required" class="invalid-feedback text-red-500 text-xs italic">The start datetime field is required</span>
+                        </div>
+                        <div class="w-full md:w-1/2 px-1 mb-6 md:mb-0">
+                            <span class="text-gray-700">Meeting time end</span>
+                            <input type="datetime-local" class="block border border-grey-light w-full p-3 rounded"
+                                   id="endDateTime" name="endDateTime" v-model.trim="$v.endDateTime.$model"
+                                   :class="{'is-invalid': validationStatus($v.endDateTime)}" @change="onChange()">
+                            <span v-if="!$v.endDateTime.required" class="invalid-feedback text-red-500 text-xs italic">The end datetime field is required</span>
+                        </div>
                     </div>
-                    <div v-if="!$v.dateTime.required" class="invalid-feedback">The datetime field is required</div>
-
                     <button type="submit"
                             class="block mx-auto shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white text-xs py-3 mt-4 px-10 rounded">
                         Send
@@ -81,19 +96,13 @@
                     </a>
                 </div>
             </div>
-
-            <div class="text-grey-dark mt-6">
-                Already have an account?
-                <a class="no-underline border-b border-blue text-blue" href="../login/">
-                    Log in
-                </a>.
-            </div>
         </div>
     </div>
 </template>
 
 <script>
     import {required, email} from 'vuelidate/lib/validators'
+
     export default {
 
         data() {
@@ -110,7 +119,9 @@
                 companyName: '',
                 departmentId: '',
                 departmentName: '',
-                dateTime: ''
+                note: '',
+                startDateTime: '',
+                endDateTime: ''
             }
         },
 
@@ -124,7 +135,8 @@
             email: {required, email},
             companyId: {required},
             departmentId: {required},
-            dateTime: {required}
+            startDateTime: {required},
+            endDateTime: {required}
         },
         methods: {
 
@@ -149,7 +161,9 @@
                         axios.post('/api/send/', {
                             companyName: this.companyName,
                             departmentName: this.departmentName,
-                            dateTime: this.dateTime,
+                            note: this.note,
+                            proposed_start_dateTime: this.startDateTime,
+                            proposed_end_dateTime: this.endDateTime,
                             email: this.email
                         }).then(response => {
                         })
@@ -159,10 +173,16 @@
 
             onChange() {
                 this.loadDepartments();
+                this.checkDate();
             },
 
             validationStatus(validation) {
                 return typeof validation != "undefined" ? validation.$error : false;
+            },
+
+            checkDate: function () {
+                var dateString = document.getElementById('startDateTime').value;
+                document.getElementById('endDateTime').min = dateString;
             },
 
             submit() {
@@ -177,10 +197,13 @@
                             visitor_id: this.visitor_id,
                             company_id: this.companyId,
                             department_id: this.departmentId,
-                            dateTime: this.dateTime
+                            note: this.note,
+                            proposed_start_dateTime: this.startDateTime,
+                            proposed_end_dateTime: this.endDateTime
                         })
                             .then(response => {
                                 this.sendConfirmationEmail();
+                                console.log(this.note);
                                 this.visitor_id = null;
                                 this.fields = {};
                                 this.success = true;

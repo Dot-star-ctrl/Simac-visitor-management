@@ -7,14 +7,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Schedule extends Model
 {
-    use HasFactory; 
-    
+    use HasFactory;
+
     protected $fillable = [
         'host_id',
+        'company_id',
+        'department_id',
         'dateTime',
         'office_id',
         'host_message',
-        'accepted',
     ];
     public  function host()
     {

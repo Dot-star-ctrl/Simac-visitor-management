@@ -9,12 +9,11 @@
 <body>
 <h1>{{$details['title']}}</h1>
 <p>{{$details['body']}}</p>
-<p>{{$details['companyName']}}</p>
-<p>{{$details['departmentName']}}</p>
-<p>{{$details['note']}}</p>
-<p>Meeting time proposed by you</p>
-<p>{{$details['proposed_start_dateTime']}}</p>
-<p>{{$details['proposed_end_dateTime']}}</p>
+<p>{{$details['message']}}</p>
+<p>{{$details['dateTime']}}</p>
+<p>Your QR code:</p>
+<p>http://127.0.0.1:8000/api/qrcodes/{{$details['qr_code_id']}}</p>
 <p>Thank you!</p>
 </body>
 </html>
+<?php

@@ -44,10 +44,10 @@ class ScheduleController extends Controller
     {
         $request -> validate([
             'host_id'       => 'required',
+            'company_id'    => 'required',
+            'department_id' => 'required',
             'dateTime'      => 'required',
             'office_id'     => 'required',
-            'host_message'  => 'required',
-            'accepted'      => 'required',
         ]);
 
         $schedule = Schedule::create($request ->all());

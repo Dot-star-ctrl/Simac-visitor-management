@@ -16,6 +16,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/host-schedule-a-meeting', function () {
+    return Inertia\Inertia::render('host-schedule-a-meeting');
+})->name('host-schedule-a-meeting');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/reports', function () {
     return Inertia\Inertia::render('Reports');
 })->name('reports');
@@ -29,8 +33,8 @@ Route::get('/register', function () {
 })->name('register');
 
 Route::get('/pre-register', function () {
-    return view('pre-registration');
-});
+    return Inertia\Inertia::render('pre-registration');
+})->name('pre-register');
 
 Route::get('/manportal', function () {
     return view('man-portal');

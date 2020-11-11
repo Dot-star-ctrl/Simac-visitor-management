@@ -16,11 +16,12 @@ class QrcodeController extends Controller
      * )
      */
     public function show(Qrcode $Qrcode){
+
         $firstName = $Qrcode -> first_name;
         $lastName = $Qrcode -> last_name;
         $title = 'Mr.';
         $email = $Qrcode -> email;
-        
+
         // Addresses
         $workAddress = [
         'type' => 'work',
@@ -28,24 +29,26 @@ class QrcodeController extends Controller
         'floor' => $Qrcode -> floor,
         'number' => $Qrcode -> office,
         ];
-        
+
         $addresses = [$workAddress];
-        
+
         // Phones
         $workPhone = [
             'type' => 'work',
             'number' => $Qrcode -> phone,
             'cellPhone' => false
         ];
-        
+
         $phones = [$workPhone];
-        
+
         return \QRCode::vCard($firstName, $lastName, $title, $email, $addresses, $phones)
                     ->setErrorCorrectionLevel('H')
                     ->setSize(4)
                     ->setMargin(2)
-                    ->svg();
-    
+//                    ->setOutfile(public_path('/QRcodes/'. $Qrcode -> id .'.png'))
+//                    ->png();
+        ->svg();
+
     }
 
     /**
@@ -68,9 +71,9 @@ class QrcodeController extends Controller
     public function store(Request $request)
     {
         $request -> validate([
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-            'email'         => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
             'floor'         => 'required',
             'office' => 'required',
             'phone'  => 'required',
@@ -118,7 +121,7 @@ class QrcodeController extends Controller
     $lastName = 'Doe';
     $title = 'Mr.';
     $email = 'john.doe@example.com';
-    
+
     // Addresses
     $workAddress = [
        'type' => 'work',
@@ -126,18 +129,18 @@ class QrcodeController extends Controller
        'floor' => '1',
        'number' => '1.132B',
     ];
-    
+
     $addresses = [$workAddress];
-    
+
     // Phones
     $workPhone = [
         'type' => 'work',
         'number' => '001 555-1234',
         'cellPhone' => false
     ];
-    
+
     $phones = [$workPhone];
-    
+
     return \QRCode::vCard($firstName, $lastName, $title, $email, $addresses, $phones)
                 ->setErrorCorrectionLevel('H')
                 ->setSize(4)

@@ -15,9 +15,9 @@ use App\Visitor;
 |
 */
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+     return $request->user()->id;
+ });
 
 //GET Statements
 
@@ -62,5 +62,8 @@ Route::apiResource('/pre-register', 'PreRegisterController');
 
 Route::apiResource('/send','MailController');
 
+Route::apiResource('/send-qr-code','QRcodeMailController');
+
 //meetings + reports
+
 
