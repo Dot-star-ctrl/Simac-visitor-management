@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Qrcode;
+use App\Models\Qrcode;
 use App\Visitor;
 use App\Schedule;
 use Illuminate\Database\Eloquent\Factories\Factory;

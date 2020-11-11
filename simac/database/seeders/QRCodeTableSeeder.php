@@ -13,6 +13,6 @@ class QrcodeTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Qrcode::factory()->count(1)->create();
+        \App\Models\Qrcode::factory()->count(1)->create();
     }
 }
