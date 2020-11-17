@@ -1,6 +1,6 @@
 <template>
     <div class="m-5">
-        <div v-for="visitor in visitors" v-bind:key="visitor.id">
+        <div v-for="visitor in visitors" v-bind:key="visitor.id" :ref="visitor.id">
             <label>Name of the visitor: {{visitor.first_name}} {{visitor.last_name}}</label>
             <label class="float-right">Date of the visit: {{checkin.dateTime}}</label> 
         </div>
