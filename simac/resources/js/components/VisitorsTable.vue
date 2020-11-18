@@ -57,7 +57,6 @@
                         if(!this.visitorIds.includes(this.visitors[i].id)){
                             this.visitorIds.push(this.visitors[i].id);
                         }
-                        //console.log(this.visitorIds);
                     }     
                 }
 
@@ -69,7 +68,6 @@
                     }
                 }
 
-                //this.checkins = [];
                 console.log(this.filteredCheckIns);
             }
         },
