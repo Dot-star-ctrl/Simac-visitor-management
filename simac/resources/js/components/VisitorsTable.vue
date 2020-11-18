@@ -35,16 +35,19 @@
 
         methods: {
             searchSuggest: function () {
-                if(this.searcher.length > 5){
+                if(this.searcher.length > 2){
                     this.status = false;
-                    this.test(this.searcher);
+                    this.filterVisitors(this.searcher);
                 }
                 else{
+                    this.filteredCheckIns = [];
+                    this.visitorIds = [];
+                    console.log(this.filteredCheckIns);
                     this.status = true;
                 }    
             },
 
-            test: function(value){
+            filterVisitors: function(value){
                 for(var i = 0; i < this.visitors.length; i++){
 
                     value = value.charAt(0).toUpperCase() + value.slice(1);
