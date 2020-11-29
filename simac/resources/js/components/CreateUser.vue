@@ -5,8 +5,8 @@
 
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
                  role="alert" v-show="success">
-                <strong class="font-bold">Success!</strong>
-                <span class="block sm:inline">Check your email for confirmation</span>
+                <strong class="font-bold">Created!</strong>
+                <span class="block sm:inline">Try logging in</span>
             </div>
 
             <div>
@@ -25,7 +25,6 @@
                        name="lastName" v-model.trim="$v.lastName.$model"
                        :class="{'is-invalid': validationStatus($v.lastName)}" placeholder="Last Name"/>
                 <div v-if="!$v.lastName.required && $v.lastName.$dirty" class="invalid-feedback text-red-500 text-xs italic">Last name is required</div>
-
 
                 <input type="password" class="form-control block border border-grey-light w-full p-4 rounded mt-4"
                        name="password" v-model.trim="$v.password.$model"
@@ -83,15 +82,17 @@ export default {
         },
         submit(v) {
             if (!v.$invalid) {
-                let user = {
-                    firstName: v.firstName.$model,
-                    lastName: v.lastName.$model,
-                    email: v.email.$model,
-                    password: v.password.$model,
-                }
+                let body = new FormData();
+                body.append('firstName', v.firstName.$model);
+                body.append('lastName', v.lastName.$model);
+                body.append('email', v.email.$model);
+                body.append('password', v.password.$model);
+                body.append('password_confirmation', v.password.$model);
 
-                axios.post('/api/users', user).then(response => {                        
-                    console.log(response);
+                axios.post('/api/users', body).then(response => {                        
+                    if (response.status == 200) {                            
+                        this.success = true;
+                    }
                 });
             } else {
                 console.log('gowno');
