@@ -13,7 +13,7 @@
                     <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-3"
                            name="firstName" v-model.trim="$v.firstName.$model"
                            :class="{'is-invalid': validationStatus($v.firstName)}" placeholder="First name"/>
-                    <div v-if="!$v.firstName.required &&$v.lastName.$dirty" class="invalid-feedback text-red-500 text-xs italic">First name is required</div>
+                    <div v-if="!$v.firstName.required && $v.firstName.$dirty" class="invalid-feedback text-red-500 text-xs italic">First name is required</div>
 
                     <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-4"
                            name="lastName" v-model.trim="$v.lastName.$model"
@@ -30,6 +30,11 @@
                 <div class="mx-2 border-r-2 border-gray-200"></div>
 
                 <div class="mx-4 my-2 w-2/3">
+                    <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-3"
+                           name="username" v-model.trim="$v.username.$model"
+                           :class="{'is-invalid': validationStatus($v.username)}" placeholder="Username"/>
+                    <div v-if="!$v.username.required && $v.username.$dirty" class="invalid-feedback text-red-500 text-xs italic">First name is required</div>
+
                     <input type="password" class="form-control block border border-grey-light w-full p-4 rounded mt-4"
                            name="password" v-model.trim="$v.password.$model"
                            :class="{'is-invalid': validationStatus($v.password)}" placeholder="Password"/>
@@ -62,6 +67,7 @@ export default {
         firstName: {required},
         lastName: {required},
         email: {required, email},
+        username: {required},
         password: {
             required,
             minLength: minLength(8),
@@ -77,6 +83,7 @@ export default {
             firstName: '',
             lastName: '',
             email: '',
+            username: '',
             password: '',
             passwordCheck: '',
         }
