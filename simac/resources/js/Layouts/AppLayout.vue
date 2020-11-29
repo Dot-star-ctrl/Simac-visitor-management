@@ -23,6 +23,9 @@
                             <jet-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
                                 Meetings
                             </jet-nav-link>
+                            <jet-nav-link :href="route('users')" :active="$page.currentRouteName == 'users'">
+                                User management
+                            </jet-nav-link>
                         </div>
                     </div>
 
@@ -85,7 +88,7 @@
                                         </div>
 
                                         <template v-for="team in $page.user.all_teams">
-                                            <form @submit.prevent="switchToTeam(team)">
+                                            <form @submit.prevent="switchToTeam(team)" :key="team.name">
                                                 <jet-dropdown-link as="button">
                                                     <div class="flex items-center">
                                                         <svg v-if="team.id == $page.user.current_team_id" class="mr-2 h-5 w-5 text-green-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -132,6 +135,9 @@
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
                         Meetings
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link :href="route('users')" :active="$page.currentRouteName == 'users'">
+                        User management
                     </jet-responsive-nav-link>
                 </div>
 
