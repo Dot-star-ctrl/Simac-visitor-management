@@ -32,10 +32,6 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/users', function () {
     return Inertia\Inertia::render('Users');
 })->name('users');
 
-Route::get('/register', function () {
-    return view('auth/register');
-})->name('register');
-
 Route::get('/pre-register', function () {
     return Inertia\Inertia::render('pre-registration');
 })->name('pre-register');

@@ -45,6 +45,9 @@ Route::apiResource('/employees', 'EmployeeController');
 //Host
 Route::apiResource('/hosts', 'HostController');
 
+//User
+Route::apiResource('/users', 'UserController');
+
 //Office
 Route::apiResource('/offices', 'OfficeController');
 

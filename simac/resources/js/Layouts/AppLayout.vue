@@ -24,7 +24,7 @@
                                 Meetings
                             </jet-nav-link>
                             <jet-nav-link :href="route('users')" :active="$page.currentRouteName == 'users'">
-                                User management
+                                Add user
                             </jet-nav-link>
                         </div>
                     </div>

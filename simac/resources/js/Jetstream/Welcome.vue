@@ -2,7 +2,7 @@
     <div>
         <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
             <div class="text-2xl">
-				Hello, <span class="text-red-700">{{ $page.user.name }}</span>!
+				Hello! <!-- add employee first name here -->
             </div>
         </div>
 
