@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Host;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
+use Illuminate\Support\Facades\DB;
 /**
  * @OA\Tag(
  *     name="Host",
@@ -25,8 +26,18 @@ class HostController extends Controller
         return new GeneralResource($host);
     }
 
-    public function index() : GeneralResourceCollection
+    public function index()
     {
+        if (isset($_GET['cid']) && isset($_GET['did'])) {
+            $company_id = $_GET['cid'];
+            $department_id = $_GET['did'];
+
+            return DB::table('employees')->where([
+                ['company_id', $company_id],
+                ['department_id', $department_id],
+            ]);
+        }
+
         return new GeneralResourceCollection(Host::paginate());
     }
 

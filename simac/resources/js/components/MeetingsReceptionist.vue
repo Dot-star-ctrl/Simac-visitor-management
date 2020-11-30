@@ -31,8 +31,6 @@
 import MeetingThumb from "@/components/MeetingThumb";
 import MeetingOverview from "@/components/MeetingOverview";
 
-export const bus = new Vue();
-
 export default {
   components: {
     MeetingThumb,
@@ -40,43 +38,26 @@ export default {
   },
   data() {
     return {
-      meetings: this.addMeetings(),
-      currMeeting: { },
+      meetings: [],
+      currMeeting: {},
     };
   },
   methods: {
-    addMeetings: function () {
-      let meetings = [];
-      let name = "";
-
-      for (let i = 0; i < 20; i++) {
-        if (i % 2 == 0) name = "John"; 
-        else if (i % 3 == 0) name = "Anna"; 
-        else if (i % 4 == 0) name = "Tom"; 
-        else  name = "Test"; 
-        meetings.push({
-          visitor_id: i,
-          name: name,
-          company_id: 23,
-          departmend_id: 53,
-          note: "Lorem ipsum dolor sit amet",
-          proposed_start: "12:30",
-          proposed_end: "13:00",
-          classname: "",
-        });
-      }
-
-      return meetings;
+    getMeetings: function () {
+        axios.get('/api/visitrequests').then(response => {
+            this.meetings = response.data.data;
+            this.currMeeting = this.meetings[0];
+        })
     },
     focusMeeting: function(m) {
         this.currMeeting.classname = '',
-        m.classname="bg-red-50";
+        m.classname = "bg-red-50";
 
         this.currMeeting = m;
     }
   },
-  created() {
-      this.currMeeting = this.meetings[0];
-  }
+  mounted() {
+      this.getMeetings();
+  },
 };
 </script>

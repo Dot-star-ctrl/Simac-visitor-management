@@ -1,6 +1,6 @@
 <template>
     <div class="p-2 text-xl">
-        <h1 class="p-2 text-center text-2xl">Meeting with <span class="text-red-700">{{ name }}</span></h1>
+        <h1 class="p-2 text-center text-2xl">Meeting with <span class="text-red-700">{{ visitor.first_name + ' ' + visitor.last_name }}</span></h1>
         <div class="flex p-2 border-b border-gray-200">
             <div class="w-2/5 p-4 text-xl border-r border-gray-200">
                 <h1>Start: <span class="text-red-700">{{ proposed_start }}</span></h1>
@@ -43,14 +43,32 @@
         data() {
             return {
                 visitor_id: this.meetingObj.visitor_id,
+                visitor: {},
                 name: this.meetingObj.name,
                 company_id: this.meetingObj.company_id,
                 department_id: this.meetingObj.department_id,
                 notes: this.meetingObj.note,
-                proposed_start: this.meetingObj.proposed_start,
-                proposed_end: this.meetingObj.proposed_end,
+                proposed_start: this.meetingObj.proposed_start_dateTime,
+                proposed_end: this.meetingObj.proposed_end_dateTime,
                 host_id: '',
+                hosts: [],
             }
         },
+        methods: {
+            getVisitor() {
+                axios.get('/api/visitors/' + this.visitor_id).then(response => {
+                    this.visitor = response.data.data;
+                })
+            },
+            getHosts() {
+                axios.get('/api/hosts/' + this.host_id).then(response => {
+                    console.log(response);
+                })
+            }
+        },
+        mounted() {
+            this.getVisitor();
+            this.getHosts();
+        }
     }
 </script>

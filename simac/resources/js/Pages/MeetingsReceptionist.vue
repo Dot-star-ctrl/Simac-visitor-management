@@ -12,7 +12,7 @@
 
 <script>
     import AppLayout from '@/Layouts/AppLayout'
-    import MeetingsReceptionist from '@/components/MeetingsR'
+    import MeetingsReceptionist from '@/components/MeetingsReceptionist'
 
     export default {
         components: {
