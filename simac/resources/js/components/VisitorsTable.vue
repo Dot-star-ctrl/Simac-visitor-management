@@ -1,14 +1,14 @@
 <template>
     <div v-if="status" >
-        <input v-model="searcher" class="border-gray-300 border-2 overflow-hidden m-5 p-1" placeholder="Search for a Visitor" type="text" @keyup="searchSuggest" />
+        <input v-model="searcher" class="hover:border-gray-400 ease-in duration-200 border-gray-100 border-2 rounded-md overflow-hidden m-5 p-1" placeholder="Visitor Name" type="text" @keyup="searchSuggest" />
         <div v-for="checkin in checkins" v-bind:key="checkin.id">
-            <visitors-table-item class="bg-gray-300 p-2 overflow-hidden shadow-xl sm:rounded-lg" v-bind:checkin="checkin" />
+            <visitors-table-item class="bg-gray-100 p-2 overflow-hidden shadow-xl sm:rounded-lg" v-bind:checkin="checkin" />
         </div>
     </div>
     <div v-else>
-        <input v-model="searcher" class="border-gray-300 border-2 overflow-hidden m-5 p-1" placeholder="Search for a Visitor" type="text" @keyup="searchSuggest" />
+        <input v-model="searcher" class="border-gray-100 border-2 rounded-md overflow-hidden m-5 p-1" placeholder="Visitor Name" type="text" @keyup="searchSuggest" />
         <div v-for="checkin in filteredCheckIns" v-bind:key="checkin.id">
-            <visitors-table-item class="bg-gray-300 p-2 overflow-hidden shadow-xl sm:rounded-lg" v-bind:checkin="checkin" />
+            <visitors-table-item class="bg-gray-100 p-2 overflow-hidden shadow-xl sm:rounded-lg" v-bind:checkin="checkin" />
         </div>
     </div>
 </template>
