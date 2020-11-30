@@ -32,13 +32,14 @@
         },
         methods: {
             getEmployeeData(user) {
-                axios.get('/api/employees/' + user.id).then(response => {
-                    let data = response.data.data;
+                axios.get('/api/employees?uid=' + user.id).then(response => {
+                    let data = response.data[0];
                     this.username = data.first_name;
                 })
             },
         },
         mounted() {
+            console.log('sznio');
             this.getEmployeeData(this.$page.user);
         }
     }
