@@ -38,7 +38,8 @@
                             <p v-if="visit.note != null">Note: {{visit.note}}</p>
                         </div>
                     </div>
-                    
+
+                    <button v-on:click="goBack" class="bg-red-600 p-2 rounded-lg shadow-md text-white mt-2 hover:bg-red-700 ease-in duration-200">Go Back</button>
 
                 </div>
             </div>
@@ -90,6 +91,15 @@
                 axios.get('/api/visit-requests/visitorid/' + this.visitorId)
                      .then(response => this.visit_req = response.data)
                      .catch(error => alert("This email is not in our database. Please pre register first."));
+            },
+            goBack(){
+
+                this.email = '';
+                this.firstName = '';
+                this.lastName = '';
+                this.visitorId = null;
+                this.visit_req = [];
+
             }
         }
     }
