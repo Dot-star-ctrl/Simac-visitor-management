@@ -20,6 +20,7 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
+        "spatie/browsershot": "^3.41",
         "tightenco/ziggy": "^0.9.4",
         "werneckbh/laravel-qr-code": "^0.1.3"
     },

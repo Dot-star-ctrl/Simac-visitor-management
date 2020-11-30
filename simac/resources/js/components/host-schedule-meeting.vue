@@ -188,6 +188,7 @@
                     email: this.emailUser,
                     message: this.note,
                     dateTime: this.dateTime,
+                    schedule_id: this.schedule_id
                 }).then(response => {})
                 .catch(error => {
                     if (error.response.status == 422) {
@@ -237,6 +238,7 @@
                                 dateTime: this.dateTime,
                                 host_message: this.note,
                                 host_id: this.employeeId,
+                                visitor_id: this.visitor_id,
                                 company_id: this.companyIdEmployee,
                                 department_id: this.departmentIdEmployee,
                                 office_id: this.office,

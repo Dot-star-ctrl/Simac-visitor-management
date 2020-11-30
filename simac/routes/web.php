@@ -41,10 +41,33 @@ Route::get('/manportal', function () {
 });
 
 Route::get('/welcome-message', function () {
-    return view('welcome-message');
+    return view('welcome-message',);
 });
+
+Route::get('/generate-badge/{schedule?}', function ($schedule = null) {
+    return Inertia\Inertia::render('Generate-visitor-badge',['schedule' =>$schedule]);
+})->name('generate-badge');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {
     return Inertia\Inertia::render('HostDashboard');
 })->name('dashboard');
+
+Route::get('images/{filename}', function ($filename)
+{
+    $path = storage_path($filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
 ?>
+
+
