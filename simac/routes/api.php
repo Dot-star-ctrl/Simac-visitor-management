@@ -22,6 +22,7 @@ use App\Visitor;
 //GET Statements
 
 //Visitor
+Route::get('/visitors/byemail/{email}', 'VisitorController@getVisitor');
 Route::apiResource('/visitors', 'VisitorController');
 
 //Account
@@ -56,14 +57,14 @@ Route::apiResource('/schedules', 'ScheduleController');
 
 Route::apiResource('/departments', 'DepartmentController');
 
-Route::apiResource('/visitrequests', 'VisitRequestController');
+Route::get('/visit-requests/visitorid/{visitor_id}', 'VisitRequestController@getUser');
+Route::apiResource('/visit-requests', 'VisitRequestController');
 
 Route::apiResource('/pre-register', 'PreRegisterController');
 
 Route::apiResource('/send','MailController');
 
 Route::apiResource('/send-qr-code','QRcodeMailController');
-
 //meetings + reports
 
 

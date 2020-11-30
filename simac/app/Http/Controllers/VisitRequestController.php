@@ -6,6 +6,7 @@ use App\Company;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 use App\VisitRequest;
+use App\Visitor;
 use Illuminate\Http\Request;
 
 class VisitRequestController extends Controller
@@ -74,5 +75,12 @@ class VisitRequestController extends Controller
         $visitRequest -> delete();
 
         return response() -> json();
+    }
+
+    public function getUser($visitor_id)
+    {
+        $visitreq = VisitRequest::where("visitor_id", $visitor_id)->get();
+
+        return $visitreq;
     }
 }

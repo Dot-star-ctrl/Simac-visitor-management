@@ -36,6 +36,10 @@ Route::get('/pre-register', function () {
     return Inertia\Inertia::render('pre-registration');
 })->name('pre-register');
 
+Route::get('/personal-info', function () {
+    return Inertia\Inertia::render('personal-info');
+})->name('personal-info');
+
 Route::get('/manportal', function () {
     return view('man-portal');
 });

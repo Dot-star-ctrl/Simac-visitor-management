@@ -121,7 +121,7 @@
                 departmentName: '',
                 note: '',
                 startDateTime: '',
-                endDateTime: ''
+                endDateTime: '',
             }
         },
 
@@ -189,11 +189,13 @@
                 this.$v.$touch();
                 if (this.$v.$pendding || this.$v.$error) return;
 
-                axios.post('/api/visitors', {first_name: this.firstName, last_name: this.lastName, email: this.email})
-                    .then(response => {
-                        this.visitor_id = response.data.data.id;
-
-                        axios.post('/api/visitrequests', {
+                //check if email is already in the database
+                axios.get('/api/visitors/byemail/' + this.email)
+                     .then(response => this.checkVisitorEmail(response.data.id))
+                     .catch(error => this.checkVisitorEmail(null));
+            },
+            addVisitRequest(){
+                axios.post('/api/visit-requests', {
                             visitor_id: this.visitor_id,
                             company_id: this.companyId,
                             department_id: this.departmentId,
@@ -214,7 +216,20 @@
                                 }
                                 console.log('Error');
                             });
+            },
+            checkVisitorEmail(result){
+                if(result != null){
+                    //create only visit request
+                    this.visitor_id = result;
+                    this.addVisitRequest();
+                    
+                } else {
+                    //create visitor and visit request
+                    axios.post('/api/visitors', {first_name: this.firstName, last_name: this.lastName, email: this.email})
+                    .then(response => {
+                        this.visitor_id = response.data.data.id;
 
+                        this.addVisitRequest();
                     })
                     .catch(error => {
                         if (error.response.status == 422) {
@@ -222,6 +237,7 @@
                         }
                         console.log('Error');
                     });
+                }
             }
         }
     }

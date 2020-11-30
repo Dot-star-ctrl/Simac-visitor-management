@@ -57,4 +57,14 @@ class VisitorController extends Controller
 
         return response() -> json();
     }
+
+    public function getVisitor($email)
+    {
+        $visitor = Visitor::where("email", $email)->firstOrFail();
+
+        if($visitor != null)
+        return $visitor;
+
+        return null;
+    }
 }
