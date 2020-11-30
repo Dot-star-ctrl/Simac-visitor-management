@@ -8,13 +8,14 @@
                 <strong class="font-bold">Created!</strong>
                 <span class="block sm:inline">Try logging in</span>
             </div>
+
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
                  role="alert" v-else-if="success == false">
                 <strong class="font-bold">Error</strong>
                 <span class="block sm:inline">{{ msg }}</span>
             </div>
 
-            <div class="flex m-4">
+            <div class="m-4 md:flex">
                 <div>
                     <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-3"
                            name="email" v-model.trim="$v.email.$model"
@@ -45,7 +46,8 @@
                     <div v-if="!$v.passwordCheck.sameAsPassword" class="invalid-feedback text-red-500 text-xs italic">Passwords do not match</div>
                 </div>
 
-                <div class="mx-8 border-l-2 border-gray-200"></div>
+                <div class="hidden 
+                md:block md:mx-8 md:border-l-2 md:border-gray-200"></div>
 
                 <div>
                     <p>Choose company</p>
@@ -79,7 +81,7 @@
 </template>
 
 <script>
-import {required, email, minLength, maxLength, sameAs} from 'vuelidate/lib/validators';
+import {required, requiredIf, email, minLength, maxLength, sameAs} from 'vuelidate/lib/validators';
 import axios from 'axios';
 
 export default {
@@ -96,7 +98,7 @@ export default {
             sameAsPassword: sameAs('password'),
         },
         company: {required},
-        department: {required},
+        department: {required: requiredIf(!false)}
     },
     data() {
         return {
@@ -129,12 +131,11 @@ export default {
                 body.append('password_confirmation', v.password.$model);
 
                 axios.post('/api/users', body).then(response => {                        
-                    if (response.status == 201) {                            
-                        this.success = true;
-                    } else {
-                        this.msg = "Something went wrong... Try again";
-                    }
-                });
+                    this.success = true;
+                }).catch(err => {
+                    this.success = false;
+                    this.msg = "Please check the data"; 
+                })
             } else {
                 this.success = false;
                 this.msg = "Fill in all of the fields";
