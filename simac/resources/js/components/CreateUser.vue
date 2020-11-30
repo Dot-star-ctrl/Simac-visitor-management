@@ -68,6 +68,14 @@
                             {{department.department_name}}
                         </option>
                     </select>
+
+                    <p class="mt-2">Choose account type</p>
+                    <select class="block border border-grey-light w-full p-3 rounded mt-1" id="department"
+                            name="department" v-model.trim="$v.account.$model"
+                            :class="{'is-invalid': validationStatus($v.account)}">
+                        <option value="employee">Employee</option>
+                        <option value="receptionist">Receptionist</option>
+                    </select>
                 </div>
             </div>
 
@@ -98,7 +106,8 @@ export default {
             sameAsPassword: sameAs('password'),
         },
         company: {required},
-        department: {required: requiredIf(!false)}
+        department: {required: requiredIf(!false)},
+        account: {required},
     },
     data() {
         return {
@@ -113,6 +122,7 @@ export default {
             company: null,
             departments: [],
             department: null,
+            account: null,
         }
     },
     methods: {
@@ -126,6 +136,7 @@ export default {
                 body.append('last_name', v.lastName.$model);
                 body.append('company_id', v.company.$model);
                 body.append('department_id', v.department.$model);
+                body.append('type', v.account.$model)
                 body.append('email', v.email.$model);
                 body.append('password', v.password.$model);
                 body.append('password_confirmation', v.password.$model);

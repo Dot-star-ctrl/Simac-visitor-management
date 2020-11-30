@@ -39,7 +39,7 @@
                                     </button>
 
                                     <button v-else class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                        <div>{{ $page.user.name }}</div>
+                                        <div>{{ username }}</div>
 
                                         <div class="ml-1">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -149,7 +149,7 @@
                         </div>
 
                         <div class="ml-3">
-                            <div class="font-medium text-base text-gray-800">{{ $page.user.name }}</div>
+                            <div class="font-medium text-base text-gray-800">{{ username }}</div>
                             <div class="font-medium text-sm text-gray-500">{{ $page.user.email }}</div>
                         </div>
                     </div>
@@ -239,6 +239,7 @@
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
 
     export default {
+        props: ['username'],
         components: {
             JetApplicationLogo,
             JetApplicationMark,
@@ -274,6 +275,6 @@
             path() {
                 return window.location.pathname
             }
-        }
+        },
     }
 </script>
