@@ -21,6 +21,7 @@ class CreateSchedulesTable extends Migration
         });
         Schema::table('schedules', function (Blueprint $table) {
             $table->foreignId('host_id')->constrained('hosts');
+            $table->foreignId('visitor_id')->constrained('visitors');
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('department_id')->constrained('departments');
             $table->foreignId('office_id')->constrained('offices');

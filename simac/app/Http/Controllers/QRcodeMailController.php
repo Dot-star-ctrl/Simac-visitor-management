@@ -20,6 +20,7 @@ class QRcodeMailController extends Controller
             'message' => 'Purpose of meeting: '. $request->message.'.',
             'dateTime' => 'Meeting start time: ' . $request->dateTime . '.',
             'qr_code_id' => $request->QRcodeId,
+            'schedule_id' => $request->schedule_id,
         ];
 
         Mail::to($request->email)->send(new QRcodeMailer($details));
