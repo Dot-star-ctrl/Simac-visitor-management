@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Schedule;
+use App\Models\Schedule;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 /**
@@ -44,10 +44,14 @@ class ScheduleController extends Controller
     {
         $request -> validate([
             'host_id'       => 'required',
-            'company_id'    => 'required',
-            'department_id' => 'required',
             'dateTime'      => 'required',
             'office_id'     => 'required',
+            'host_message'  => 'required',
+            'department_id' => 'required',
+            'company_id'    => 'required',
+            'floor'         => 'required',
+            'phone_number'  => 'required',
+            'visitor_id'  => 'required'
         ]);
 
         $schedule = Schedule::create($request ->all());

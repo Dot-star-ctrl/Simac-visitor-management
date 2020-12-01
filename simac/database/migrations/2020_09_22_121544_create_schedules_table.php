@@ -17,6 +17,8 @@ class CreateSchedulesTable extends Migration
             $table->bigIncrements('id');
             $table->date('dateTime');
             $table->string('host_message');
+            $table->tinyInteger('floor');
+            $table->string('phone_number');
             $table->timestamps();
         });
         Schema::table('schedules', function (Blueprint $table) {
@@ -24,6 +26,7 @@ class CreateSchedulesTable extends Migration
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('department_id')->constrained('departments');
             $table->foreignId('office_id')->constrained('offices');
+            $table->foreignId('visitor_id')->constrained('visitors');
         });
     }
 

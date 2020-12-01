@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,11 +11,14 @@ class Schedule extends Model
 
     protected $fillable = [
         'host_id',
-        'company_id',
-        'department_id',
         'dateTime',
         'office_id',
         'host_message',
+        'department_id',
+        'company_id',
+        'floor',
+        'phone_number',
+        'visitor_id'
     ];
     public  function host()
     {
@@ -32,6 +35,10 @@ class Schedule extends Model
     public  function company()
     {
         return $this->belongsTo(Company::class);
+    }
+    public  function visitor()
+    {
+        return $this->belongsTo(Visitor::class);
     }
 
 

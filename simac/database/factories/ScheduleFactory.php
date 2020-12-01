@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Visitor;
 use App\Schedule;
 use App\Host;
 use App\Company;
@@ -30,8 +31,11 @@ class ScheduleFactory extends Factory
             'department_id' => Department::factory(),
             'office_id' => Office::factory(),
             'host_id' => Host::factory(),
+            'visitor_id' => Visitor::factory(),
             'dateTime' => $this->faker->date(),
-            'host_message' => $this->faker->name()
+            'host_message' => $this->faker->name(),
+            'floor' => $this->faker->numberBetween(),
+            'phone_number' => $this->faker->phoneNumber()
         ];
     }
 }

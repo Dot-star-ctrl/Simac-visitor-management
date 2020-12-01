@@ -24,8 +24,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/reports', function () {
     return Inertia\Inertia::render('Reports');
 })->name('reports');
 
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/meetings', function () {
-    return Inertia\Inertia::render('MeetingsReceptionist');
+    return Inertia\Inertia::render('MeetingsHost');
 })->name('meetings');
 
 Route::get('/register', function () {
