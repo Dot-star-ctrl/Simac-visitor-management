@@ -12,11 +12,11 @@
                             <span class="block sm:inline">Check your email for confirmation</span>
                         </div>
 
-                        <label>Your Email Here</label>
+                        <label>Your Token Here</label>
                         <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-3"
-                            name="email" v-model.trim="$v.email.$model"
-                            :class="{'is-invalid': validationStatus($v.email)}" placeholder="john@email.com"/>
-                        <div v-if="!$v.email.required" class="invalid-feedback text-red-500 text-xs italic">Email is required</div>
+                            name="token" v-model.trim="$v.token.$model"
+                            :class="{'is-invalid': validationStatus($v.email)}" placeholder="0210011025475319"/>
+                        <div v-if="!$v.token.required" class="invalid-feedback text-red-500 text-xs italic">Token is required</div>
                         
                         <button type="submit"
                                 class="block mx-auto shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white text-xs py-3 mt-4 px-10 rounded">
@@ -55,6 +55,7 @@
         data() {
             return {
                 errors: {},
+                token: '',
                 email: '',
                 firstName: '',
                 lastName: '',
@@ -64,7 +65,7 @@
         },
 
         validations: {
-            email: {required},
+            token: {required},
         },
         methods: {
 
@@ -76,7 +77,7 @@
                 this.$v.$touch();
                 if (this.$v.$pendding || this.$v.$error) return;
 
-                axios.get('/api/visitors/byemail/' + this.email)
+                axios.get('/api/visitors/bytoken/' + this.token)
                      .then(response => {
                          this.email = response.data.email;
                          this.firstName = response.data.first_name;
@@ -100,7 +101,7 @@
                 this.visitorId = null;
                 this.visit_req = [];
 
-            }
+            },
         }
     }
 </script>

@@ -9,7 +9,9 @@
                     <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
                          role="alert" v-show="success">
                         <strong class="font-bold">Success!</strong>
-                        <span class="block sm:inline">Check your email for confirmation</span>
+                        <span class="block sm:inline">Check your email for confirmation</span><br />
+                        <strong class="font-bold">Token:</strong>
+                        <span> {{token}}</span>
                     </div>
 
                     <input type="text" class="form-control block border border-grey-light w-full p-4 rounded mt-3"
@@ -122,6 +124,7 @@
                 note: '',
                 startDateTime: '',
                 endDateTime: '',
+                token: '',
             }
         },
 
@@ -224,8 +227,11 @@
                     this.addVisitRequest();
                     
                 } else {
+
+                    const token = this.createToken(this.firstName);
+
                     //create visitor and visit request
-                    axios.post('/api/visitors', {first_name: this.firstName, last_name: this.lastName, email: this.email})
+                    axios.post('/api/visitors', {first_name: this.firstName, last_name: this.lastName, email: this.email, token: token})
                     .then(response => {
                         this.visitor_id = response.data.data.id;
 
@@ -235,9 +241,28 @@
                         if (error.response.status == 422) {
                             this.errors = error.response.data.errors;
                         }
-                        console.log('Error');
+                        console.log(error);
                     });
                 }
+            },
+            createToken(value){
+
+                var tokenizer = "";
+
+                for(var i = 0; i < 15; i++){
+
+                    if(i == 8){
+                        var lenth = value.length;
+                        const lenthidx = Math.floor(Math.random() * lenth);
+                        tokenizer += String(lenthidx);
+                    }
+
+                    const idx = Math.floor(Math.random() * i);
+                    tokenizer += String(idx); 
+                }
+
+                this.token = tokenizer;
+                return tokenizer;
             }
         }
     }

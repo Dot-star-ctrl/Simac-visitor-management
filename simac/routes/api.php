@@ -22,7 +22,7 @@ use App\Visitor;
 //GET Statements
 
 //Visitor
-Route::get('/visitors/byemail/{email}', 'VisitorController@getVisitor');
+Route::get('/visitors/bytoken/{token}', 'VisitorController@getVisitor');
 Route::apiResource('/visitors', 'VisitorController');
 
 //Account

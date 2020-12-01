@@ -37,6 +37,7 @@ class VisitorController extends Controller
             'first_name' => 'required',
             'last_name'  => 'required',
             'email'      => 'required|regex:/(.+)@(.+)\.(.+)/i',
+            'token'  => 'required',
         ]);
 
         $visitor = Visitor::create($request ->all());
@@ -58,9 +59,9 @@ class VisitorController extends Controller
         return response() -> json();
     }
 
-    public function getVisitor($email)
+    public function getVisitor($token)
     {
-        $visitor = Visitor::where("email", $email)->firstOrFail();
+        $visitor = Visitor::where("token", $token)->firstOrFail();
 
         if($visitor != null)
         return $visitor;

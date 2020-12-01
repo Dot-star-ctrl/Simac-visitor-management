@@ -13,6 +13,7 @@ class Visitor extends Model
         'first_name',
         'last_name',
         'email',
+        'token',
     ];
     public  function  account()
     {
