@@ -86,12 +86,12 @@
 
                          this.getVisitRequests(this.visitorId);
                      })
-                     .catch(error => alert("This email is not in our database. Please pre register first."));
+                     .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
             },
             getVisitRequests(id){
                 axios.get('/api/visit-requests/visitorid/' + this.visitorId)
                      .then(response => this.visit_req = response.data)
-                     .catch(error => alert("This email is not in our database. Please pre register first."));
+                     .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
             },
             goBack(){
 
