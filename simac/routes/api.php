@@ -51,6 +51,15 @@ Route::apiResource('/offices', 'OfficeController');
 //QRcode
 Route::apiResource('/qrcodes','QrcodeController');
 
+
+//Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//    return $request->user()->id;
+//});
+//
+//Route::get('/generate-badge/{schedule?}', function ($schedule = null) {
+//    return Inertia\Inertia::render('Generate-visitor-badge',['schedule' =>decrypt($schedule)]);
+//})->name('generate-badge');
+
 //Schedule
 Route::apiResource('/schedules', 'ScheduleController');
 

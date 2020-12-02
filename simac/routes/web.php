@@ -45,7 +45,7 @@ Route::get('/welcome-message', function () {
 });
 
 Route::get('/generate-badge/{schedule?}', function ($schedule = null) {
-    return Inertia\Inertia::render('Generate-visitor-badge',['schedule' =>$schedule]);
+    return Inertia\Inertia::render('Generate-visitor-badge',['schedule' =>decrypt($schedule)]);
 })->name('generate-badge');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {

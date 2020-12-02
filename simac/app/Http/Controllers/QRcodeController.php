@@ -15,7 +15,11 @@ class QrcodeController extends Controller
      *     @OA\Response(response="default", description="information about the qrCode (code, visitor id, and schedule)")
      * )
      */
-    public function show(Qrcode $Qrcode){
+
+    public function show($id){
+
+        $codes = Qrcode::all();
+        $Qrcode = $codes->find(decrypt($id));
 
         $firstName = $Qrcode -> first_name;
         $lastName = $Qrcode -> last_name;

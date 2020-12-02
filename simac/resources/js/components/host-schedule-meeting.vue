@@ -276,12 +276,12 @@
                                     }).then(response => {
                                         this.QrCodeId = response.data.data.id;
                                         console.log(this.QrCodeId);
-                                        axios.get('/api/qrcodes/' + this.QrCodeId).then(response => {
+                                        // axios.get('/api/qrcodes/' + this.QrCodeId).then(response => {
                                             this.sendConfirmationEmail();
                                             this.visitor_id = null;
                                             this.fields = {};
                                             this.success = true;
-                                        })
+                                        // })
                                     })
                                 })
                         })
