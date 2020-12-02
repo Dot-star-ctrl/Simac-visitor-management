@@ -28,7 +28,7 @@ class BuildingApiTest extends TestCase
 
     public function test_can_update_building()
     {
-        $building = \App\Building::factory()->create();
+        $building = Building::factory()->create();
 
         $updatedData = [
             'name' => 'Building 2',
@@ -41,21 +41,21 @@ class BuildingApiTest extends TestCase
 
     public function test_can_show_building()
     {
-        $building = \App\Building::factory()->create();
+        $building = Building::factory()->create();
 
         $this->get(route('buildings.show', $building->id))->assertStatus(200);
     }
 
     public function test_can_delete_building()
     {
-        $building = \App\Building::factory()->create();
+        $building = Building::factory()->create();
 
         $this->delete(route('buildings.destroy', $building->id))->assertStatus(200);
     }
 
     public function test_can_list_buildings()
     {
-        $building = \App\Building::factory()->count(3)->create();
+        $building = Building::factory()->count(3)->create();
 
         $this->get(route('buildings.index'))
         ->assertStatus(200);

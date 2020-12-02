@@ -30,7 +30,7 @@ class ScheduleApiTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $schedule = \App\Schedule::factory()->create();
+        $schedule = Schedule::factory()->create();
 
         $updatedData = [
             'dateTime' => date('2020-01-14 02:11:55'),
@@ -43,21 +43,21 @@ class ScheduleApiTest extends TestCase
 
     public function test_can_show_schedule()
     {
-        $schedule = \App\Schedule::factory()->create();
+        $schedule = Schedule::factory()->create();
 
         $this->get(route('schedules.show', $schedule->id))->assertStatus(200);
     }
 
     public function test_can_delete_schedule()
     {
-        $schedule = \App\Schedule::factory()->create();
+        $schedule = Schedule::factory()->create();
 
         $this->delete(route('schedules.destroy', $schedule->id))->assertStatus(200);
     }
 
     public function test_can_list_schedules()
     {
-        $schedule = \App\Schedule::factory()->count(3)->create();
+        $schedule = Schedule::factory()->count(3)->create();
 
         $this->get(route('schedules.index'))
         ->assertStatus(200);

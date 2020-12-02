@@ -13,7 +13,7 @@ class EmployeeApiTest extends TestCase
      *
      * @return void
      */
-    
+
     use RefreshDatabase;
 
     public function test_can_create_employee()
@@ -34,7 +34,7 @@ class EmployeeApiTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $employee = \App\Employee::factory()->create();
+        $employee = Employee::factory()->create();
 
         $updatedData = [
             'password' => '123',
@@ -50,21 +50,21 @@ class EmployeeApiTest extends TestCase
 
     public function test_can_show_employee()
     {
-        $employee = \App\Employee::factory()->create();
+        $employee = Employee::factory()->create();
 
         $this->get(route('employees.show', $employee->id))->assertStatus(200);
     }
 
     public function test_can_delete_employee()
     {
-        $employee = \App\Employee::factory()->create();
+        $employee = Employee::factory()->create();
 
         $this->delete(route('employees.destroy', $employee->id))->assertStatus(200);
     }
 
     public function test_can_list_employees()
     {
-        $employee = \App\Employee::factory()->count(3)->create();
+        $employee = Employee::factory()->count(3)->create();
 
         $this->get(route('employees.index'))
         ->assertStatus(200);

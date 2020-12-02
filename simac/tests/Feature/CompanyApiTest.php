@@ -27,7 +27,7 @@ class CompanyApiTest extends TestCase
 
     public function test_can_update_company()
     {
-        $company = \App\Company::factory()->create();
+        $company = Company::factory()->create();
 
         $updatedData = [
             'name' => 'Company 2',
@@ -39,21 +39,21 @@ class CompanyApiTest extends TestCase
 
     public function test_can_show_company()
     {
-        $company = \App\Company::factory()->create();
+        $company = Company::factory()->create();
 
         $this->get(route('companies.show', $company->id))->assertStatus(200);
     }
 
     public function test_can_delete_company()
     {
-        $company = \App\Company::factory()->create();
+        $company = Company::factory()->create();
 
         $this->delete(route('companies.destroy', $company->id))->assertStatus(200);
     }
 
     public function test_can_list_companies()
     {
-        $company = \App\Company::factory()->count(3)->create();
+        $company = Company::factory()->count(3)->create();
 
         $this->get(route('companies.index'))
         ->assertStatus(200);

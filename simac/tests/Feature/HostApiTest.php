@@ -32,7 +32,7 @@ class HostApiTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $host = \App\Host::factory()->create();
+        $host = Host::factory()->create();
 
         $updatedData = [
             'first_name' => 'Johny',
@@ -46,21 +46,21 @@ class HostApiTest extends TestCase
 
     public function test_can_show_host()
     {
-        $host = \App\Host::factory()->create();
+        $host = Host::factory()->create();
 
         $this->get(route('hosts.show', $host->id))->assertStatus(200);
     }
 
     public function test_can_delete_host()
     {
-        $host = \App\Host::factory()->create();
+        $host = Host::factory()->create();
 
         $this->delete(route('hosts.destroy', $host->id))->assertStatus(200);
     }
 
     public function test_can_list_hosts()
     {
-        $host = \App\Host::factory()->count(3)->create();
+        $host = Host::factory()->count(3)->create();
 
         $this->get(route('hosts.index'))
         ->assertStatus(200);

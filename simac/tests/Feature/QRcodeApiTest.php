@@ -29,7 +29,7 @@ class QRcodeApiTest extends TestCase
     {
         $this->withoutExceptionHandling();
 
-        $qrcode = \App\qrcode::factory()->create();
+        $qrcode = qrcode::factory()->create();
 
         $updatedData = [
             'first_name' => 'John'
@@ -41,21 +41,21 @@ class QRcodeApiTest extends TestCase
 
     public function test_can_show_qrcode()
     {
-        $qrcode = \App\qrcode::factory()->create();
+        $qrcode = qrcode::factory()->create();
 
         $this->get(route('qrcodes.show', $qrcode->id))->assertStatus(200);
     }
 
     public function test_can_delete_qrcode()
     {
-        $qrcode = \App\qrcode::factory()->create();
+        $qrcode = qrcode::factory()->create();
 
         $this->delete(route('qrcodes.destroy', $qrcode->id))->assertStatus(200);
     }
 
     public function test_can_list_qrcodes()
     {
-        $qrcode = \App\qrcode::factory()->count(3)->create();
+        $qrcode = qrcode::factory()->count(3)->create();
 
         $this->get(route('qrcodes.index'))
         ->assertStatus(200);
