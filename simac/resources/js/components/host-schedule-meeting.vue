@@ -119,7 +119,7 @@
                                     <label class="ml-10" for="dateTime">Select Date:</label>
                                     <input type="datetime-local" id="dateTime" name="dateTime"
                                            v-model.trim="$v.dateTime.$model"
-                                           :class="{'is-invalid': validationStatus($v.dateTime)}"/>
+                                           :class="{'is-invalid': validationStatus($v.dateTime)}" @click="checkDate()"/>
                                 </div>
                                 <span v-if="!$v.dateTime.required" class="invalid-feedback text-red-500 text-xs italic">The datetime field is required</span>
                             </div>
@@ -157,7 +157,6 @@
                 phone: '',
                 floor: '',
                 office: '',
-                // minDate: null,
 
                 employeeId: '',
                 firstNameEmployee: '',
@@ -170,7 +169,7 @@
 
         mounted() {
             this.loadOffices();
-            this.checkDate();
+            // this.checkDate();
         },
 
         validations: {
@@ -187,9 +186,7 @@
             // checkDate: function () {
             //     var today = new Date();
             //     console.log(today);
-            //     this.minDate = today;
-            //     // // var dateString = document.getElementById('startDateTime').value;
-            //     // document.getElementById('dateTime').min = today;
+            //     document.getElementById('dateTime').min = today;
             // },
 
             sendConfirmationEmail: function () {
@@ -276,12 +273,10 @@
                                     }).then(response => {
                                         this.QrCodeId = response.data.data.id;
                                         console.log(this.QrCodeId);
-                                        // axios.get('/api/qrcodes/' + this.QrCodeId).then(response => {
                                             this.sendConfirmationEmail();
                                             this.visitor_id = null;
                                             this.fields = {};
                                             this.success = true;
-                                        // })
                                     })
                                 })
                         })
