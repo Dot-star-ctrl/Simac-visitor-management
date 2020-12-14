@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\VisitRequest;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,6 +14,6 @@ class VisitRequestTableSeeder extends Seeder
      */
     public function run()
     {
-        VisitRequest::factory()->count(1)->create();
+        \App\Models\VisitRequest::factory()->count(15)->create();
     }
 }

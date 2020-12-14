@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
+use App\Models\Company;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-use App\VisitRequest;
+use App\Models\VisitRequest;
 use Illuminate\Http\Request;
 
 class VisitRequestController extends Controller

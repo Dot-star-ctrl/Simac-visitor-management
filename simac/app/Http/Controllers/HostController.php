@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Host;
+use App\Models\Host;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 use Illuminate\Support\Facades\DB;

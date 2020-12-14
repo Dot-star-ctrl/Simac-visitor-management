@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Checkin;
-use App\Visitor;
-use App\Building;
+use App\Models\Checkin;
+use App\Models\Visitor;
+use App\Models\Building;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class CheckinFactory extends Factory
