@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RulesController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Visitor;
@@ -63,6 +64,8 @@ Route::apiResource('/pre-register', 'PreRegisterController');
 Route::apiResource('/send','MailController');
 
 Route::apiResource('/send-qr-code','QRcodeMailController');
+Route::post("upload",[RulesController::class,'upload']);
+Route::delete('/visitrequests/{id}', 'VisitRequestController@destroy');
 
 //meetings + reports
 

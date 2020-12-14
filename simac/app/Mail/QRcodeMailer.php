@@ -30,7 +30,11 @@ class QRcodeMailer extends Mailable
      */
     public function build()
     {
-        return $this->subject('Mail from Simac')->view('emails.QRcodeEmail');
+        return $this->subject('Mail from Simac')->view('emails.QRcodeEmail')
+            ->attach(storage_path('api-docs/pdfExample.pdf'), [
+                'as' => 'pdfExample',
+                'mime' => 'application/pdf',
+            ]);
     }
 }
 
