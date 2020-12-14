@@ -23,6 +23,9 @@
                             <jet-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
                                 Meetings
                             </jet-nav-link>
+                            <jet-nav-link :href="route('checkedinvisitors')" :active="$page.currentRouteName == 'checkedinvisitors'">
+                                Checked-in Visitors
+                            </jet-nav-link>
                         </div>
                     </div>
 
