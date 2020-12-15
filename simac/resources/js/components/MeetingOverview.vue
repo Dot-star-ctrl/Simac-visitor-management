@@ -33,7 +33,8 @@
             <button class="mx-12 border border-green-700 bg-green-600 rounded text-white p-2 px-6 text-xl">
                 Send
             </button>
-            <button class="mx-12 border border-red-700 bg-red-600 rounded text-white p-2 px-4 text-xl">
+            <button class="mx-12 border border-red-700 bg-red-600 rounded text-white p-2 px-4 text-xl"
+                @click="cancelMeeting">
                 Cancel
             </button>
         </div>
@@ -52,6 +53,7 @@
                     email: this.data.email,
                 },
                 meeting: {
+                    id: this.data.id,
                     start: this.data.proposed_start_dateTime,
                     end: this.data.proposed_end_dateTime,
                     company_id: this.data.company_id,
@@ -63,7 +65,7 @@
             }
         },
         methods: {
-            parseDate: function() {
+            parseDate() {
                 let start = new Date(Date.parse(this.meeting.start));
                 let end = new Date(Date.parse(this.meeting.end));
 
@@ -89,7 +91,16 @@
                         });
                     }
                 });
-            }
+            },
+            sendMeeting() {
+            },
+            cancelMeeting() {
+                axios.delete('/api/visitrequests/' + this.meeting.id).then(response => {
+                    if (response.status == 204) {
+                        this.$emit('deleted', this.meeting.id);
+                    }
+                });
+            },
         },
         mounted() {
             this.parseDate();

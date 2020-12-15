@@ -31,7 +31,7 @@ class VisitRequestController extends Controller
     {
         $visit_requests = DB::table('visitors')
             ->join('visit_requests', 'visit_requests.visitor_id', '=', 'visitors.id')
-            ->select('visit_requests.*', 'visitors.*')
+            ->select('visit_requests.*', 'visitors.first_name', 'visitors.last_name')
             ->get();
 
         return new GeneralResource($visit_requests);
@@ -75,10 +75,12 @@ class VisitRequestController extends Controller
      *     @OA\Response(response="default", description="empty array")
      * )
      */
-    public function destroy(VisitRequest $visitRequest)
+    public function destroy($id)
     {
-        $visitRequest -> delete();
+        DB::table('visit_requests')
+            ->where('id', '=', $id)
+            ->delete();
 
-        return response() -> json();
+        return response()->noContent();
     }
 }

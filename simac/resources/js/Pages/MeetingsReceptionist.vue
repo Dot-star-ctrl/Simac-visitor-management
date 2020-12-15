@@ -14,7 +14,7 @@
                                       :class="m.classname"
                                       class="cursor-pointer"
                                       v-for="m in meetings"
-                                      :key="m.visitor_id"
+                                      :key="m.id"
                                       :data="m"
                                       @click.native="focusMeeting(m)"
                                     />
@@ -24,7 +24,8 @@
                                 <h1 class="p-4 text-center text-2xl border-b border-gray-200">Overview</h1>
                                 <meeting-overview 
                                     v-if="meetings.length > 0" 
-                                    :key="currMeeting.visitor_id" :data="currMeeting"/>
+                                    :key="currMeeting.id" :data="currMeeting"
+                                    @deleted="removeMeeting"/>
                                 <div v-else class="flex-col">
                                     <h1 class="p-8 text-center text-2xl">It seems that there are no meeting requests right now</h1>
                                     <div class="flex justify-center">
@@ -62,18 +63,22 @@
             };
         },
         methods: {
-            getMeetings: function () {
+            getMeetings() {
                 axios.get('/api/visitrequests').then(response => {
                     this.meetings = response.data.data;
 
                     this.focusMeeting(this.meetings[0]);
                 });
             },
-            focusMeeting: function(m) {
+            focusMeeting(m) {
                 this.currMeeting.classname = '',
                 m.classname = "bg-red-50";
 
                 this.currMeeting = m;
+            },
+            removeMeeting(id) {
+                this.meetings = this.meetings.filter(m => m.id != id);
+                this.currMeeting = (this.meetings.length > 0) ? this.meetings[0] : null;
             }
         },
         mounted() {

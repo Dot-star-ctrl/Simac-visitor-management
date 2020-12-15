@@ -9,6 +9,7 @@
         props: ['data'],
         data() {
             return {
+                id: this.data.id,
                 visitor: {
                     id: this.data.visitor_id,
                     fname: this.data.first_name,
