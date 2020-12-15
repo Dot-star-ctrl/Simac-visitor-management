@@ -7,6 +7,7 @@ use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 use App\Models\VisitRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VisitRequestController extends Controller
 {
@@ -26,9 +27,14 @@ class VisitRequestController extends Controller
      *     @OA\Response(response="default", description="information about all the visitrequest (visitor id, company id, department id, date and time)")
      * )
      */
-    public function index() : GeneralResourceCollection
+    public function index() : GeneralResource
     {
-        return new GeneralResourceCollection(VisitRequest::paginate());
+        $visit_requests = DB::table('visitors')
+            ->join('visit_requests', 'visit_requests.visitor_id', '=', 'visitors.id')
+            ->select('visit_requests.*', 'visitors.*')
+            ->get();
+
+        return new GeneralResource($visit_requests);
     }
     /**
      * @OA\Post(

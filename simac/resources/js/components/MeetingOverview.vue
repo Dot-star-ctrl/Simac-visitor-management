@@ -1,21 +1,24 @@
 <template>
     <div class="p-2 text-xl">
-        <h1 class="p-2 text-center text-2xl">Meeting with <span class="text-red-700">{{ visitor.first_name + ' ' + visitor.last_name }}</span></h1>
+        <h1 class="p-2 text-center text-2xl">Meeting with <span class="text-red-700">{{ visitor.fname + ' ' + visitor.lname }}</span></h1>
+        <h2 class="p-2 text-center text-xl">{{ visitor.email }}</h2>
+        <div class="p-4 text-xl border-t border-b border-gray-200">
+            <h1>Start: {{ meeting.start }}</h1>
+            <h1>End: {{ meeting.end }}</h1>
+        </div>
         <div class="flex p-2 border-b border-gray-200">
-            <div class="w-2/5 p-4 text-xl border-r border-gray-200">
-                <h1>Start: <span class="text-red-700">{{ proposed_start }}</span></h1>
-                <h1>End: <span class="text-red-700">{{ proposed_end }}</span></h1>
-            </div>
             <div class="p-4 text-xl w-full">
-                <form action="" class="flex justify-between">
-                    <input class="text-lg w-2/3 appearance-none border rounded h-12 px-3 text-gray-700 focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Host name">
+                <form action="" class="flex justify-center">
+                    <select 
+                        class="text-lg w-2/3 appearance-none border rounded h-12 px-3 text-gray-700 focus:outline-none focus:shadow-outline">
+                        <option selected="selected">Choose host for the meeting</option>
+                        <option
+                            v-for="host in hosts"
+                            :key="host.id">
+                                {{ host.fname + ' ' + host.lname }}
+                            </option>
+                    </select>
                     <div class="text-center">
-                        <button class="border border-red-700 bg-red-600 rounded text-white p-2 px-4 text-xl">
-                            Search
-                        </button>
-                        <table>
-                            <tr></tr>
-                        </table>
                     </div>
                 </form>
             </div>
@@ -23,7 +26,7 @@
         <div class="border-b border-gray-200 p-4 py-8 text-2xl">
             <h1>Notes:</h1>
             <div class="rounded overflow-auto h-64 p-2 my-4 text-lg border border-gray-100">
-                {{ notes }}
+                {{ meeting.notes }}
             </div>
         </div>
         <div class="p-8 pb-0 h-32 flex justify-center items-end">
@@ -39,36 +42,58 @@
 
 <script>
     export default {
-        props: ['meetingObj'],
+        props: ['data'],
         data() {
             return {
-                visitor_id: this.meetingObj.visitor_id,
-                visitor: {},
-                name: this.meetingObj.name,
-                company_id: this.meetingObj.company_id,
-                department_id: this.meetingObj.department_id,
-                notes: this.meetingObj.note,
-                proposed_start: this.meetingObj.proposed_start_dateTime,
-                proposed_end: this.meetingObj.proposed_end_dateTime,
-                host_id: '',
+                visitor: {
+                    id: this.data.id, 
+                    fname: this.data.first_name,
+                    lname: this.data.last_name,
+                    email: this.data.email,
+                },
+                meeting: {
+                    start: this.data.proposed_start_dateTime,
+                    end: this.data.proposed_end_dateTime,
+                    company_id: this.data.company_id,
+                    department_id: this.data.department_id,
+                    notes: this.data.note,
+                    host_id: '',
+                },
                 hosts: [],
             }
         },
         methods: {
-            getVisitor() {
-                axios.get('/api/visitors/' + this.visitor_id).then(response => {
-                    this.visitor = response.data.data;
-                })
+            parseDate: function() {
+                let start = new Date(Date.parse(this.meeting.start));
+                let end = new Date(Date.parse(this.meeting.end));
+
+                this.meeting.start = start.getHours() + ':' + start.getMinutes() + ' '
+                    + start.getDate() + '.' + (start.getMonth() + 1) + '.' + start.getFullYear();
+
+                this.meeting.end = end.getHours() + ':' + end.getMinutes() + ' '
+                    + end.getDate() + '.' + (end.getMonth() + 1) + '.' + end.getFullYear();
             },
-            getHosts() {
-                axios.get('/api/hosts/' + this.host_id).then(response => {
-                    console.log(response);
-                })
+            getCompanyHosts() {
+                const body = {
+                    cid: this.meeting.company_id,
+                };
+
+                axios.get('/api/hosts', { params: body }).then(response => {
+                    for (let i = 0; i < response.data.data.length; i++) {
+                        const host = response.data.data[i];
+
+                        this.hosts.push({
+                            id: host.id,
+                            fname: host.first_name,
+                            lname: host.last_name,
+                        });
+                    }
+                });
             }
         },
         mounted() {
-            this.getVisitor();
-            this.getHosts();
+            this.parseDate();
+            this.getCompanyHosts();
         }
     }
 </script>

@@ -26,19 +26,29 @@ class HostController extends Controller
         return new GeneralResource($host);
     }
 
-    public function index()
+    public function index() : GeneralResource
     {
-        if (isset($_GET['cid']) && isset($_GET['did'])) {
-            $company_id = $_GET['cid'];
-            $department_id = $_GET['did'];
+        // $visit_requests = DB::table('visitors')
+        //     ->join('visit_requests', 'visit_requests.visitor_id', '=', 'visitors.id')
+        //     ->select('visit_requests.*', 'visitors.*')
+        //     ->get();
 
-            return DB::table('employees')->where([
-                ['company_id', $company_id],
-                ['department_id', $department_id],
-            ]);
+        // return new GeneralResource($visit_requests);
+
+        if (isset($_GET['cid'])) {
+            $company_id = $_GET['cid'];
+
+            $hosts = DB::table('offices')
+                ->join('companies', 'offices.company_id', '=', 'companies.id')
+                ->join('hosts', 'offices.id', '=', 'hosts.office_id')
+                ->select('hosts.*', 'offices.*')
+                ->where('companies.id', '=', $company_id)
+                ->get();
+
+            return new GeneralResource($hosts);
         }
 
-        return new GeneralResourceCollection(Host::paginate());
+        return new GeneralResource(Host::paginate());
     }
 
     public function store(Request $request)

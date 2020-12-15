@@ -13,6 +13,6 @@ class HostTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Host::factory()->count(1)->create();
+        \App\Models\Host::factory()->count(15)->create();
     }
 }
