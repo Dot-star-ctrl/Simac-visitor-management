@@ -32,6 +32,7 @@ class VisitRequestController extends Controller
         $visit_requests = DB::table('visitors')
             ->join('visit_requests', 'visit_requests.visitor_id', '=', 'visitors.id')
             ->select('visit_requests.*', 'visitors.first_name', 'visitors.last_name')
+            ->where('visit_requests.host_id', '=', NULL)
             ->get();
 
         return new GeneralResource($visit_requests);
@@ -63,11 +64,15 @@ class VisitRequestController extends Controller
      *     @OA\Response(response="default", description="updated information about the visitrequest (visitor id, company id, department id, date and time)")
      * )
      */
-    public function update(VisitRequest $visitRequest, Request $request) : GeneralResource
+    public function update($id, Request $request)
     {
-        $visitRequest -> update($request -> all());
+        $host_id = $request->id;
+        
+        DB::table('visit_requests')
+            ->where('id', '=', $id)
+            ->update(['host_id' => $host_id]);
 
-        return new GeneralResource($visitRequest);
+        return response()->noContent();
     }
     /**
      * @OA\Delete(

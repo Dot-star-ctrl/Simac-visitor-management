@@ -1,43 +1,48 @@
 <template>
     <app-layout>
-        <div class="py-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                    <div class="m-4">
-                        <div class="flex pb-4">
-                            <div class="w-1/3 overflow-auto border-r border-gray-200">
-                                <h1 class="p-4 text-center text-2xl border-b border-gray-200">
-                                    Pending meetings
-                                </h1>
-                                <div class="p-2 h-xl overflow-auto">
-                                    <meeting-thumb
-                                      :class="m.classname"
-                                      class="cursor-pointer"
-                                      v-for="m in meetings"
-                                      :key="m.id"
-                                      :data="m"
-                                      @click.native="focusMeeting(m)"
-                                    />
-                                </div>
-                            </div>
-                            <div class="w-2/3">
-                                <h1 class="p-4 text-center text-2xl border-b border-gray-200">Overview</h1>
-                                <meeting-overview 
-                                    v-if="meetings.length > 0" 
-                                    :key="currMeeting.id" :data="currMeeting"
-                                    @deleted="removeMeeting"/>
-                                <div v-else class="flex-col">
-                                    <h1 class="p-8 text-center text-2xl">It seems that there are no meeting requests right now</h1>
-                                    <div class="flex justify-center">
-                                        <button 
-                                            class="mx-12 border border-red-700 bg-red-600 rounded text-white p-2 px-4 text-xl"
-                                            @click="getMeetings">
-                                            Refresh
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <div class="flex justify-center mb-4 mt-8">
+            <div class="w-3/5 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                role="alert" v-if="wasDeleted">
+                <strong class="font-bold">Deleted!</strong>
+                <span class="block sm:inline">Meeting removed</span>
+            </div>
+            <div class="w-3/5 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                role="alert" v-else-if="wasSent">
+                <strong class="font-bold">Sent!</strong>
+                <span class="block sm:inline">Meeting forwarded to {{ host }}</span>
+            </div>
+        </div>
+        <div class="m-8 flex bg-white overflow-hidden shadow-xl sm:rounded-lg py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="w-1/3 overflow-auto border-r border-gray-200">
+                <h1 class="p-4 text-center text-2xl border-b border-gray-200">
+                    Pending meetings
+                </h1>
+                <div class="p-2 h-xl overflow-auto">
+                    <meeting-thumb
+                      :class="m.classname"
+                      class="cursor-pointer"
+                      v-for="m in meetings"
+                      :key="m.id"
+                      :data="m"
+                      @click.native="focusMeeting(m)"
+                    />
+                </div>
+            </div>
+            <div class="w-2/3">
+                <h1 class="p-4 text-center text-2xl border-b border-gray-200">Overview</h1>
+                <meeting-overview 
+                    v-if="meetings.length > 0" 
+                    :key="currMeeting.id" :data="currMeeting"
+                    @deleted="removeMeeting"
+                    @sent="updateMeeting"/>
+                <div v-else class="flex-col">
+                    <h1 class="p-8 text-center text-2xl">It seems that there are no meeting requests right now</h1>
+                    <div class="flex justify-center">
+                        <button 
+                            class="mx-12 border border-red-700 bg-red-600 rounded text-white p-2 px-4 text-xl"
+                            @click="getMeetings">
+                            Refresh
+                        </button>
                     </div>
                 </div>
             </div>
@@ -60,6 +65,9 @@
             return {
                 meetings: [],
                 currMeeting: {},
+                wasDeleted: false,
+                wasSent: false,
+                host: {},
             };
         },
         methods: {
@@ -77,8 +85,22 @@
                 this.currMeeting = m;
             },
             removeMeeting(id) {
+                this.wasDeleted = true;
+                setTimeout(() => { this.wasDeleted = false; }, 5000);
+
                 this.meetings = this.meetings.filter(m => m.id != id);
-                this.currMeeting = (this.meetings.length > 0) ? this.meetings[0] : null;
+
+                if (this.meetings.length > 0) { this.focusMeeting(this.meetings[0]); }
+            },
+            updateMeeting(id, host) {
+                this.host = host;
+
+                this.wasSent = true;
+                setTimeout(() => { this.wasSent = false; }, 5000);
+
+                this.meetings = this.meetings.filter(m => m.id != id);
+
+                if (this.meetings.length > 0) { this.focusMeeting(this.meetings[0]); }
             }
         },
         mounted() {

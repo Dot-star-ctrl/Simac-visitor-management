@@ -37,12 +37,15 @@ class HostController extends Controller
 
         if (isset($_GET['cid'])) {
             $company_id = $_GET['cid'];
+            // $hosts = DB::table('offices')
+            //     ->join('companies', 'offices.company_id', '=', 'companies.id')
+            //     ->join('hosts', 'offices.id', '=', 'hosts.office_id')
+            //     ->select('hosts.*', 'offices.*')
+            //     ->where('companies.id', '=', $company_id)
+            //     ->get();
 
-            $hosts = DB::table('offices')
-                ->join('companies', 'offices.company_id', '=', 'companies.id')
-                ->join('hosts', 'offices.id', '=', 'hosts.office_id')
-                ->select('hosts.*', 'offices.*')
-                ->where('companies.id', '=', $company_id)
+            $hosts = DB::table('hosts')
+                ->where('company_id', '=', $company_id)
                 ->get();
 
             return new GeneralResource($hosts);

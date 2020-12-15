@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Host;
 use App\Models\Office;
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class HostFactory extends Factory
@@ -27,6 +28,7 @@ class HostFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->email(),
             'office_id' => Office::factory(),
+            'company_id' => 1,
         ];
     }
 }

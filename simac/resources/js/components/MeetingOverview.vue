@@ -10,10 +10,12 @@
             <div class="p-4 text-xl w-full">
                 <form action="" class="flex justify-center">
                     <select 
+                        v-model="host"
                         class="text-lg w-2/3 appearance-none border rounded h-12 px-3 text-gray-700 focus:outline-none focus:shadow-outline">
-                        <option selected="selected">Choose host for the meeting</option>
+                        <option :value="{}" selected="selected">Choose host for the meeting</option>
                         <option
                             v-for="host in hosts"
+                            :value="host"
                             :key="host.id">
                                 {{ host.fname + ' ' + host.lname }}
                             </option>
@@ -30,12 +32,13 @@
             </div>
         </div>
         <div class="p-8 pb-0 h-32 flex justify-center items-end">
-            <button class="mx-12 border border-green-700 bg-green-600 rounded text-white p-2 px-6 text-xl">
-                Send
+            <button class="mx-12 border border-green-700 bg-green-600 rounded text-white p-2 px-6 text-xl"
+            @click="forwardMeeting">
+                Forward meeting
             </button>
             <button class="mx-12 border border-red-700 bg-red-600 rounded text-white p-2 px-4 text-xl"
                 @click="cancelMeeting">
-                Cancel
+                Cancel meeting
             </button>
         </div>
     </div>
@@ -61,6 +64,7 @@
                     notes: this.data.note,
                     host_id: '',
                 },
+                host: {},
                 hosts: [],
             }
         },
@@ -90,9 +94,18 @@
                             lname: host.last_name,
                         });
                     }
+
                 });
             },
-            sendMeeting() {
+            forwardMeeting() {
+                if (Object.keys(this.host).length != 0) {
+                    axios.put('/api/visitrequests/' + this.meeting.id, { id: this.host.id, })
+                        .then(response => {
+                            if (response.status == 204) {
+                                this.$emit('sent', this.meeting.id);
+                            }
+                        })
+                }
             },
             cancelMeeting() {
                 axios.delete('/api/visitrequests/' + this.meeting.id).then(response => {
