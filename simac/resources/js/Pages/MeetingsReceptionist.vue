@@ -14,9 +14,19 @@
         </div>
         <div class="m-8 flex bg-white overflow-hidden shadow-xl sm:rounded-lg py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="w-1/3 overflow-auto border-r border-gray-200">
-                <h1 class="p-4 text-center text-2xl border-b border-gray-200">
+                <h1 class="p-4 text-center text-2xl ">
                     Pending meetings
                 </h1>
+                <div class="flex justify-center p-2 border-b border-gray-200">
+                    <select
+                        v-model="key"
+                        @change="getMeetings" 
+                        class="w-3/5 px-2 py-1 bg-white border-2 border-gray-500 rounded-md">
+                        <option value="up">Upcoming</option>
+                        <option value="new">Newest</option>
+                        <option value="old">Oldest</option>
+                    </select>
+                </div>
                 <div class="p-2 h-xl overflow-auto">
                     <meeting-thumb
                       :class="m.classname"
@@ -68,15 +78,19 @@
                 wasDeleted: false,
                 wasSent: false,
                 host: {},
+                key: 'up',
             };
         },
         methods: {
-            getMeetings() {
-                axios.get('/api/visitrequests').then(response => {
-                    this.meetings = response.data.data;
-
-                    this.focusMeeting(this.meetings[0]);
+            async getMeetings() {
+                const res = await axios.get('/api/visitrequests', { 
+                    params: {
+                        key: this.key,
+                    }
                 });
+
+                this.meetings = res.data.data;
+                this.focusMeeting(this.meetings[0]);
             },
             focusMeeting(m) {
                 this.currMeeting.classname = '',

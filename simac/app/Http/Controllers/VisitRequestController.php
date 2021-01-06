@@ -29,10 +29,23 @@ class VisitRequestController extends Controller
      */
     public function index() : GeneralResource
     {
+        $key = (isset($_GET["key"])) ? $_GET["key"] : "up";
+
         $visit_requests = DB::table('visitors')
             ->join('visit_requests', 'visit_requests.visitor_id', '=', 'visitors.id')
             ->select('visit_requests.*', 'visitors.first_name', 'visitors.last_name')
             ->where('visit_requests.host_id', '=', NULL)
+            ->when($key, function($query, $key) {
+                error_log($key);
+                switch($key) {
+                    case "up":
+                        return $query->latest('proposed_start_dateTime');
+                    case "new":
+                        return $query->latest('created_at');
+                    case "old":
+                        return $query->oldest('created_at');
+                }
+            })
             ->get();
 
         return new GeneralResource($visit_requests);
