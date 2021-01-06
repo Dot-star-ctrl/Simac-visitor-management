@@ -17,6 +17,8 @@ class CreateSchedulesTable extends Migration
             $table->bigIncrements('id');
             $table->date('dateTime');
             $table->string('host_message');
+            $table->integer('floor');
+            $table->string('phone');
             $table->timestamps();
         });
         Schema::table('schedules', function (Blueprint $table) {

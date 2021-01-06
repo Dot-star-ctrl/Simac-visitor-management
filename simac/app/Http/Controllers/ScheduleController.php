@@ -48,6 +48,8 @@ class ScheduleController extends Controller
             'department_id' => 'required',
             'dateTime'      => 'required',
             'office_id'     => 'required',
+            'floor'         => 'required',
+            'phone'         => 'required'
         ]);
 
         $schedule = Schedule::create($request ->all());

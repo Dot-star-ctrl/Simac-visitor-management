@@ -250,6 +250,9 @@
                                 company_id: this.companyIdEmployee,
                                 department_id: this.departmentIdEmployee,
                                 office_id: this.office,
+                                floor: this.floor,
+                                phone: this.phone
+
                             })
                                 .then(response => {
                                     this.schedule_id = response.data.data.id;

@@ -51,4 +51,8 @@ Route::get('/generate-badge/{schedule?}', function ($schedule = null) {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {
     return Inertia\Inertia::render('HostDashboard');
 })->name('dashboard');
+
+Route::get('/scan-qr-code', function () {
+    return Inertia\Inertia::render('Scan-qr-code');
+})->name('scan-qr-code');
 ?>

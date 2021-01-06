@@ -32,6 +32,7 @@ class QrcodeController extends Controller
         'pref' => false,
         'floor' => $Qrcode -> floor,
         'number' => $Qrcode -> office,
+        'schedule_id' =>$Qrcode -> schedule_id
         ];
 
         $addresses = [$workAddress];
@@ -132,6 +133,7 @@ class QrcodeController extends Controller
        'pref' => false,
        'floor' => '1',
        'number' => '1.132B',
+        'schedule_id' => '1'
     ];
 
     $addresses = [$workAddress];

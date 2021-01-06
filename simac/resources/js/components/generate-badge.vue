@@ -8,7 +8,8 @@
                             <div class="w-full md:w-1/3">
                                 <div class="mx-3">
                                     <div class="w-full px-3">
-                                        <img src="http://127.0.0.1:8000/images/simac-logo-png-transparent2.png" class="w-15 h-15">
+                                        <img src="http://127.0.0.1:8000/images/simac-logo-png-transparent2.png"
+                                             class="w-15 h-15">
                                     </div>
                                 </div>
                                 <input type="hidden" id="scheduleId" name="scheduleId" :value="$page.schedule">
@@ -16,7 +17,8 @@
                             <div class="w-full md:w-1/3">
                                 <div class="mx-3">
                                     <div class="w-full px-3 pt-3 text-center">
-                                        <label class="bold block uppercase tracking-wide text-gray-500 text-3xl font-bold">
+                                        <label
+                                            class="bold block uppercase tracking-wide text-gray-500 text-3xl font-bold">
                                             visitor
                                         </label>
                                     </div>
@@ -119,7 +121,8 @@
         </div>
         <div class="w-full px-5 mt-20">
             <button type="submit"
-                    class="font-bold block mx-auto shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white text-s p-3 px-10 rounded" @click="download">
+                    class="font-bold block mx-auto shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white text-s p-3 px-10 rounded"
+                    @click="download">
                 Print
             </button>
         </div>
@@ -131,7 +134,7 @@
     import html2canvas from 'html2canvas'
 
     export default {
-        data () {
+        data() {
             return {
                 scheduleId: null,
                 visitor_id: null,
@@ -140,7 +143,6 @@
                 email: null,
                 company_name: null,
                 department_name: null,
-
                 company_id: null,
                 department_id: null,
                 dateTime: null,
@@ -181,11 +183,13 @@
             },
 
             download() {
-                const doc = new jsPDF({ orientation: "landscape",
+                const doc = new jsPDF({
+                    orientation: "landscape",
                     unit: "in",
-                    format: [3.5, 2]});
+                    format: [3.5, 2]
+                });
                 var element = document.getElementById('content');
-                var width= element.style.width;
+                var width = element.style.width;
                 var height = element.style.height;
 
                 html2canvas(element).then(canvas => {
@@ -193,7 +197,7 @@
                     var width = doc.internal.pageSize.getWidth();
                     var height = doc.internal.pageSize.getHeight();
                     doc.addImage(image, 'JPEG', 0, 0, width, height);
-                    doc.save('visitor-badge_'+ this.visitor_id + '.pdf');
+                    doc.save('visitor-badge_' + this.visitor_id + '.pdf');
                 });
             }
         }

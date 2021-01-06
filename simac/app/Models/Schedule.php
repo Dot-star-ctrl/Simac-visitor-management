@@ -16,6 +16,8 @@ class Schedule extends Model
         'department_id',
         'dateTime',
         'office_id',
+        'floor',
+        'phone',
         'host_message',
     ];
     public  function host()
