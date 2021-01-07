@@ -36,7 +36,6 @@ class VisitRequestController extends Controller
             ->select('visit_requests.*', 'visitors.first_name', 'visitors.last_name')
             ->where('visit_requests.host_id', '=', NULL)
             ->when($key, function($query, $key) {
-                error_log($key);
                 switch($key) {
                     case "up":
                         return $query->latest('proposed_start_dateTime');
@@ -46,7 +45,7 @@ class VisitRequestController extends Controller
                         return $query->oldest('created_at');
                 }
             })
-            ->get();
+            ->paginate(10);
 
         return new GeneralResource($visit_requests);
     }

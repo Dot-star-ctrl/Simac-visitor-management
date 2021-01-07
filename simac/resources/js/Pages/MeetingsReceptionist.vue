@@ -27,7 +27,7 @@
                         <option value="old">Oldest</option>
                     </select>
                 </div>
-                <div class="p-2 h-xl overflow-auto">
+                <div class="p-2 h-xl overflow-y-scroll">
                     <meeting-thumb
                       :class="m.classname"
                       class="cursor-pointer"
@@ -36,6 +36,13 @@
                       :data="m"
                       @click.native="focusMeeting(m)"
                     />
+                    <div v-if="page < lastPage" class="flex justify-center">
+                       <button 
+                            class="mx-12 border border-red-700 bg-red-600 hover:bg-red-700 rounded text-white p-2 px-4 text-xl"
+                            @click="loadMore">
+                            Load more
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="w-2/3">
@@ -79,18 +86,36 @@
                 wasSent: false,
                 host: {},
                 key: 'up',
+                page: 1,
+                lastPage: 0,
             };
         },
         methods: {
             async getMeetings() {
                 const res = await axios.get('/api/visitrequests', { 
                     params: {
+                        page: 1,
                         key: this.key,
                     }
                 });
 
+                this.page = 1;
+                this.lastPage = res.data.last_page;
+
                 this.meetings = res.data.data;
                 this.focusMeeting(this.meetings[0]);
+            },
+            async loadMore() {
+                let res = await axios.get('/api/visitrequests', { 
+                    params: {                            
+                        page: ++this.page,
+                        key: this.key,
+                    }
+                });
+                res = res.data.data;
+                
+                this.meetings = this.meetings.concat(res);
+
             },
             focusMeeting(m) {
                 this.currMeeting.classname = '',
