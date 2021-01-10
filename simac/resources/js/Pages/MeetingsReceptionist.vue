@@ -9,7 +9,7 @@
             <div class="w-3/5 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
                 role="alert" v-else-if="wasSent">
                 <strong class="font-bold">Sent!</strong>
-                <span class="block sm:inline">Meeting forwarded to {{ host }}</span>
+                <span class="block sm:inline">Meeting forwarded to {{ host.fname + ' ' + host.lname}}</span>
             </div>
         </div>
         <div class="m-8 flex bg-white overflow-hidden shadow-xl sm:rounded-lg py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -50,6 +50,7 @@
                 <meeting-overview 
                     v-if="meetings.length > 0" 
                     :key="currMeeting.id" :data="currMeeting"
+                    @hostChanged="setHost"
                     @deleted="removeMeeting"
                     @sent="updateMeeting"/>
                 <div v-else class="flex-col">
@@ -117,6 +118,9 @@
                 this.meetings = this.meetings.concat(res);
 
             },
+            setHost(host) {
+                this.host = host;
+            },
             focusMeeting(m) {
                 this.currMeeting.classname = '',
                 m.classname = "bg-red-50";
@@ -131,9 +135,7 @@
 
                 if (this.meetings.length > 0) { this.focusMeeting(this.meetings[0]); }
             },
-            updateMeeting(id, host) {
-                this.host = host;
-
+            updateMeeting(id) {
                 this.wasSent = true;
                 setTimeout(() => { this.wasSent = false; }, 5000);
 

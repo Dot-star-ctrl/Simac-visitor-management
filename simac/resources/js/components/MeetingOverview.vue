@@ -10,6 +10,7 @@
             <div class="p-4 text-xl w-full">
                 <form action="" class="flex justify-center">
                     <select 
+                        @change="hostChanged"
                         v-model="host"
                         class="text-lg w-2/3 appearance-none border rounded h-12 px-3 text-gray-700 focus:outline-none focus:shadow-outline">
                         <option :value="{}" selected="selected">Choose host for the meeting</option>
@@ -20,9 +21,10 @@
                                 {{ host.fname + ' ' + host.lname }}
                             </option>
                     </select>
-                    <div class="text-center">
-                    </div>
                 </form>
+                <div v-if="noHost" class="my-2 text-sm text-red-600 text-center">
+                    You have to select a host!
+                </div>
             </div>
         </div>
         <div class="border-b border-gray-200 p-4 py-8 text-2xl">
@@ -66,6 +68,7 @@
                 },
                 host: {},
                 hosts: [],
+                noHost: false,
             }
         },
         methods: {
@@ -97,6 +100,9 @@
 
                 });
             },
+            hostChanged() {
+                this.$emit('hostChanged', this.host);
+            },
             forwardMeeting() {
                 if (Object.keys(this.host).length != 0) {
                     axios.put('/api/visitrequests/' + this.meeting.id, { id: this.host.id, })
@@ -105,6 +111,9 @@
                                 this.$emit('sent', this.meeting.id);
                             }
                         })
+                } else {
+                    this.noHost = true; 
+                    setTimeout(() => { this.noHost = false; }, 5000);
                 }
             },
             cancelMeeting() {
