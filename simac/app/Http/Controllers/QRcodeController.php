@@ -19,7 +19,7 @@ class QrcodeController extends Controller
     public function show($id){
 
         $codes = Qrcode::all();
-        $Qrcode = $codes->find(decrypt($id));
+        $Qrcode = $codes->find($id);
 
         $firstName = $Qrcode -> first_name;
         $lastName = $Qrcode -> last_name;
@@ -50,10 +50,8 @@ class QrcodeController extends Controller
                     ->setErrorCorrectionLevel('H')
                     ->setSize(4)
                     ->setMargin(2)
-//                    ->setOutfile(public_path('/QRcodes/'. $Qrcode -> id .'.png'))
-//                    ->png();
-        ->svg();
-
+                    ->setOutfile(public_path('/QRcodes/'. $Qrcode -> id .'.png'))
+                    ->png();
     }
 
     /**

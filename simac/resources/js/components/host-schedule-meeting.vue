@@ -275,11 +275,13 @@
                                         schedule_id: this.schedule_id,
                                     }).then(response => {
                                         this.QrCodeId = response.data.data.id;
+                                        axios.get('/api/qrcodes/' + this.QrCodeId).then(response => {
                                         console.log(this.QrCodeId);
                                             this.sendConfirmationEmail();
                                             this.visitor_id = null;
                                             this.fields = {};
                                             this.success = true;
+                                        });
                                     })
                                 })
                         })
