@@ -76,12 +76,12 @@ class VisitRequestController extends Controller
      *     @OA\Response(response="default", description="updated information about the visitrequest (visitor id, company id, department id, date and time)")
      * )
      */
-    public function update($id, Request $request)
+    public function update($req_id, Request $request)
     {
         $host_id = $request->id;
         
         DB::table('visit_requests')
-            ->where('id', '=', $id)
+            ->where('id', '=', $req_id)
             ->update(['host_id' => $host_id]);
 
         return response()->noContent();

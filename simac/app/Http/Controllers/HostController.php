@@ -28,21 +28,8 @@ class HostController extends Controller
 
     public function index() : GeneralResource
     {
-        // $visit_requests = DB::table('visitors')
-        //     ->join('visit_requests', 'visit_requests.visitor_id', '=', 'visitors.id')
-        //     ->select('visit_requests.*', 'visitors.*')
-        //     ->get();
-
-        // return new GeneralResource($visit_requests);
-
         if (isset($_GET['cid'])) {
             $company_id = $_GET['cid'];
-            // $hosts = DB::table('offices')
-            //     ->join('companies', 'offices.company_id', '=', 'companies.id')
-            //     ->join('hosts', 'offices.id', '=', 'hosts.office_id')
-            //     ->select('hosts.*', 'offices.*')
-            //     ->where('companies.id', '=', $company_id)
-            //     ->get();
 
             $hosts = DB::table('hosts')
                 ->where('company_id', '=', $company_id)
