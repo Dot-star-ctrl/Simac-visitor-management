@@ -122,7 +122,10 @@
                 axios.put('/api/visitors/' + this.visitorId,{
                     email: this.newEmail
                 })
-                .then(alert("Successfully updated your email."))
+                .then(respone => {
+                    alert("Successfully updated your email.");
+                    this.email = this.newEmail;
+                })
                 .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
             }
         }
