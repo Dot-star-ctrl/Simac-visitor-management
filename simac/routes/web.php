@@ -48,6 +48,10 @@ Route::get('/welcome-message', function () {
     return view('welcome-message');
 });
 
+Route::get('/personal-information/remove', function () {
+    return view('remove-personal-information');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {
     return Inertia\Inertia::render('HostDashboard');
 })->name('dashboard');
