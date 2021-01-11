@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Employee;
+use App\Models\Employee;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @OA\Tag(
@@ -31,8 +32,15 @@ class EmployeeController extends Controller
      *     @OA\Response(response="default", description="information about all the employees (f name, l name, email, username, password, company)")
      * )
      */
-    public function index() : GeneralResourceCollection
+    public function index(Request $request)
     {
+        if (isset($_GET['uid'])) {
+            $uid = $_GET['uid'];
+
+            $rows = DB::table('employees')->where('user_id', $uid)->get(); 
+            return $rows;
+        }
+
         return new GeneralResourceCollection(Employee::paginate());
     }
     /**

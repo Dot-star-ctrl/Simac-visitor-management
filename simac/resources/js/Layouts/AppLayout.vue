@@ -23,6 +23,12 @@
                             <jet-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
                                 Meetings
                             </jet-nav-link>
+                            <jet-nav-link :href="route('users')" :active="$page.currentRouteName == 'users'">
+                                Add user
+                            </jet-nav-link>
+                            <jet-nav-link :href="route('checkedinvisitors')" :active="$page.currentRouteName == 'checkedinvisitors'">
+                                Checked-in Visitors
+                            </jet-nav-link>
                         </div>
                     </div>
 
@@ -36,7 +42,7 @@
                                     </button>
 
                                     <button v-else class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                        <div>{{ $page.user.name }}</div>
+                                        <div>{{ username }}</div>
 
                                         <div class="ml-1">
                                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -85,7 +91,7 @@
                                         </div>
 
                                         <template v-for="team in $page.user.all_teams">
-                                            <form @submit.prevent="switchToTeam(team)">
+                                            <form @submit.prevent="switchToTeam(team)" :key="team.name">
                                                 <jet-dropdown-link as="button">
                                                     <div class="flex items-center">
                                                         <svg v-if="team.id == $page.user.current_team_id" class="mr-2 h-5 w-5 text-green-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -133,6 +139,9 @@
                     <jet-responsive-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
                         Meetings
                     </jet-responsive-nav-link>
+                    <jet-responsive-nav-link :href="route('users')" :active="$page.currentRouteName == 'users'">
+                        User management
+                    </jet-responsive-nav-link>
                 </div>
 
                 <!-- Responsive Settings Options -->
@@ -143,7 +152,7 @@
                         </div>
 
                         <div class="ml-3">
-                            <div class="font-medium text-base text-gray-800">{{ $page.user.name }}</div>
+                            <div class="font-medium text-base text-gray-800">{{ username }}</div>
                             <div class="font-medium text-sm text-gray-500">{{ $page.user.email }}</div>
                         </div>
                     </div>
@@ -233,6 +242,7 @@
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
 
     export default {
+        props: ['username'],
         components: {
             JetApplicationLogo,
             JetApplicationMark,
@@ -268,6 +278,6 @@
             path() {
                 return window.location.pathname
             }
-        }
+        },
     }
 </script>

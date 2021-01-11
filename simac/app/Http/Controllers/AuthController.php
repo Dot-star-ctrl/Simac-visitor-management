@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Account;
+use App\Models\Account;
+use App\Models\Visitor;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-use App\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 

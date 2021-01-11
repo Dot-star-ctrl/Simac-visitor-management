@@ -22,6 +22,7 @@ class CreateHostsTable extends Migration
         });
         Schema::table('hosts', function (Blueprint $table) {
             $table->foreignId('office_id')->constrained('offices');
+            $table->foreignId('company_id')->constrained('companies');
         });
     }
 

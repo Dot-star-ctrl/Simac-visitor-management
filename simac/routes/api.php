@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Visitor;
+use App\Models\Visitor;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +45,9 @@ Route::apiResource('/employees', 'EmployeeController');
 //Host
 Route::apiResource('/hosts', 'HostController');
 
+//User
+Route::apiResource('/users', 'UserController');
+
 //Office
 Route::apiResource('/offices', 'OfficeController');
 
@@ -56,14 +59,12 @@ Route::apiResource('/schedules', 'ScheduleController');
 
 Route::apiResource('/departments', 'DepartmentController');
 
+//visit requests
 Route::apiResource('/visitrequests', 'VisitRequestController');
+Route::put('/visitrequests/{id}', [VisitRequestController::class, 'update']);
 
 Route::apiResource('/pre-register', 'PreRegisterController');
 
 Route::apiResource('/send','MailController');
 
 Route::apiResource('/send-qr-code','QRcodeMailController');
-
-//meetings + reports
-
-

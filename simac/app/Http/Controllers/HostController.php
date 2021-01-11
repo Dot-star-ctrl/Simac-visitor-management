@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Host;
+use App\Models\Host;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
+use Illuminate\Support\Facades\DB;
 /**
  * @OA\Tag(
  *     name="Host",
@@ -25,9 +26,19 @@ class HostController extends Controller
         return new GeneralResource($host);
     }
 
-    public function index() : GeneralResourceCollection
+    public function index() : GeneralResource
     {
-        return new GeneralResourceCollection(Host::paginate());
+        if (isset($_GET['cid'])) {
+            $company_id = $_GET['cid'];
+
+            $hosts = DB::table('hosts')
+                ->where('company_id', '=', $company_id)
+                ->get();
+
+            return new GeneralResource($hosts);
+        }
+
+        return new GeneralResource(Host::paginate());
     }
 
     public function store(Request $request)

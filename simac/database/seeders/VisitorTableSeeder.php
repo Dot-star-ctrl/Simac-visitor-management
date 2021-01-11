@@ -13,7 +13,7 @@ class VisitorTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Visitor::factory()->count(1)->create();
+        \App\Models\Visitor::factory()->count(1)->create();
     }
 }
 

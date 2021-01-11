@@ -13,6 +13,6 @@ class OfficeTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Office::factory()->count(1)->create();
+        \App\Models\Office::factory()->count(1)->create();
     }
 }

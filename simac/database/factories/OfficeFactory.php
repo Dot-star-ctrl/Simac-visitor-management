@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Office;
-use App\Company;
-use App\Building;
+use App\Models\Office;
+use App\Models\Company;
+use App\Models\Building;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OfficeFactory extends Factory
