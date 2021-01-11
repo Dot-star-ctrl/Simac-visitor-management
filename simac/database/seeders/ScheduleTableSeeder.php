@@ -13,6 +13,6 @@ class ScheduleTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Schedule::factory()->count(1)->create();
+        \App\Models\Schedule::factory()->count(1)->create();
     }
 }

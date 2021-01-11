@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Host;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class HostTableSeeder extends Seeder
 {
@@ -13,6 +15,14 @@ class HostTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Host::factory()->count(1)->create();
+        $companies = DB::table('companies')->select('id')->get();
+
+        for ($j = 0; $j < 2; $j++) {
+            for ($i = 0; $i < 15; $i++) {
+                Host::factory()->count(1)->create([
+                    'company_id' => $companies[$i]->id,
+                ]);
+            }
+        }
     }
 }

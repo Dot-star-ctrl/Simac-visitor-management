@@ -11,9 +11,8 @@
 <p>{{$details['body']}}</p>
 <p>{{$details['message']}}</p>
 <p>{{$details['dateTime']}}</p>
-<p>Your QR code:</p>
-<p>http://127.0.0.1:8000/api/qrcodes/{{$details['qr_code_id']}}</p>
+<p>Your Badge:</p>
+<p>http://127.0.0.1:8000/generate-badge/{{encrypt($details['schedule_id'])}}</p>
 <p>Thank you!</p>
 </body>
 </html>
-<?php

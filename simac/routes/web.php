@@ -28,6 +28,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/meetings', function () {
     return Inertia\Inertia::render('MeetingsReceptionist');
 })->name('meetings');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/users', function () {
+    return Inertia\Inertia::render('Users');
+})->name('users');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/checkedinvisitors', function () {
     return Inertia\Inertia::render('CheckedInVisitors');
 })->name('checkedinvisitors');
@@ -52,7 +56,19 @@ Route::get('/welcome-message', function () {
     return view('welcome-message');
 });
 
+Route::get('/generate-badge/{schedule?}', function ($schedule = null) {
+    return Inertia\Inertia::render('Generate-visitor-badge',['schedule' =>decrypt($schedule)]);
+})->name('generate-badge');
+
+Route::get('/personal-information/remove', function () {
+    return view('remove-personal-information');
+});
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {
     return Inertia\Inertia::render('HostDashboard');
 })->name('dashboard');
+
+Route::get('/scan-qr-code', function () {
+    return Inertia\Inertia::render('Scan-qr-code');
+})->name('scan-qr-code');
 ?>

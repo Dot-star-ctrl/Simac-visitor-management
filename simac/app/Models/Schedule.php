@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,10 +11,13 @@ class Schedule extends Model
 
     protected $fillable = [
         'host_id',
+        'visitor_id',
         'company_id',
         'department_id',
         'dateTime',
         'office_id',
+        'floor',
+        'phone',
         'host_message',
     ];
     public  function host()

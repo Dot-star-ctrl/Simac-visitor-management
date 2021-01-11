@@ -15,7 +15,11 @@ class QrcodeController extends Controller
      *     @OA\Response(response="default", description="information about the qrCode (code, visitor id, and schedule)")
      * )
      */
-    public function show(Qrcode $Qrcode){
+
+    public function show($id){
+
+        $codes = Qrcode::all();
+        $Qrcode = $codes->find($id);
 
         $firstName = $Qrcode -> first_name;
         $lastName = $Qrcode -> last_name;
@@ -28,6 +32,7 @@ class QrcodeController extends Controller
         'pref' => false,
         'floor' => $Qrcode -> floor,
         'number' => $Qrcode -> office,
+        'schedule_id' =>$Qrcode -> schedule_id
         ];
 
         $addresses = [$workAddress];
@@ -45,10 +50,8 @@ class QrcodeController extends Controller
                     ->setErrorCorrectionLevel('H')
                     ->setSize(4)
                     ->setMargin(2)
-//                    ->setOutfile(public_path('/QRcodes/'. $Qrcode -> id .'.png'))
-//                    ->png();
-        ->svg();
-
+                    ->setOutfile(public_path('/QRcodes/'. $Qrcode -> id .'.png'))
+                    ->png();
     }
 
     /**
@@ -128,6 +131,7 @@ class QrcodeController extends Controller
        'pref' => false,
        'floor' => '1',
        'number' => '1.132B',
+        'schedule_id' => '1'
     ];
 
     $addresses = [$workAddress];

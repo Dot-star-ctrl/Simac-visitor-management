@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Company;
+use App\Models\Company;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 use App\VisitRequest;
 use App\Visitor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VisitRequestController extends Controller
 {
@@ -27,9 +28,27 @@ class VisitRequestController extends Controller
      *     @OA\Response(response="default", description="information about all the visitrequest (visitor id, company id, department id, date and time)")
      * )
      */
-    public function index() : GeneralResourceCollection
+    public function index() : GeneralResource
     {
-        return new GeneralResourceCollection(VisitRequest::paginate());
+        $key = (isset($_GET["key"])) ? $_GET["key"] : "up";
+
+        $visit_requests = DB::table('visitors')
+            ->join('visit_requests', 'visit_requests.visitor_id', '=', 'visitors.id')
+            ->select('visit_requests.*', 'visitors.first_name', 'visitors.last_name')
+            ->where('visit_requests.host_id', '=', NULL)
+            ->when($key, function($query, $key) {
+                switch($key) {
+                    case "up":
+                        return $query->latest('proposed_start_dateTime');
+                    case "new":
+                        return $query->latest('created_at');
+                    case "old":
+                        return $query->oldest('created_at');
+                }
+            })
+            ->paginate(10);
+
+        return new GeneralResource($visit_requests);
     }
     /**
      * @OA\Post(
@@ -58,11 +77,15 @@ class VisitRequestController extends Controller
      *     @OA\Response(response="default", description="updated information about the visitrequest (visitor id, company id, department id, date and time)")
      * )
      */
-    public function update(VisitRequest $visitRequest, Request $request) : GeneralResource
+    public function update($req_id, Request $request)
     {
-        $visitRequest -> update($request -> all());
+        $host_id = $request->id;
+        
+        DB::table('visit_requests')
+            ->where('id', '=', $req_id)
+            ->update(['host_id' => $host_id]);
 
-        return new GeneralResource($visitRequest);
+        return response()->noContent();
     }
     /**
      * @OA\Delete(
@@ -70,11 +93,13 @@ class VisitRequestController extends Controller
      *     @OA\Response(response="default", description="empty array")
      * )
      */
-    public function destroy(VisitRequest $visitRequest)
+    public function destroy($id)
     {
-        $visitRequest -> delete();
+        DB::table('visit_requests')
+            ->where('id', '=', $id)
+            ->delete();
 
-        return response() -> json();
+        return response()->noContent();
     }
 
     public function getUser($visitor_id)

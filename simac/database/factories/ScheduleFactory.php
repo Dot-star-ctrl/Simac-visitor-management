@@ -2,11 +2,11 @@
 
 namespace Database\Factories;
 
-use App\Schedule;
-use App\Host;
-use App\Company;
-use App\Department;
-use App\Office;
+use App\Models\Schedule;
+use App\Models\Host;
+use App\Models\Company;
+use App\Models\Department;
+use App\Models\Office;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ScheduleFactory extends Factory

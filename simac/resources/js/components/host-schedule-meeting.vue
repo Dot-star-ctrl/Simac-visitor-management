@@ -119,7 +119,7 @@
                                     <label class="ml-10" for="dateTime">Select Date:</label>
                                     <input type="datetime-local" id="dateTime" name="dateTime"
                                            v-model.trim="$v.dateTime.$model"
-                                           :class="{'is-invalid': validationStatus($v.dateTime)}"/>
+                                           :class="{'is-invalid': validationStatus($v.dateTime)}" @click="checkDate()"/>
                                 </div>
                                 <span v-if="!$v.dateTime.required" class="invalid-feedback text-red-500 text-xs italic">The datetime field is required</span>
                             </div>
@@ -169,6 +169,7 @@
 
         mounted() {
             this.loadOffices();
+            // this.checkDate();
         },
 
         validations: {
@@ -182,19 +183,26 @@
         },
         methods: {
 
+            // checkDate: function () {
+            //     var today = new Date();
+            //     console.log(today);
+            //     document.getElementById('dateTime').min = today;
+            // },
+
             sendConfirmationEmail: function () {
                 axios.post('/api/send-qr-code/', {
                     QRcodeId: this.QrCodeId,
                     email: this.emailUser,
                     message: this.note,
                     dateTime: this.dateTime,
+                    schedule_id: this.schedule_id
                 }).then(response => {})
-                .catch(error => {
-                    if (error.response.status == 422) {
-                        this.errors = error.response.data.errors;
-                    }
-                    console.log('Error');
-                })
+                    .catch(error => {
+                        if (error.response.status == 422) {
+                            this.errors = error.response.data.errors;
+                        }
+                        console.log('Error');
+                    })
             },
 
             loadOffices: function () {
@@ -221,6 +229,7 @@
                     email: this.emailUser
                 })
                     .then(response => {
+                        console.log(response);
                         //get the newly created visitor id
                         this.visitor_id = response.data.data.id;
 
@@ -237,9 +246,13 @@
                                 dateTime: this.dateTime,
                                 host_message: this.note,
                                 host_id: this.employeeId,
+                                visitor_id: this.visitor_id,
                                 company_id: this.companyIdEmployee,
                                 department_id: this.departmentIdEmployee,
                                 office_id: this.office,
+                                floor: this.floor,
+                                phone: this.phone
+
                             })
                                 .then(response => {
                                     this.schedule_id = response.data.data.id;
@@ -262,13 +275,13 @@
                                         schedule_id: this.schedule_id,
                                     }).then(response => {
                                         this.QrCodeId = response.data.data.id;
-                                        console.log(this.QrCodeId);
                                         axios.get('/api/qrcodes/' + this.QrCodeId).then(response => {
+                                        console.log(this.QrCodeId);
                                             this.sendConfirmationEmail();
                                             this.visitor_id = null;
                                             this.fields = {};
                                             this.success = true;
-                                        })
+                                        });
                                     })
                                 })
                         })

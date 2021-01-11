@@ -17,10 +17,13 @@ class CreateSchedulesTable extends Migration
             $table->bigIncrements('id');
             $table->date('dateTime');
             $table->string('host_message');
+            $table->integer('floor');
+            $table->string('phone');
             $table->timestamps();
         });
         Schema::table('schedules', function (Blueprint $table) {
             $table->foreignId('host_id')->constrained('hosts');
+            $table->foreignId('visitor_id')->constrained('visitors');
             $table->foreignId('company_id')->constrained('companies');
             $table->foreignId('department_id')->constrained('departments');
             $table->foreignId('office_id')->constrained('offices');
