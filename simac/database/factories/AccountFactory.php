@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Visitor;
-use App\Account;
+use App\Models\Visitor;
+use App\Models\Account;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AccountFactory extends Factory

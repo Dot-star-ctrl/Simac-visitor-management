@@ -13,6 +13,6 @@ class AccountTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Account::factory()->count(1)->create();
+        \App\Models\Account::factory()->count(1)->create();
     }
 }

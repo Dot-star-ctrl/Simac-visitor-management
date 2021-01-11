@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Host;
+use App\Models\VisitRequest;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class HostTableSeeder extends Seeder
+class VisitRequestTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,7 +19,7 @@ class HostTableSeeder extends Seeder
 
         for ($j = 0; $j < 2; $j++) {
             for ($i = 0; $i < 15; $i++) {
-                Host::factory()->count(1)->create([
+                VisitRequest::factory()->count(1)->create([
                     'company_id' => $companies[$i]->id,
                 ]);
             }

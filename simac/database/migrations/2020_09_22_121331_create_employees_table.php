@@ -22,7 +22,9 @@ class CreateEmployeesTable extends Migration
         Schema::table('employees', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('company_id')->constrained('companies');
-            $table->foreignId('department_id')->constrained('departments');
+            $table->foreignId('department_id')
+                ->nullable()
+                ->constrained('departments');
         });
     }
 

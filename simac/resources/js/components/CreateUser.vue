@@ -61,7 +61,7 @@
 
                     <p class="mt-2">Choose department</p>
                     <select class="block border border-grey-light w-full p-3 rounded mt-1" id="department"
-                            name="department" v-model.trim="$v.department.$model"
+                            name="department" v-model.trim="department"
                             :class="{'is-invalid': validationStatus($v.department)}">
                         <option v-for="department in departments" :key="department.id"
                         :value="department.id">
@@ -89,7 +89,7 @@
 </template>
 
 <script>
-import {required, requiredIf, email, minLength, maxLength, sameAs} from 'vuelidate/lib/validators';
+import {required, email, minLength, maxLength, sameAs} from 'vuelidate/lib/validators';
 import axios from 'axios';
 
 export default {
@@ -106,7 +106,6 @@ export default {
             sameAsPassword: sameAs('password'),
         },
         company: {required},
-        department: {required: requiredIf(!false)},
         account: {required},
     },
     data() {
@@ -135,7 +134,7 @@ export default {
                 body.append('first_name', v.firstName.$model);
                 body.append('last_name', v.lastName.$model);
                 body.append('company_id', v.company.$model);
-                body.append('department_id', v.department.$model);
+                body.append('department_id', this.department);
                 body.append('type', v.account.$model)
                 body.append('email', v.email.$model);
                 body.append('password', v.password.$model);

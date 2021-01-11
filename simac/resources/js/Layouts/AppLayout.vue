@@ -26,6 +26,9 @@
                             <jet-nav-link :href="route('users')" :active="$page.currentRouteName == 'users'">
                                 Add user
                             </jet-nav-link>
+                            <jet-nav-link :href="route('checkedinvisitors')" :active="$page.currentRouteName == 'checkedinvisitors'">
+                                Checked-in Visitors
+                            </jet-nav-link>
                         </div>
                     </div>
 

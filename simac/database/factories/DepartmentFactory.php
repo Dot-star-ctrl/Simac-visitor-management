@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Department;
-use App\Company;
-use App\Building;
+use App\Models\Department;
+use App\Models\Company;
+use App\Models\Building;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class DepartmentFactory extends Factory
