@@ -39,8 +39,9 @@
                         </div>
                     </div>
 
-                    <button v-on:click="goBack" class="bg-red-600 p-2 rounded-lg shadow-md text-white mt-2 hover:bg-red-700 ease-in duration-200">Go Back</button>
+                    <button v-on:click="goBack" class="bg-blue-600 p-2 rounded-lg shadow-md text-white mt-2 hover:bg-blue-800 ease-in duration-200">Go Back</button>
 
+                    <button v-on:click="deleteInformation" class="bg-red-600 float-right p-2 rounded-lg shadow-md text-white mt-2 hover:bg-red-800 ease-in duration-200">Delete</button>
                 </div>
             </div>
         </div>
@@ -72,7 +73,6 @@
             validationStatus(validation) {
                 return typeof validation != "undefined" ? validation.$error : false;
             },
-
             submit() {
                 this.$v.$touch();
                 if (this.$v.$pendding || this.$v.$error) return;
@@ -98,10 +98,20 @@
                 this.email = '';
                 this.firstName = '';
                 this.lastName = '';
+                this.token = '';
                 this.visitorId = null;
                 this.visit_req = [];
 
             },
+            deleteInformation(){
+                axios.delete('/api/visit-requests/deletevisitor/' + this.visitorId).then(response => {
+
+                    axios.delete('/api/visitors/' + this.visitorId)
+                        .then(this.goBack())
+                        .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
+                })
+                .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
+            }
         }
     }
 </script>

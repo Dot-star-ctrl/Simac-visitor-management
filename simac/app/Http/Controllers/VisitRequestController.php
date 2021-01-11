@@ -83,4 +83,11 @@ class VisitRequestController extends Controller
 
         return $visitreq;
     }
+
+    public function deleteUserVisit($visitor_id)
+    {
+        $visitreq = VisitRequest::where("visitor_id", $visitor_id)->delete();
+
+        return true;
+    }
 }

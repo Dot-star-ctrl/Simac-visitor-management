@@ -58,6 +58,7 @@ Route::apiResource('/schedules', 'ScheduleController');
 Route::apiResource('/departments', 'DepartmentController');
 
 Route::get('/visit-requests/visitorid/{visitor_id}', 'VisitRequestController@getUser');
+Route::delete('/visit-requests/deletevisitor/{visitor_id}', 'VisitRequestController@deleteUserVisit');
 Route::apiResource('/visit-requests', 'VisitRequestController');
 
 Route::apiResource('/pre-register', 'PreRegisterController');
