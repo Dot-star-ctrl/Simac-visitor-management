@@ -6,6 +6,7 @@ use App\Models\Department;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DepartmentController extends Controller
 {
@@ -25,10 +26,20 @@ class DepartmentController extends Controller
      *     @OA\Response(response="default", description="information about all the departments (company id, building id and department name)")
      * )
      */
-    public function index() : GeneralResourceCollection
+    public function index(Request $request)
     {
+        //if query parameters are set,
+        //return all departments with set company id
+        if (isset($_GET['cid'])) {
+            $cid = $_GET['cid'];
+
+            $rows = DB::table('departments')->where('company_id', $cid)->get(); 
+            return $rows;
+        }
+
         return new GeneralResourceCollection(Department::paginate());
     }
+
     /**
      * @OA\Post(
      *     path="/api/departments",
