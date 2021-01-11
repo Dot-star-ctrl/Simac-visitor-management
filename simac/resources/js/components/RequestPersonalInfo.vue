@@ -29,6 +29,10 @@
                     <div class="p-2">
                         <p class="mb-2">Name: {{this.firstName}} {{this.lastName}}</p>
                         <p class="mb-2">Email: {{this.email}}</p>
+                        <form v-on:submit.prevent="updateEmail">
+                            <input class="form-control inline-block border border-grey-light w-2/3 p-1 rounded mt-1" type="text" name="newEmail" placeholder="Type your new email here" v-model="newEmail" />
+                            <input class="bg-red-600 shadow-md text-white cursor-pointer hover:bg-red-800 ease-in duration-200 inline-block border border-grey-light p-1 rounded mt-1" type="submit" value="submit" />
+                        </form>
                     </div>
                     
                     <div class="overflow-auto h-64">
@@ -62,6 +66,7 @@
                 lastName: '',
                 visitorId: null,
                 visit_req: [],
+                newEmail: '',
             }
         },
 
@@ -110,6 +115,14 @@
                         .then(this.goBack())
                         .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
                 })
+                .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
+            },
+            updateEmail(){
+
+                axios.put('/api/visitors/' + this.visitorId,{
+                    email: this.newEmail
+                })
+                .then(alert("Successfully updated your email."))
                 .catch(error => alert("This code does not match our database, please check the code or pre-register first."));
             }
         }
