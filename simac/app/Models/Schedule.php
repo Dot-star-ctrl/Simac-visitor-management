@@ -11,10 +11,13 @@ class Schedule extends Model
 
     protected $fillable = [
         'host_id',
+        'visitor_id',
         'company_id',
         'department_id',
         'dateTime',
         'office_id',
+        'floor',
+        'phone',
         'host_message',
     ];
     public  function host()

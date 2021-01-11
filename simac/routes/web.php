@@ -52,6 +52,10 @@ Route::get('/welcome-message', function () {
     return view('welcome-message');
 });
 
+Route::get('/generate-badge/{schedule?}', function ($schedule = null) {
+    return Inertia\Inertia::render('Generate-visitor-badge',['schedule' =>decrypt($schedule)]);
+})->name('generate-badge');
+
 Route::get('/personal-information/remove', function () {
     return view('remove-personal-information');
 });
@@ -59,4 +63,8 @@ Route::get('/personal-information/remove', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard-host', function () {
     return Inertia\Inertia::render('HostDashboard');
 })->name('dashboard');
+
+Route::get('/scan-qr-code', function () {
+    return Inertia\Inertia::render('Scan-qr-code');
+})->name('scan-qr-code');
 ?>
