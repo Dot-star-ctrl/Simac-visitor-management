@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(DepartmentTableSeeder::class);
         $this->call(HostTableSeeder::class);
         $this->call(OfficeTableSeeder::class);
-        $this->call(QRCodeTableSeeder::class);
         $this->call(QrcodeTableSeeder::class);
         $this->call(ScheduleTableSeeder::class);
+        $this->call(VisitRequestTableSeeder::class);
     }
 }

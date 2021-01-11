@@ -22,6 +22,10 @@ Homestead.json
 /.vagrant
 .phpunit.result.cache
 
-#intellij and vim specific
+#ide specific
+.vscode
 .idea
 .swp
+
+#laravel mix logs
+simac/public/mix-manifest.json

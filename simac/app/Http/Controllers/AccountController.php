@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Account;
+use App\Models\Account;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 /**

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Department;
-use App\Company;
+use App\Models\Department;
+use App\Models\Company;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
 use Illuminate\Http\Request;

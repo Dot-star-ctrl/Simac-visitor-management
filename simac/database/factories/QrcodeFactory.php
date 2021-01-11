@@ -3,8 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Qrcode;
-use App\Visitor;
-use App\Schedule;
+use App\Models\Visitor;
+use App\Models\Schedule;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class QrcodeFactory extends Factory
@@ -14,7 +14,7 @@ class QrcodeFactory extends Factory
      *
      * @var string
      */
-    protected $model = Qrcode::class;
+    protected $model = QRcode::class;
 
     /**
      * Define the model's default state.
