@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-use App\Models\VisitRequest;
+use App\VisitRequest;
+use App\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -99,5 +100,19 @@ class VisitRequestController extends Controller
             ->delete();
 
         return response()->noContent();
+    }
+
+    public function getUser($visitor_id)
+    {
+        $visitreq = VisitRequest::where("visitor_id", $visitor_id)->get();
+
+        return $visitreq;
+    }
+
+    public function deleteUserVisit($visitor_id)
+    {
+        $visitreq = VisitRequest::where("visitor_id", $visitor_id)->delete();
+
+        return true;
     }
 }
