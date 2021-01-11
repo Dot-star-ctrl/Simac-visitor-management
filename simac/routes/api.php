@@ -65,7 +65,6 @@ Route::apiResource('/send','MailController');
 
 Route::apiResource('/send-qr-code','QRcodeMailController');
 Route::post("upload",[RulesController::class,'upload']);
-Route::delete('/visitrequests/{id}', 'VisitRequestController@destroy');
 
 //meetings + reports
 

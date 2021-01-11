@@ -15,25 +15,26 @@
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                             <jet-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
-                                Dashboard
+                                <p>{{ $t("message.dashboard") }}</p>
                             </jet-nav-link>
                             <jet-nav-link :href="route('reports')" :active="$page.currentRouteName == 'reports'">
-                                Reports
+                                <p>{{ $t("message.reports") }}</p>
                             </jet-nav-link>
                             <jet-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
-                                Meetings
+                                <p>{{ $t("message.meetings") }}</p>
                             </jet-nav-link>
                         </div>
                     </div>
-
                     <!-- Settings Dropdown -->
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <LocaleChanger/>
                         <div class="ml-3 relative">
                             <jet-dropdown align="right" width="48">
                                 <template #trigger>
                                     <button v-if="$page.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                         <img class="h-8 w-8 rounded-full object-cover" :src="$page.user.profile_photo_url" :alt="$page.user.name" />
                                     </button>
+
 
                                     <button v-else class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                         <div>{{ $page.user.name }}</div>
@@ -49,11 +50,11 @@
                                 <template #content>
                                     <!-- Account Management -->
                                     <div class="block px-4 py-2 text-xs text-gray-400">
-                                        Manage Account
+                                        <p>{{ $t("message.manageaccount") }}</p>
                                     </div>
 
                                     <jet-dropdown-link :href="route('profile.show')">
-                                        Profile
+                                        <p>{{ $t("message.profile") }}</p>
                                     </jet-dropdown-link>
 
                                     <jet-dropdown-link :href="route('api-tokens.index')" v-if="$page.jetstream.hasApiFeatures">
@@ -101,7 +102,7 @@
                                     <!-- Authentication -->
                                     <form @submit.prevent="logout">
                                         <jet-dropdown-link as="button">
-                                            Logout
+                                            <p>{{ $t("message.logout") }}</p>
                                         </jet-dropdown-link>
                                     </form>
                                 </template>
@@ -125,13 +126,13 @@
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
                     <jet-responsive-nav-link :href="route('dashboard')" :active="$page.currentRouteName == 'dashboard'">
-                        Dashboard
+                        <p>{{ $t("message.dashboard") }}</p>
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link :href="route('reports')" :active="$page.currentRouteName == 'reports'">
-                        Reports
+                        <p>{{ $t("message.reports") }}</p>
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link :href="route('meetings')" :active="$page.currentRouteName == 'meetings'">
-                        Meetings
+                        <p>{{ $t("message.meetings") }}</p>
                     </jet-responsive-nav-link>
                 </div>
 
@@ -150,7 +151,7 @@
 
                     <div class="mt-3 space-y-1">
                         <jet-responsive-nav-link :href="route('profile.show')" :active="$page.currentRouteName == 'profile.show'">
-                            Profile
+                            <p>{{ $t("message.profile") }}</p>
                         </jet-responsive-nav-link>
 
                         <jet-responsive-nav-link :href="route('api-tokens.index')" :active="$page.currentRouteName == 'api-tokens.index'" v-if="$page.jetstream.hasApiFeatures">
@@ -160,7 +161,7 @@
                         <!-- Authentication -->
                         <form method="POST" @submit.prevent="logout">
                             <jet-responsive-nav-link as="button">
-                                Logout
+                                <p>{{ $t("message.logout") }}</p>
                             </jet-responsive-nav-link>
                         </form>
 
@@ -208,7 +209,7 @@
         <header class="bg-white shadow">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                    {{ $page.currentRouteName.charAt(0).toUpperCase() + $page.currentRouteName.slice(1) }}
+                    {{ $t( "message." + $page.currentRouteName ) }}
                 </h2>
             </div>
         </header>
@@ -231,9 +232,11 @@
     import JetDropdownLink from '@/Jetstream/DropdownLink'
     import JetNavLink from '@/Jetstream/NavLink'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink'
+    import LocaleChanger from "@/components/locale-changer";
 
     export default {
         components: {
+            LocaleChanger,
             JetApplicationLogo,
             JetApplicationMark,
             JetDropdown,
