@@ -26,11 +26,11 @@ class VisitorController extends Controller
         return new GeneralResource($visitor);
     }
 
+
     public function index() : GeneralResourceCollection
     {
         return new GeneralResourceCollection(Visitor::paginate());
     }
-
     public function store(Request $request)
     {
         $request -> validate([

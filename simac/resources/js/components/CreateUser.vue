@@ -1,7 +1,7 @@
 <template>
-    <div class="flex-grow lg:flex lg:justify-center lg:flex-grow-0"> 
+    <div class="flex-grow lg:flex lg:justify-center lg:flex-grow-0">
         <div class="m-4 rounded px-8 pt-6 pb-8 mb-4">
-            <h1 class="mb-8 text-3xl text-center">Create new user</h1>
+            <h1 class="mb-8 text-3xl text-center">{{ $t("message.Createuser") }}</h1>
 
             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
                  role="alert" v-if="success">
@@ -46,20 +46,20 @@
                     <div v-if="!$v.passwordCheck.sameAsPassword" class="invalid-feedback text-red-500 text-xs italic">Passwords do not match</div>
                 </div>
 
-                <div class="hidden 
+                <div class="hidden
                 md:block md:mx-8 md:border-l-2 md:border-gray-200"></div>
 
                 <div>
-                    <p>Choose company</p>
+                    <p>{{ $t("message.choosecompany") }}</p>
                     <select class="block border border-grey-light w-full p-3 rounded mt-1" id="company"
                             name="company" v-model.trim="$v.company.$model"
                             :class="{'is-invalid': validationStatus($v.company)}"
                             @change="loadDepartments(company)">
-                        <option v-for="company in companies" :key="company.id" 
+                        <option v-for="company in companies" :key="company.id"
                         :value="company.id">{{company.name}}</option>
                     </select>
 
-                    <p class="mt-2">Choose department</p>
+                    <p class="mt-2">{{ $t("message.choosedepartment") }}</p>
                     <select class="block border border-grey-light w-full p-3 rounded mt-1" id="department"
                             name="department" v-model.trim="$v.department.$model"
                             :class="{'is-invalid': validationStatus($v.department)}">
@@ -69,7 +69,7 @@
                         </option>
                     </select>
 
-                    <p class="mt-2">Choose account type</p>
+                    <p class="mt-2">{{ $t("message.chooseaccount") }}</p>
                     <select class="block border border-grey-light w-full p-3 rounded mt-1" id="department"
                             name="department" v-model.trim="$v.account.$model"
                             :class="{'is-invalid': validationStatus($v.account)}">
@@ -82,7 +82,7 @@
             <button type="submit"
                     class="block mx-auto shadow bg-red-600 hover:bg-red-700 focus:shadow-outline focus:outline-none text-white py-3 mt-4 px-10 rounded"
                     @click="submit($v)">
-                Create
+                {{ $t("message.create") }}
             </button>
         </div>
     </div>
@@ -141,11 +141,11 @@ export default {
                 body.append('password', v.password.$model);
                 body.append('password_confirmation', v.password.$model);
 
-                axios.post('/api/users', body).then(response => {                        
+                axios.post('/api/users', body).then(response => {
                     this.success = true;
                 }).catch(err => {
                     this.success = false;
-                    this.msg = "Please check the data"; 
+                    this.msg = "Please check the data";
                 })
             } else {
                 this.success = false;
@@ -160,13 +160,13 @@ export default {
 
             axios.get('/api/departments', {
                 params: { cid: cid }
-            }).then(response => { 
+            }).then(response => {
                 this.departments = response.data;
             });
         },
         loadCompanies() {
             axios.get('/api/companies').then(response => {
-                this.companies = response.data.data;                    
+                this.companies = response.data.data;
             });
         },
     },

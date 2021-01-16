@@ -15,16 +15,16 @@
         <div class="m-8 flex bg-white overflow-hidden shadow-xl sm:rounded-lg py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="w-1/3 overflow-auto border-r border-gray-200">
                 <h1 class="p-4 text-center text-2xl ">
-                    Pending meetings
+                    {{ $t("message.pendingmeeting") }}
                 </h1>
                 <div class="flex justify-center p-2 border-b border-gray-200">
                     <select
                         v-model="key"
-                        @change="getMeetings" 
+                        @change="getMeetings"
                         class="w-3/5 px-2 py-1 bg-white border-2 border-gray-500 rounded-md">
-                        <option value="up">Upcoming</option>
-                        <option value="new">Newest</option>
-                        <option value="old">Oldest</option>
+                        <option value="up">{{ $t("message.upcoming") }}</option>
+                        <option value="new">{{ $t("message.new") }}</option>
+                        <option value="old">{{ $t("message.old") }}</option>
                     </select>
                 </div>
                 <div class="p-2 h-xl overflow-y-scroll">
@@ -37,7 +37,7 @@
                       @click.native="focusMeeting(m)"
                     />
                     <div v-if="page < lastPage" class="flex justify-center">
-                       <button 
+                       <button
                             class="mx-12 border border-red-700 bg-red-600 hover:bg-red-700 rounded text-white p-2 px-4 text-xl"
                             @click="loadMore">
                             Load more
@@ -46,9 +46,9 @@
                 </div>
             </div>
             <div class="w-2/3">
-                <h1 class="p-4 text-center text-2xl border-b border-gray-200">Overview</h1>
-                <meeting-overview 
-                    v-if="meetings.length > 0" 
+                <h1 class="p-4 text-center text-2xl border-b border-gray-200">{{ $t("message.overview") }}</h1>
+                <meeting-overview
+                    v-if="meetings.length > 0"
                     :key="currMeeting.id" :data="currMeeting"
                     @hostChanged="setHost"
                     @deleted="removeMeeting"
@@ -56,7 +56,7 @@
                 <div v-else class="flex-col">
                     <h1 class="p-8 text-center text-2xl">It seems that there are no meeting requests right now</h1>
                     <div class="flex justify-center">
-                        <button 
+                        <button
                             class="mx-12 border border-red-700 bg-red-600 rounded text-white p-2 px-4 text-xl"
                             @click="getMeetings">
                             Refresh
@@ -93,7 +93,7 @@
         },
         methods: {
             async getMeetings() {
-                const res = await axios.get('/api/visitrequests', { 
+                const res = await axios.get('/api/visitrequests', {
                     params: {
                         page: 1,
                         key: this.key,
@@ -107,14 +107,14 @@
                 this.focusMeeting(this.meetings[0]);
             },
             async loadMore() {
-                let res = await axios.get('/api/visitrequests', { 
-                    params: {                            
+                let res = await axios.get('/api/visitrequests', {
+                    params: {
                         page: ++this.page,
                         key: this.key,
                     }
                 });
                 res = res.data.data;
-                
+
                 this.meetings = this.meetings.concat(res);
 
             },

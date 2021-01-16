@@ -28,6 +28,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/meetings', function () {
     return Inertia\Inertia::render('MeetingsReceptionist');
 })->name('meetings');
 
+Route::middleware(['auth:sanctum', 'verified'])->get('/hostmeetings', function () {
+    return Inertia\Inertia::render('MeetingHost');
+})->name('hostmeetings');
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/users', function () {
     return Inertia\Inertia::render('Users');
 })->name('users');
