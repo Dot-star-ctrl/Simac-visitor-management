@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Checkout;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
+use Illuminate\Support\Facades\DB;
 /**
  * @OA\Tag(
  *     name="Checkout",
@@ -30,9 +31,35 @@ class CheckoutController extends Controller
      *     @OA\Response(response="default", description="information about all the checkouts (visitor id, date and time, building id)")
      * )
      */
-    public function index() : GeneralResourceCollection
+    public function index()
     {
-        return new GeneralResourceCollection(Checkout::paginate());
+        if (isset($_GET['s'])) {
+            $sort = $_GET['s'];
+
+            $startDate = new \DateTime();
+            $startDate = $startDate->modify("-$sort day")->format("Y-m-d");
+
+            $endDate = new \DateTime();
+            $endDate = $endDate->format("Y-m-d");
+
+            $checkouts = DB::table('checkouts')
+                ->whereBetween('dateTime', [$startDate, $endDate])
+                ->get();
+
+            return $checkouts;
+        } else if (isset($_GET['sd']) && isset($_GET['ed'])) {
+            $startDate = new \DateTime($_GET['sd']);
+            $startDate = $startDate->format("Y-m-d");
+
+            $endDate = new \DateTime($_GET['ed']);
+            $endDate = $endDate->format("Y-m-d");
+
+            $checkouts = DB::table('checkouts')
+                ->whereBetween('dateTime', [$startDate, $endDate])
+                ->get();
+
+            return $checkouts;
+        }
     }
     /**
      * @OA\Post(

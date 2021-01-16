@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Checking;
+use App\Models\Checking;
 
 class Checkout extends Checking
 {
