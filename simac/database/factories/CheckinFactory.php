@@ -25,10 +25,8 @@ class CheckinFactory extends Factory
     {
         return [
             'visitor_id' => Visitor::factory(),
-            'dateTime' => $this->faker->date(),
+            'dateTime' => $this->faker->dateTimeBetween('-12 months', '+1 week'),
             'building_id' => Building::factory()
         ];
     }
 }
-
-

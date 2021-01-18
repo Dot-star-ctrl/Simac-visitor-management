@@ -188,6 +188,7 @@
                     unit: "in",
                     format: [3.5, 2]
                 });
+
                 var element = document.getElementById('content');
                 var width = element.style.width;
                 var height = element.style.height;

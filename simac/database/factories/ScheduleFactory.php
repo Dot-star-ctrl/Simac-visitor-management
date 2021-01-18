@@ -7,6 +7,7 @@ use App\Models\Host;
 use App\Models\Company;
 use App\Models\Department;
 use App\Models\Office;
+use App\Models\Visitor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ScheduleFactory extends Factory
@@ -31,7 +32,10 @@ class ScheduleFactory extends Factory
             'office_id' => Office::factory(),
             'host_id' => Host::factory(),
             'dateTime' => $this->faker->date(),
-            'host_message' => $this->faker->name()
+            'host_message' => $this->faker->name(),
+            'floor'         => $this->faker->randomNumber($nbDigits = 3),
+            'phone'  => $this->faker->randomNumber($nbDigits = 8),
+            'visitor_id' => Visitor::factory(),
         ];
     }
 }

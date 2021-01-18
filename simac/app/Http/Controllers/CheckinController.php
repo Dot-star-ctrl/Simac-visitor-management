@@ -44,7 +44,11 @@ class CheckinController extends Controller
 
             $checkins = DB::table('checkins')
                 ->whereBetween('dateTime', [$startDate, $endDate])
-                ->get();
+                ->join('visitors', 'checkins.visitor_id', '=', 'visitors.id')
+                ->join('buildings', 'checkins.building_id', '=', 'buildings.id')
+                ->select('checkins.dateTime', 'visitors.first_name', 'visitors.last_name', 'buildings.name')
+                ->oldest('dateTime')
+                ->paginate(15);
 
             return $checkins;
         } else if (isset($_GET['sd']) && isset($_GET['ed'])) {
@@ -56,9 +60,15 @@ class CheckinController extends Controller
 
             $checkins = DB::table('checkins')
                 ->whereBetween('dateTime', [$startDate, $endDate])
-                ->get();
+                ->join('visitors', 'checkins.visitor_id', '=', 'visitors.id')
+                ->join('buildings', 'checkins.building_id', '=', 'buildings.id')
+                ->select('checkins.dateTime', 'visitors.first_name', 'visitors.last_name', 'buildings.name')
+                ->oldest('dateTime')
+                ->paginate(15);
 
             return $checkins;
+        } else {
+            return new GeneralResourceCollection(Checkin::paginate());
         }
     }
     /**

@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class CompanyTableSeeder extends Seeder
+class CheckoutTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class CompanyTableSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Company::factory()->count(15)->create();
+        \App\Models\Checkout::factory()->count(60)->create();
     }
 }
