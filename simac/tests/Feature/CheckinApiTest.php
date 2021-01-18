@@ -28,7 +28,7 @@ class CheckinApiTest extends TestCase
 
     public function test_can_update_checkin()
     {
-        $checkin = \App\Checkin::factory()->create();
+        $checkin = \App\Models\Checkin::factory()->create();
 
         $updatedData = [
             'date' => '12',
@@ -40,21 +40,21 @@ class CheckinApiTest extends TestCase
 
     public function test_can_show_checkin()
     {
-        $checkin = \App\Checkin::factory()->create();
+        $checkin = \App\Models\Checkin::factory()->create();
 
         $this->get(route('checkin.show', $checkin->id))->assertStatus(200);
     }
 
     public function test_can_delete_checkin()
     {
-        $checkin = \App\Checkin::factory()->create();
+        $checkin = \App\Models\Checkin::factory()->create();
 
         $this->delete(route('checkin.destroy', $checkin->id))->assertStatus(200);
     }
 
     public function test_can_list_checkin()
     {
-        $checkin = \App\Checkin::factory()->count(3)->create();
+        $checkin = \App\Models\Checkin::factory()->count(3)->create();
 
         $this->get(route('checkin.index'))
         ->assertStatus(200);

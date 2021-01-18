@@ -62,6 +62,7 @@ Route::apiResource('/departments', 'DepartmentController');
 
 Route::get('/visit-requests/visitorid/{visitor_id}', 'VisitRequestController@getUser');
 Route::delete('/visit-requests/deletevisitor/{visitor_id}', 'VisitRequestController@deleteUserVisit');
+
 //visit requests
 Route::apiResource('/visitrequests', 'VisitRequestController');
 Route::put('/visitrequests/{id}', [VisitRequestController::class, 'update']);

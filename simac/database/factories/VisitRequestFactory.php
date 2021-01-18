@@ -30,7 +30,7 @@ class VisitRequestFactory extends Factory
             'proposed_end_dateTime' => $this->faker->dateTime(),
             'visitor_id' => Visitor::factory(),
             'host_id' => NULL,
-            'company_id' => 1,
+            'company_id' => Company::factory(),
             'department_id' => Department::factory(),
         ];
     }

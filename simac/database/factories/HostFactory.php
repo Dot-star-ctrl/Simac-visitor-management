@@ -28,7 +28,7 @@ class HostFactory extends Factory
             'last_name' => $this->faker->lastName(),
             'email' => $this->faker->email(),
             'office_id' => Office::factory(),
-            'company_id' => 1,
+            'company_id' => Company::factory(),
         ];
     }
 }

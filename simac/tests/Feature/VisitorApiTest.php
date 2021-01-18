@@ -15,7 +15,7 @@ class VisitorApiTest extends TestCase
      * @return void
      */
 
-     use RefreshDatabase;
+    use RefreshDatabase;
 
     public function test_can_create_visitor()
     {
@@ -23,6 +23,7 @@ class VisitorApiTest extends TestCase
             'first_name' => 'Johny',
             'last_name' => 'Test',
             'email' => 'example@example.com',
+            'token'  => '1234567890',
         ];
 
         $this->post(route('visitors.store'), $formData)
@@ -31,7 +32,7 @@ class VisitorApiTest extends TestCase
 
     public function test_can_update_visitor()
     {
-        $visitor = \App\Visitor::factory()->create();
+        $visitor = \App\Models\Visitor::factory()->create();
 
         $updatedData = [
             'first_name' => 'Johny Second',
@@ -45,21 +46,21 @@ class VisitorApiTest extends TestCase
 
     public function test_can_show_visitor()
     {
-        $visitor = \App\Visitor::factory()->create();
+        $visitor = \App\Models\Visitor::factory()->create();
 
         $this->get(route('visitors.show', $visitor->id))->assertStatus(200);
     }
 
     public function test_can_delete_visitor()
     {
-        $visitor = \App\Visitor::factory()->create();
+        $visitor = \App\Models\Visitor::factory()->create();
 
         $this->delete(route('visitors.destroy', $visitor->id))->assertStatus(200);
     }
 
     public function test_can_list_visitors()
     {
-        $visitor = \App\Visitor::factory()->count(3)->create();
+        $visitor = \App\Models\Visitor::factory()->count(3)->create();
 
         $this->get(route('visitors.index'))
         ->assertStatus(200);

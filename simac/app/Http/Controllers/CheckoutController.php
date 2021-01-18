@@ -68,7 +68,7 @@ class CheckoutController extends Controller
 
             return $checkouts;
         } else {
-            return new GeneralResourceCollection(Checkin::paginate());
+            return new GeneralResourceCollection(Checkout::paginate());
         }
     }
     /**

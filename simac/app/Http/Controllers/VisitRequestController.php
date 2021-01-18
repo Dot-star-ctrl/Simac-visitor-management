@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Http\Resources\GeneralResource;
 use App\Http\Resources\GeneralResourceCollection;
-use App\VisitRequest;
-use App\Visitor;
+use App\Models\VisitRequest;
+use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -67,7 +67,7 @@ class VisitRequestController extends Controller
             'proposed_end_dateTime'       => 'required',
         ]);
 
-        $visitRequest = VisitRequest::create($request ->all());
+        $visitRequest = VisitRequest::create($request->all());
 
         return new GeneralResource($visitRequest);
     }
