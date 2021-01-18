@@ -28,4 +28,4 @@ Homestead.json
 .swp
 
 #laravel mix logs
-simac/public/mix-manifest.json
+mix-manifest.json

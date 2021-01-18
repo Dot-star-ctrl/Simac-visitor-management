@@ -45,12 +45,12 @@
                 <h1 v-else-if="sort == 31">Visitors from last month</h1>
                 <h1 v-else-if="sort == 186">Visitors from last 6 months</h1>
                 <h1 v-else-if="sort == 365">Visitors from last year</h1>
-                <h1 v-else>Visistors from last {{ sort }} days</h1>
+                <h1 v-else>Visitors from last {{ sort }} days</h1>
             </div>
             <div v-else class="m-4 text-center text-2xl">
-                <h1></h1>
+                <h1>Visitors from {{ startDate}} to {{ endDate }}</h1>
             </div>
-            <div class="flex justify-around">
+            <div class="flex justify-around h-xl overflow-y-scroll">
                 <div>
                     <h1 class="text-center text-xl pb-2 border-b border-gray-200">Check ins</h1>
                     <ul v-if="visitors.checkins.length > 0">
@@ -130,14 +130,17 @@
             },
             async generateDate() {
                 if (this.startDate != '' || this.endDate != '') {
-                    let month = new Date().getMonth();
-                    month++;
-
                     this.startDate = new Date(this.startDate);
-                    this.startDate = this.startDate.getFullYear() + '-' + month + '-' + this.startDate.getDate();
+                    let startMonth = this.startDate.getMonth();
+                    startMonth++;
+
+                    this.startDate = this.startDate.getFullYear() + '-' + startMonth + '-' + this.startDate.getDate();
 
                     this.endDate = new Date(this.endDate);
-                    this.endDate = this.endDate.getFullYear() + '-' + month + '-' + this.endDate.getDate();
+                    let endMonth = this.endDate.getMonth();
+                    endMonth++;
+
+                    this.endDate = this.endDate.getFullYear() + '-' + endMonth + '-' + this.endDate.getDate();
 
                     let checkins = await axios.get('/api/checkin', {
                         params: { sd: this.startDate, ed: this.endDate }
