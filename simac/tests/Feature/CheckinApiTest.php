@@ -15,7 +15,7 @@ class CheckinApiTest extends TestCase
      */
 
     use RefreshDatabase;
-     
+
     public function test_can_create_checkin()
     {
         $formData = [

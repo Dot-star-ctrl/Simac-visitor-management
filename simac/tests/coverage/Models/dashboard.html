@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Dashboard for D:\XAMPP\htdocs\DanielSimac\simac\simac\app\Models</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../_css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/nv.d3.min.css" rel="stylesheet" type="text/css">
+  <link href="../_css/style.css" rel="stylesheet" type="text/css">
+  <link href="../_css/custom.css" rel="stylesheet" type="text/css">
+ </head>
+ <body>
+  <header>
+   <div class="container-fluid">
+    <div class="row">
+     <div class="col-md-12">
+      <nav aria-label="breadcrumb">
+       <ol class="breadcrumb">
+         <li class="breadcrumb-item"><a href="../index.html">D:\XAMPP\htdocs\DanielSimac\simac\simac\app</a></li>
+         <li class="breadcrumb-item"><a href="index.html">Models</a></li>
+         <li class="breadcrumb-item active">(Dashboard)</li>
+
+       </ol>
+      </nav>
+     </div>
+    </div>
+   </div>
+  </header>
+  <div class="container-fluid">
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Classes</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="classCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="classComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Account.php.html#8">App\Models\Account</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Building.php.html#8">App\Models\Building</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Checking.php.html#8">App\Models\Checking</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Company.php.html#8">App\Models\Company</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Department.php.html#8">App\Models\Department</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Employee.php.html#8">App\Models\Employee</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Host.php.html#8">App\Models\Host</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HostAttending.php.html#8">App\Models\HostAttending</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Office.php.html#8">App\Models\Office</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Qrcode.php.html#8">App\Models\Qrcode</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#8">App\Models\Schedule</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="VisitRequest.php.html#8">App\Models\VisitRequest</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visitor.php.html#8">App\Models\Visitor</a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="WelcomeMessage.php.html#8">App\Models\WelcomeMessage</a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Class</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-12">
+     <h2>Methods</h2>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Coverage Distribution</h3>
+     <div id="methodCoverageDistribution" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Complexity</h3>
+     <div id="methodComplexity" style="height: 300px;">
+       <svg></svg>
+     </div>
+    </div>
+   </div>
+   <div class="row">
+    <div class="col-md-6">
+     <h3>Insufficient Coverage</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right">Coverage</th>
+        </tr>
+       </thead>
+       <tbody>
+       <tr><td><a href="Account.php.html#17"><abbr title="App\Models\Account::visitor">visitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#50"><abbr title="App\Models\Schedule::visitors">visitors</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Office.php.html#28"><abbr title="App\Models\Office::schedules">schedules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Qrcode.php.html#22"><abbr title="App\Models\Qrcode::visitor">visitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Qrcode.php.html#26"><abbr title="App\Models\Qrcode::schedule">schedule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#23"><abbr title="App\Models\Schedule::host">host</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#27"><abbr title="App\Models\Schedule::office">office</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#31"><abbr title="App\Models\Schedule::department">department</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#35"><abbr title="App\Models\Schedule::company">company</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#41"><abbr title="App\Models\Schedule::qrcodes">qrcodes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Schedule.php.html#45"><abbr title="App\Models\Schedule::host_attendings">host_attendings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="VisitRequest.php.html#20"><abbr title="App\Models\VisitRequest::visitor">visitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Office.php.html#20"><abbr title="App\Models\Office::building">building</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="VisitRequest.php.html#24"><abbr title="App\Models\VisitRequest::host">host</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="VisitRequest.php.html#28"><abbr title="App\Models\VisitRequest::company">company</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="VisitRequest.php.html#32"><abbr title="App\Models\VisitRequest::department">department</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visitor.php.html#18"><abbr title="App\Models\Visitor::account">account</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visitor.php.html#22"><abbr title="App\Models\Visitor::checkin">checkin</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visitor.php.html#26"><abbr title="App\Models\Visitor::checkout">checkout</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visitor.php.html#31"><abbr title="App\Models\Visitor::visit_requests">visit_requests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visitor.php.html#35"><abbr title="App\Models\Visitor::qrcodes">qrcodes</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Visitor.php.html#41"><abbr title="App\Models\Visitor::schedules">schedules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="WelcomeMessage.php.html#11"><abbr title="App\Models\WelcomeMessage::department">department</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Office.php.html#24"><abbr title="App\Models\Office::hosts">hosts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Office.php.html#16"><abbr title="App\Models\Office::company">company</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Building.php.html#17"><abbr title="App\Models\Building::offices">offices</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Company.php.html#36"><abbr title="App\Models\Company::visit_requests">visit_requests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Building.php.html#21"><abbr title="App\Models\Building::checkins">checkins</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Building.php.html#25"><abbr title="App\Models\Building::checkouts">checkouts</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Building.php.html#29"><abbr title="App\Models\Building::departments">departments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Checking.php.html#19"><abbr title="App\Models\Checking::visitor">visitor</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Checking.php.html#23"><abbr title="App\Models\Checking::building">building</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Company.php.html#16"><abbr title="App\Models\Company::employees">employees</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Company.php.html#20"><abbr title="App\Models\Company::offices">offices</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Company.php.html#24"><abbr title="App\Models\Company::schedules">schedules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Company.php.html#28"><abbr title="App\Models\Company::Welcome_messages">Welcome_messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Company.php.html#32"><abbr title="App\Models\Company::departments">departments</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Department.php.html#17"><abbr title="App\Models\Department::company">company</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HostAttending.php.html#16"><abbr title="App\Models\HostAttending::schedule">schedule</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Department.php.html#21"><abbr title="App\Models\Department::building">building</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Department.php.html#25"><abbr title="App\Models\Department::schedules">schedules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Department.php.html#29"><abbr title="App\Models\Department::visit_requests">visit_requests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Department.php.html#33"><abbr title="App\Models\Department::Welcome_messages">Welcome_messages</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Employee.php.html#23"><abbr title="App\Models\Employee::company">company</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Host.php.html#18"><abbr title="App\Models\Host::schedules">schedules</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Host.php.html#22"><abbr title="App\Models\Host::host_attendings">host_attendings</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Host.php.html#26"><abbr title="App\Models\Host::office">office</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="Host.php.html#30"><abbr title="App\Models\Host::visit_requests">visit_requests</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="HostAttending.php.html#12"><abbr title="App\Models\HostAttending::host">host</abbr></a></td><td class="text-right">0%</td></tr>
+       <tr><td><a href="WelcomeMessage.php.html#15"><abbr title="App\Models\WelcomeMessage::company">company</abbr></a></td><td class="text-right">0%</td></tr>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="col-md-6">
+     <h3>Project Risks</h3>
+     <div class="scrollbox">
+      <table class="table">
+       <thead>
+        <tr>
+         <th>Method</th>
+         <th class="text-right"><abbr title="Change Risk Anti-Patterns (CRAP) Index">CRAP</abbr></th>
+        </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+      </table>
+     </div>
+    </div>
+   </div>
+   <footer>
+    <hr/>
+    <p>
+     <small>Generated by <a href="https://github.com/sebastianbergmann/php-code-coverage" target="_top">php-code-coverage 9.2.5</a> using <a href="https://secure.php.net/" target="_top">PHP 7.4.2</a> with <a href="https://xdebug.org/">Xdebug 2.9.8</a> and <a href="https://phpunit.de/">PHPUnit 9.5.0</a> at Tue Jan 19 6:50:17 UTC 2021.</small>
+    </p>
+   </footer>
+  </div>
+  <script src="../_js/jquery.min.js" type="text/javascript"></script>
+  <script src="../_js/d3.min.js" type="text/javascript"></script>
+  <script src="../_js/nv.d3.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+$(document).ready(function() {
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#classCoverageDistribution svg')
+      .datum(getCoverageDistributionData([14,0,0,0,0,0,0,0,0,0,0,3], "Class Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.multiBarChart();
+    chart.tooltips(false)
+      .showControls(false)
+      .showLegend(false)
+      .reduceXTicks(false)
+      .staggerLabels(true)
+      .yAxis.tickFormat(d3.format('d'));
+
+    d3.select('#methodCoverageDistribution svg')
+      .datum(getCoverageDistributionData([50,0,0,0,0,0,0,0,0,0,0,0], "Method Coverage"))
+      .transition().duration(500).call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getCoverageDistributionData(data, label) {
+    var labels = [
+      '0%',
+      '0-10%',
+      '10-20%',
+      '20-30%',
+      '30-40%',
+      '40-50%',
+      '50-60%',
+      '60-70%',
+      '70-80%',
+      '80-90%',
+      '90-100%',
+      '100%'
+    ];
+    var values = [];
+    $.each(labels, function(key) {
+      values.push({x: labels[key], y: data[key]});
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Cyclomatic Complexity');
+
+    d3.select('#classComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Account.php.html#8\">App\\Models\\Account<\/a>"],[0,4,"<a href=\"Building.php.html#8\">App\\Models\\Building<\/a>"],[100,0,"<a href=\"Checkin.php.html#8\">App\\Models\\Checkin<\/a>"],[0,2,"<a href=\"Checking.php.html#8\">App\\Models\\Checking<\/a>"],[100,0,"<a href=\"Checkout.php.html#8\">App\\Models\\Checkout<\/a>"],[0,6,"<a href=\"Company.php.html#8\">App\\Models\\Company<\/a>"],[0,5,"<a href=\"Department.php.html#8\">App\\Models\\Department<\/a>"],[0,1,"<a href=\"Employee.php.html#8\">App\\Models\\Employee<\/a>"],[0,4,"<a href=\"Host.php.html#8\">App\\Models\\Host<\/a>"],[0,2,"<a href=\"HostAttending.php.html#8\">App\\Models\\HostAttending<\/a>"],[0,4,"<a href=\"Office.php.html#8\">App\\Models\\Office<\/a>"],[0,2,"<a href=\"Qrcode.php.html#8\">App\\Models\\Qrcode<\/a>"],[0,7,"<a href=\"Schedule.php.html#8\">App\\Models\\Schedule<\/a>"],[100,0,"<a href=\"User.php.html#13\">App\\Models\\User<\/a>"],[0,4,"<a href=\"VisitRequest.php.html#8\">App\\Models\\VisitRequest<\/a>"],[0,6,"<a href=\"Visitor.php.html#8\">App\\Models\\Visitor<\/a>"],[0,2,"<a href=\"WelcomeMessage.php.html#8\">App\\Models\\WelcomeMessage<\/a>"]], 'Class Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  nv.addGraph(function() {
+    var chart = nv.models.scatterChart()
+      .showDistX(true)
+      .showDistY(true)
+      .showLegend(false)
+      .forceX([0, 100]);
+    chart.tooltipContent(function(graph) {
+      return '<p>' + graph.point.class + '</p>';
+    });
+
+    chart.xAxis.axisLabel('Code Coverage (in percent)');
+    chart.yAxis.axisLabel('Method Complexity');
+
+    d3.select('#methodComplexity svg')
+      .datum(getComplexityData([[0,1,"<a href=\"Account.php.html#17\">App\\Models\\Account::visitor<\/a>"],[0,1,"<a href=\"Building.php.html#17\">App\\Models\\Building::offices<\/a>"],[0,1,"<a href=\"Building.php.html#21\">App\\Models\\Building::checkins<\/a>"],[0,1,"<a href=\"Building.php.html#25\">App\\Models\\Building::checkouts<\/a>"],[0,1,"<a href=\"Building.php.html#29\">App\\Models\\Building::departments<\/a>"],[0,1,"<a href=\"Checking.php.html#19\">App\\Models\\Checking::visitor<\/a>"],[0,1,"<a href=\"Checking.php.html#23\">App\\Models\\Checking::building<\/a>"],[0,1,"<a href=\"Company.php.html#16\">App\\Models\\Company::employees<\/a>"],[0,1,"<a href=\"Company.php.html#20\">App\\Models\\Company::offices<\/a>"],[0,1,"<a href=\"Company.php.html#24\">App\\Models\\Company::schedules<\/a>"],[0,1,"<a href=\"Company.php.html#28\">App\\Models\\Company::Welcome_messages<\/a>"],[0,1,"<a href=\"Company.php.html#32\">App\\Models\\Company::departments<\/a>"],[0,1,"<a href=\"Company.php.html#36\">App\\Models\\Company::visit_requests<\/a>"],[0,1,"<a href=\"Department.php.html#17\">App\\Models\\Department::company<\/a>"],[0,1,"<a href=\"Department.php.html#21\">App\\Models\\Department::building<\/a>"],[0,1,"<a href=\"Department.php.html#25\">App\\Models\\Department::schedules<\/a>"],[0,1,"<a href=\"Department.php.html#29\">App\\Models\\Department::visit_requests<\/a>"],[0,1,"<a href=\"Department.php.html#33\">App\\Models\\Department::Welcome_messages<\/a>"],[0,1,"<a href=\"Employee.php.html#23\">App\\Models\\Employee::company<\/a>"],[0,1,"<a href=\"Host.php.html#18\">App\\Models\\Host::schedules<\/a>"],[0,1,"<a href=\"Host.php.html#22\">App\\Models\\Host::host_attendings<\/a>"],[0,1,"<a href=\"Host.php.html#26\">App\\Models\\Host::office<\/a>"],[0,1,"<a href=\"Host.php.html#30\">App\\Models\\Host::visit_requests<\/a>"],[0,1,"<a href=\"HostAttending.php.html#12\">App\\Models\\HostAttending::host<\/a>"],[0,1,"<a href=\"HostAttending.php.html#16\">App\\Models\\HostAttending::schedule<\/a>"],[0,1,"<a href=\"Office.php.html#16\">App\\Models\\Office::company<\/a>"],[0,1,"<a href=\"Office.php.html#20\">App\\Models\\Office::building<\/a>"],[0,1,"<a href=\"Office.php.html#24\">App\\Models\\Office::hosts<\/a>"],[0,1,"<a href=\"Office.php.html#28\">App\\Models\\Office::schedules<\/a>"],[0,1,"<a href=\"Qrcode.php.html#22\">App\\Models\\Qrcode::visitor<\/a>"],[0,1,"<a href=\"Qrcode.php.html#26\">App\\Models\\Qrcode::schedule<\/a>"],[0,1,"<a href=\"Schedule.php.html#23\">App\\Models\\Schedule::host<\/a>"],[0,1,"<a href=\"Schedule.php.html#27\">App\\Models\\Schedule::office<\/a>"],[0,1,"<a href=\"Schedule.php.html#31\">App\\Models\\Schedule::department<\/a>"],[0,1,"<a href=\"Schedule.php.html#35\">App\\Models\\Schedule::company<\/a>"],[0,1,"<a href=\"Schedule.php.html#41\">App\\Models\\Schedule::qrcodes<\/a>"],[0,1,"<a href=\"Schedule.php.html#45\">App\\Models\\Schedule::host_attendings<\/a>"],[0,1,"<a href=\"Schedule.php.html#50\">App\\Models\\Schedule::visitors<\/a>"],[0,1,"<a href=\"VisitRequest.php.html#20\">App\\Models\\VisitRequest::visitor<\/a>"],[0,1,"<a href=\"VisitRequest.php.html#24\">App\\Models\\VisitRequest::host<\/a>"],[0,1,"<a href=\"VisitRequest.php.html#28\">App\\Models\\VisitRequest::company<\/a>"],[0,1,"<a href=\"VisitRequest.php.html#32\">App\\Models\\VisitRequest::department<\/a>"],[0,1,"<a href=\"Visitor.php.html#18\">App\\Models\\Visitor::account<\/a>"],[0,1,"<a href=\"Visitor.php.html#22\">App\\Models\\Visitor::checkin<\/a>"],[0,1,"<a href=\"Visitor.php.html#26\">App\\Models\\Visitor::checkout<\/a>"],[0,1,"<a href=\"Visitor.php.html#31\">App\\Models\\Visitor::visit_requests<\/a>"],[0,1,"<a href=\"Visitor.php.html#35\">App\\Models\\Visitor::qrcodes<\/a>"],[0,1,"<a href=\"Visitor.php.html#41\">App\\Models\\Visitor::schedules<\/a>"],[0,1,"<a href=\"WelcomeMessage.php.html#11\">App\\Models\\WelcomeMessage::department<\/a>"],[0,1,"<a href=\"WelcomeMessage.php.html#15\">App\\Models\\WelcomeMessage::company<\/a>"]], 'Method Complexity'))
+      .transition()
+      .duration(500)
+      .call(chart);
+
+    nv.utils.windowResize(chart.update);
+
+    return chart;
+  });
+
+  function getComplexityData(data, label) {
+    var values = [];
+    $.each(data, function(key) {
+      var value = Math.round(data[key][0]*100) / 100;
+      values.push({
+        x: value,
+        y: data[key][1],
+        class: data[key][2],
+        size: 0.05,
+        shape: 'diamond'
+      });
+    });
+
+    return [
+      {
+        key: label,
+        values: values,
+        color: "#4572A7"
+      }
+    ];
+  }
+});
+  </script>
+ </body>
+</html>

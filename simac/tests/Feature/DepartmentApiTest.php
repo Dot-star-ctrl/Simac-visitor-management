@@ -24,7 +24,7 @@ class DepartmentTest extends TestCase
         $id = $dep->id;
 
         $dep = (array)$dep;
-        $updatedData = [ 
+        $updatedData = [
             'department_name' => 'test',
         ];
 
@@ -56,7 +56,7 @@ class DepartmentTest extends TestCase
 
     public function test_can_list_departments()
     {
-        $office = \App\Models\Office::factory()->count(3)->create();
+        $office = \App\Models\Department::factory()->count(3)->create();
 
         $this->get(route('departments.index'))
         ->assertStatus(200);

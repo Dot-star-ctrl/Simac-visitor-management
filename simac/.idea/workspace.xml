@@ -8,16 +8,6 @@
       </path>
       <path>
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:test" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
       <path>
@@ -42,87 +32,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ef73d597-5166-4ac6-af34-4a2d4d8bcd08" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/factories/VisitRequestFactory.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/seeders/VisitRequestTableSeeder.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/CheckedInVisitors.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/Pages/Users.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/CreateUser.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/VisitorsTable.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/js/components/VisitorsTableItem.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/remove-personal-information.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../composer.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AccountController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BuildingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BuildingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckinController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckinController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CompanyController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/DepartmentController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EmployeeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OfficeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PreRegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PreRegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ScheduleController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VisitRequestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VisitRequestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/VisitorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/VisitorController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Building.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Building.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Checkin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Checkin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Checking.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Checking.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Checkout.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Checkout.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Company.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Company.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Department.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Department.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Employee.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Employee.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Host.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Host.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/HostAttending.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/HostAttending.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Office.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Office.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/QRcode.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Qrcode.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Schedule.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Schedule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/VisitRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/VisitRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Visitor.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Visitor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/WelcomeMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/WelcomeMessage.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/AccountFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/AccountFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/BuildingFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/BuildingFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CheckinFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CheckinFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CheckoutFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CheckoutFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/CompanyFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/CompanyFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/DepartmentFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/DepartmentFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/EmployeeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/EmployeeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/HostFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/HostFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/OfficeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/OfficeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/QRcodeFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/QrcodeFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/ScheduleFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/ScheduleFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/VisitorFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/VisitorFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_121331_create_employees_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_121331_create_employees_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_22_121543_create_hosts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_22_121543_create_hosts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/AccountTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AccountTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CompanyTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CompanyTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DepartmentTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DepartmentTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/HostTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/HostTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/OfficeTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/OfficeTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/QRCodeTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/QrcodeTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/ScheduleTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/ScheduleTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/VisitorTableSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/VisitorTableSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Jetstream/Welcome.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Jetstream/Welcome.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Layouts/AppLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Pages/MeetingsReceptionist.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Pages/MeetingsReceptionist.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/MeetingOverview.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/MeetingOverview.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/MeetingThumb.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/MeetingThumb.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/MeetingsR.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/CheckinApiTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/CheckinApiTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Feature/DepartmentApiTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/DepartmentApiTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,11 +67,6 @@
         <option value="JavaScript File" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>KEY</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -332,6 +239,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -400,10 +308,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="491" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604415134775">
+    <state x="491" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611038652799">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="491" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1604415134775" />
+    <state x="491" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1611038652799" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604504720258">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -420,22 +328,6 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609229192177" />
-    <state width="1493" height="379" key="GridCell.Tab.0.bottom" timestamp="1601917522376">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="379" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601917522376" />
-    <state width="1493" height="379" key="GridCell.Tab.0.center" timestamp="1601917522375">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="379" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601917522375" />
-    <state width="1493" height="379" key="GridCell.Tab.0.left" timestamp="1601917522375">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="379" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601917522375" />
-    <state width="1493" height="379" key="GridCell.Tab.0.right" timestamp="1601917522376">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="379" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601917522375" />
     <state x="495" y="135" key="NewPhpClassDialog" timestamp="1604504522821">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -448,6 +340,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="541" y="133" key="RollbackChangesDialog/0.0.1536.824@0.0.1536.824" timestamp="1608284356168" />
+    <state x="478" y="145" width="579" height="534" key="find.popup" timestamp="1611036463344">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="145" width="579" height="534" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1611036463344" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1604415287084">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
